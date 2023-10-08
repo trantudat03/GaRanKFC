@@ -67,6 +67,7 @@
     <Compile Include="Models\NGUOIDUNG.cs" />
     <Compile Include="Models\SANPHAM.cs" />
     <Compile Include="Models\SANPHAMHANGNGAY.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\THONGBAOHANGNGAY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

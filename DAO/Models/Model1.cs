@@ -24,6 +24,7 @@ namespace DAO.Models
         public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<SANPHAMHANGNGAY> SANPHAMHANGNGAYs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THONGBAOHANGNGAY> THONGBAOHANGNGAYs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -60,6 +61,11 @@ namespace DAO.Models
             modelBuilder.Entity<COMBO>()
                 .Property(e => e.ANH)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<COMBO>()
+                .HasMany(e => e.CHITIETCOMBOes)
+                .WithRequired(e => e.COMBO)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DIEUKIEN>()
                 .Property(e => e.MADIEUKIEN)
@@ -164,6 +170,11 @@ namespace DAO.Models
             modelBuilder.Entity<SANPHAM>()
                 .Property(e => e.ANHSANPHAM)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<SANPHAM>()
+                .HasMany(e => e.CHITIETCOMBOes)
+                .WithRequired(e => e.SANPHAM)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SANPHAM>()
                 .HasMany(e => e.CHITIETDONHANGs)

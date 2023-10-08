@@ -9,6 +9,12 @@ namespace DAO.Models
     [Table("COMBO")]
     public partial class COMBO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public COMBO()
+        {
+            CHITIETCOMBOes = new HashSet<CHITIETCOMBO>();
+        }
+
         [Key]
         [StringLength(25)]
         public string MACOMBO { get; set; }
@@ -22,5 +28,8 @@ namespace DAO.Models
 
         [StringLength(255)]
         public string ANH { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETCOMBO> CHITIETCOMBOes { get; set; }
     }
 }

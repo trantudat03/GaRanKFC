@@ -12,6 +12,7 @@ namespace DAO.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
         {
+            CHITIETCOMBOes = new HashSet<CHITIETCOMBO>();
             CHITIETDONHANGs = new HashSet<CHITIETDONHANG>();
         }
 
@@ -32,6 +33,11 @@ namespace DAO.Models
         public string ANHSANPHAM { get; set; }
 
         public int? THOIHAN { get; set; }
+
+        public int? SOLUONG { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETCOMBO> CHITIETCOMBOes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONHANG> CHITIETDONHANGs { get; set; }

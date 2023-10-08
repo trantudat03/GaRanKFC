@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="LoaiSanPham_DTO.cs" />
     <Compile Include="NguoiDung_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SanPham_DTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

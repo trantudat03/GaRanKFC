@@ -20,5 +20,9 @@ namespace DAO.Models
         public string MACOMBO { get; set; }
 
         public int? SOLUONG { get; set; }
+
+        public virtual COMBO COMBO { get; set; }
+
+        public virtual SANPHAM SANPHAM { get; set; }
     }
 }
