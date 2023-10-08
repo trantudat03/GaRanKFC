@@ -33,7 +33,7 @@ namespace GUI
         public void SetDataGridView()
         {
             this.dataGridView1.Rows.Clear();
-            QuanLySanPham_BUS.layDULieu().ForEach(s =>
+            QuanLySanPham_BUS.layDuLieu().ForEach(s =>
             {
                 dataGridView1.Rows.Add(s.MASANPHAM, s.TENSANPHAM, s.GIASANPHAM, s.ANHSANPHAM, (s.THOIHAN + " giờ"), s.SOLUONG, s.LoaiSanPham.TENLOAISP);
 

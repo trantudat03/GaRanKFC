@@ -68,6 +68,12 @@
     <Compile Include="FMain.Designer.cs">
       <DependentUpon>FMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOrder.Designer.cs">
+      <DependentUpon>FOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FQuanLyLoaiSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOrder.resx">
+      <DependentUpon>FOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FQuanLyLoaiSanPham.resx">
       <DependentUpon>FQuanLyLoaiSanPham.cs</DependentUpon>
@@ -145,6 +154,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17uplon.jpg" />
+    <None Include="Resources\6mienggaran.jpg" />
+    <None Include="Resources\5canhga.jpg" />
+    <None Include="Resources\3mienggaran.jpg" />
+    <None Include="Resources\3canhga.jpg" />
+    <None Include="Resources\2mienggaran.jpg" />
+    <None Include="Resources\1pepsilon.jpg" />
+    <None Include="Resources\1nuocsuoi.jpg" />
+    <None Include="Resources\1miengphilegaquay.jpg" />
+    <None Include="Resources\1miengduigaquay.jpg" />
+    <None Include="Resources\1khoaitaynghienvua.jpg" />
+    <None Include="Resources\1khoaitaynghienlon.jpg" />
+    <None Include="Resources\1khoaitaynghiendai.jpg" />
+    <None Include="Resources\1khoaitaychienvua.jpg" />
+    <None Include="Resources\1khoaitaychienlon.jpg" />
+    <None Include="Resources\1khoaitaychiendai.jpg" />
+    <None Include="Resources\1comxienga.jpg" />
+    <None Include="Resources\1comgaran.jpg" />
+    <None Include="Resources\1comgaphilequay.jpg" />
+    <None Include="Resources\1comgabittet.jpg" />
+    <None Include="Resources\1comga.jpg" />
+    <None Include="Resources\1com.jpg" />
+    <None Include="Resources\1burgergaquay.jpg" />
+    <None Include="Resources\1burger.jpg" />
+    <Content Include="Resources\1mienggaran.jpg" />
+    <None Include="Resources\1mienggaran1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

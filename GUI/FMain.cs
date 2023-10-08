@@ -24,9 +24,7 @@ namespace GUI
 
         }
 
-
-
-        private void FMain_Load(object sender, EventArgs e)
+        private void setStyle()
         {
             panel_Header.BackColor = Color.FromArgb(167, 0, 0);
             panel_sideBar.BackColor = Color.FromArgb(167, 0, 0);
@@ -43,6 +41,14 @@ namespace GUI
             btn_QuanLy.FlatAppearance.MouseOverBackColor = Color.Red;
             lbl_UserName.ForeColor = Color.White;
             lbl_logout.ForeColor = Color.Blue;
+        }
+
+        private void FMain_Load(object sender, EventArgs e)
+        {
+            setStyle();
+            FOrder formOrder = new FOrder();
+            panelMain.Controls.Add(formOrder);
+            formOrder.Dock = DockStyle.Fill;
         }
 
         private void btn_Order_MouseHover(object sender, EventArgs e)

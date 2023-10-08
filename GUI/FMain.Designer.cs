@@ -34,14 +34,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panelGroup = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel_Header = new System.Windows.Forms.Panel();
-            this.lbl_UserName = new System.Windows.Forms.Label();
             this.lbl_logout = new System.Windows.Forms.Label();
+            this.lbl_UserName = new System.Windows.Forms.Label();
             this.panel_sideBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelMain.SuspendLayout();
+            this.panelGroup.SuspendLayout();
             this.panel_Header.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,15 +119,24 @@
             this.panel4.Size = new System.Drawing.Size(1152, 38);
             this.panel4.TabIndex = 0;
             // 
+            // panelGroup
+            // 
+            this.panelGroup.Controls.Add(this.panelMain);
+            this.panelGroup.Controls.Add(this.panel_Header);
+            this.panelGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGroup.Location = new System.Drawing.Point(208, 0);
+            this.panelGroup.Margin = new System.Windows.Forms.Padding(4);
+            this.panelGroup.Name = "panelGroup";
+            this.panelGroup.Size = new System.Drawing.Size(1152, 682);
+            this.panelGroup.TabIndex = 0;
+            // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.panel_Header);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(208, 0);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMain.Location = new System.Drawing.Point(0, 143);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1152, 682);
-            this.panelMain.TabIndex = 0;
+            this.panelMain.Size = new System.Drawing.Size(1152, 539);
+            this.panelMain.TabIndex = 1;
             // 
             // panel_Header
             // 
@@ -138,6 +148,17 @@
             this.panel_Header.Size = new System.Drawing.Size(1152, 143);
             this.panel_Header.TabIndex = 0;
             // 
+            // lbl_logout
+            // 
+            this.lbl_logout.AutoSize = true;
+            this.lbl_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_logout.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_logout.Location = new System.Drawing.Point(1040, 86);
+            this.lbl_logout.Name = "lbl_logout";
+            this.lbl_logout.Size = new System.Drawing.Size(82, 19);
+            this.lbl_logout.TabIndex = 1;
+            this.lbl_logout.Text = "Đăng xuất";
+            // 
             // lbl_UserName
             // 
             this.lbl_UserName.AutoSize = true;
@@ -148,35 +169,23 @@
             this.lbl_UserName.TabIndex = 0;
             this.lbl_UserName.Text = "UserName";
             // 
-            // lbl_logout
-            // 
-            this.lbl_logout.AutoSize = true;
-            this.lbl_logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_logout.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_logout.Location = new System.Drawing.Point(1040, 86);
-            this.lbl_logout.Name = "lbl_logout";
-            this.lbl_logout.Size = new System.Drawing.Size(82, 19);
-            this.lbl_logout.TabIndex = 1;
-            this.lbl_logout.Text = "Đăng xuát";
-            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1360, 720);
-            this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelGroup);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel_sideBar);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FMain";
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.FMain_Load);
             this.panel_sideBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelMain.ResumeLayout(false);
+            this.panelGroup.ResumeLayout(false);
             this.panel_Header.ResumeLayout(false);
             this.panel_Header.PerformLayout();
             this.ResumeLayout(false);
@@ -188,13 +197,14 @@
         private System.Windows.Forms.Panel panel_sideBar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panelGroup;
         private System.Windows.Forms.Panel panel_Header;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_QuanLy;
         private System.Windows.Forms.Button btn_Order;
         private System.Windows.Forms.Label lbl_UserName;
         private System.Windows.Forms.Label lbl_logout;
+        private System.Windows.Forms.Panel panelMain;
     }
 }
 

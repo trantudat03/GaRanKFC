@@ -18,6 +18,9 @@ namespace GUI
             dataGridView1.DataSource = QLNguoiDung_BUS.LayDuLieu();
         }
 
-        
+        private void FTestConnectDB_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

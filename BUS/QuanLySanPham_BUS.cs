@@ -12,7 +12,7 @@ namespace BUS
 
         public static Model1 db = new Model1();
 
-        public static List<SanPham_DTO> layDULieu()
+        public static List<SanPham_DTO> layDuLieu()
         {
             List<SanPham_DTO> list = new List<SanPham_DTO>();
 
