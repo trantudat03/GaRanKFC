@@ -16,6 +16,7 @@ namespace BUS
         {
 
             List<NguoiDung_DTO> list = new List<NguoiDung_DTO>();
+            
 
             try
             {

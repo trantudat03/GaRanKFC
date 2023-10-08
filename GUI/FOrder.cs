@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using System.Globalization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace GUI
 {
@@ -22,11 +24,21 @@ namespace GUI
         }
 
         List<SanPham_DTO> listSP = new List<SanPham_DTO>();
+        List<SanPham_DTO> listOrder = new List<SanPham_DTO>();
+        private static int startY = 10;
         int checkMenu = 1;
 
         private void FOrder_Load(object sender, EventArgs e)
         {
             hienMenu(1, "");
+            //int checkPanelHeight = 300;
+            //int checkPanelWidth = 300;
+
+            //Panel checkPanel = new Panel();
+            //checkPanel.Size = new Size(checkPanelWidth, checkPanelHeight);
+            //checkPanel.TabIndex = 10;
+            //checkPanel.BackColor = Color.Red;
+            //checkPanel.Location = new Point((panel_Group.Width) / 2, (panel_Group.Height) / 2);
         }
 
         private void setStyle()
@@ -77,10 +89,178 @@ namespace GUI
 
         private void addItemToOrder(SanPham_DTO sp)
         {
-            MessageBox.Show(sp.TENSANPHAM);
+            if(sp != null)
+            {
+                themVaoListOrderUI(sp);
+            }
+            
         }
 
         
+        
+        private void themVaoListOrderUI(SanPham_DTO sp)// item menu duoc click
+        {
+            
+            
+            
+            SanPham_DTO spFind = listOrder.Find(s => s.MASANPHAM == sp.MASANPHAM);
+            if(spFind == null)
+            {
+                sp.SLORDER = 1;
+                //sp.SLORDER += 1;
+                listOrder.Add(sp);
+                int spacing = 10;
+                int panelWidth = panel_OrderLeft.Width - 50;
+                int panelHeight = 30;
+                int startX = 10;
+                Panel panel = new Panel();
+                panel.Tag = sp;
+                panel.Size = new Size(panelWidth, panelHeight);
+                panel.Location = new Point(startX, startY);
+                panel.BackColor = Color.White;
+                panel.BorderStyle = BorderStyle.FixedSingle;
+                Label label = new Label();
+                label.Tag = sp;
+                label.Text = $"{sp.LoaiSanPham.TENLOAISP}: {sp.TENSANPHAM}, {sp.GIASANPHAM} VNĐ, SL:{sp.SLORDER}";
+                label.Font = new Font("Arial", 14, FontStyle.Regular);
+                label.Size = new Size(panelWidth-45, panelHeight);
+                label.Location = new Point(5, 2);
+                label.Parent = panel;
+                System.Windows.Forms.Button xoaBTN = new System.Windows.Forms.Button();
+                xoaBTN.Text = "Xóa";
+                xoaBTN.Size = new Size(40, 25);
+                xoaBTN.Cursor = Cursors.Hand;
+                xoaBTN.Font = new Font("Arial", 10, FontStyle.Regular);
+                xoaBTN.Location = new Point(panelWidth-43,2);
+                xoaBTN.ForeColor = Color.Red;
+                xoaBTN.FlatStyle = FlatStyle.Flat;
+                xoaBTN.BackColor = Color.Transparent;
+                xoaBTN.Padding = new Padding(0);
+                xoaBTN.FlatAppearance.BorderSize = 0;
+                xoaBTN.Click += (sender, e) =>
+                {
+                    xoaSPFromListOrder(label);
+                };
+
+                panel.Controls.Add(label);
+                panel.Controls.Add(xoaBTN);
+
+                panel_OrderList.Controls.Add(panel);
+                startY += spacing + panelHeight;
+            }else
+            {
+                // tim và hiển thị lại 
+                timVaThayDoiSL(sp, panel_OrderList);
+                //MessageBox.Show("hello");
+            }
+            
+        }
+
+        private void timVaThayDoiSL(SanPham_DTO spFind, Panel panel)
+        {
+            spFind.SLORDER += 1;
+            listOrder.ForEach(s =>
+            {
+                if(s.MASANPHAM == spFind.MASANPHAM) 
+                {
+                    s.SLORDER = spFind.SLORDER;
+                }
+            });
+
+                foreach (Control control in panel.Controls)
+                {
+                    if (control is Panel)
+                    {
+                        SanPham_DTO tagControl = control.Tag as SanPham_DTO;
+                        if (tagControl != null)
+                        {
+                            if (tagControl.MASANPHAM == spFind.MASANPHAM)
+                            {
+                                // tagControl.SLORDER += 1;
+                                foreach (Control label in control.Controls)
+                                {
+                                    if (label is Label)
+                                    {
+                                        label.Text = $"{tagControl.LoaiSanPham.TENLOAISP}: {tagControl.TENSANPHAM}, {tagControl.GIASANPHAM} VNĐ, SL:{tagControl.SLORDER}";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }    
+        }
+
+
+
+        private void xoaSPFromListOrder(Label label)
+        {
+            SanPham_DTO sp = label.Tag as SanPham_DTO;
+            if (sp != null)
+            {
+                if (sp.SLORDER > 1)
+                {
+                    sp.SLORDER -= 1;
+                    label.Text = $"{sp.LoaiSanPham.TENLOAISP}: {sp.TENSANPHAM}, {sp.GIASANPHAM} VNĐ, SL:{sp.SLORDER}";
+                    listOrder.ForEach(s =>
+                    {
+                        if (s.MASANPHAM == sp.MASANPHAM)
+                        {
+                            s.SLORDER = sp.SLORDER;
+                        }
+                    });
+                }
+                else
+                {
+                    if(sp.SLORDER == 1)
+                    {
+                        timVaXoaSP(sp, panel_OrderList);
+                    }
+                }
+            
+            }
+        }
+
+        private void timVaXoaSP(SanPham_DTO spFind, Panel panel)
+        {
+            SanPham_DTO spDelete = listOrder.Find(s => s.MASANPHAM == spFind.MASANPHAM);
+            listOrder.Remove(spDelete);
+           
+            Panel panelDelete = new Panel();
+            int check = 0;
+            foreach (Control control in panel.Controls)
+            {
+                if (control is Panel)
+                {
+                    SanPham_DTO tagControl = control.Tag as SanPham_DTO;
+                    if (tagControl != null)
+                    {
+                        if (tagControl.MASANPHAM == spFind.MASANPHAM)
+                        {
+                            panelDelete = (Panel)control;
+                            check = 1;
+                            continue;
+                        }
+                        
+                    }
+                    if(check == 1)
+                    {
+                        int x = control.Location.X;
+                        int y = control.Location.Y;
+                        control.Location = new Point(10, y - 40);
+                        
+                    }
+                }
+            }
+            if(check==1)
+            {
+                startY -= 40;
+                panel.Controls.Remove(panelDelete);
+            }
+            
+            //MessageBox.Show(index.ToString());
+        }
+
+
         private void hienMenu(int type, string strSearch)
         {
             

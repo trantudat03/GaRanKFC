@@ -20,7 +20,13 @@ namespace DTO
 
         public int SOLUONG { get; set; }
 
+        public int SLORDER { get; set; }
+
+        public string NOTE { get; set; }
+
         public LoaiSanPham_DTO LoaiSanPham { get; set; }
+
+        
 
         public SanPham_DTO()
         {
@@ -30,6 +36,7 @@ namespace DTO
             this.GIASANPHAM = 0;
             this.THOIHAN = 0;
             this.SOLUONG = 0;
+            this.SLORDER = 0;
             this.ANHSANPHAM = null;
             this.LoaiSanPham = new LoaiSanPham_DTO() { MALOAISP = "", TENLOAISP = ""};
         }
