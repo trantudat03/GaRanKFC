@@ -12,6 +12,8 @@ using BUS;
 using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Xml.Linq;
+using System.Drawing.Drawing2D;
+using System.Reflection;
 
 namespace GUI
 {
@@ -25,26 +27,30 @@ namespace GUI
 
         List<SanPham_DTO> listSP = new List<SanPham_DTO>();
         List<SanPham_DTO> listOrder = new List<SanPham_DTO>();
+        KhachHang_DTO khachHang = new KhachHang_DTO();
+        //Panel detailOrder = new Panel();
         private static int startY = 10;
         int checkMenu = 1;
 
         private void FOrder_Load(object sender, EventArgs e)
         {
             hienMenu(1, "");
-            //int checkPanelHeight = 300;
-            //int checkPanelWidth = 300;
-
-            //Panel checkPanel = new Panel();
-            //checkPanel.Size = new Size(checkPanelWidth, checkPanelHeight);
-            //checkPanel.TabIndex = 10;
-            //checkPanel.BackColor = Color.Red;
-            //checkPanel.Location = new Point((panel_Group.Width) / 2, (panel_Group.Height) / 2);
+            setDefaut();
+            //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
         }
 
         private void setStyle()
         {
             //txb_Search.
 
+        }
+
+        private void setDefaut()
+        {
+            lbl_ThanhTien.Text = "0";
+            panel_Detail.Visible = false;
+            panel_KhachHang.Visible = false;
+            panel_ThemKH.Visible = false;
         }
        
 
@@ -63,7 +69,7 @@ namespace GUI
         {
             string formD = text.Normalize(NormalizationForm.FormD);
             StringBuilder sb = new StringBuilder();
-
+            // ham loai bo dau
             foreach (char ch in formD)
             {
                 UnicodeCategory category = CharUnicodeInfo.GetUnicodeCategory(ch);
@@ -87,6 +93,14 @@ namespace GUI
             return -1;
         }
 
+        public string themDauChamVaoSo(int number)
+        {
+            
+                string numberStr = number.ToString("N0", CultureInfo.InvariantCulture);
+                numberStr = numberStr.Replace(",", ".");
+                return numberStr;
+
+        }
         private void addItemToOrder(SanPham_DTO sp)
         {
             if(sp != null)
@@ -96,22 +110,125 @@ namespace GUI
             
         }
 
-        
-        
+
+        private void setValuePanel(Panel p)
+        {
+            p.Visible = true;
+            int heght = 400;
+            int width = 420;
+            p.Size = new Size(width, heght);
+            p.Location = new Point(60, 25);
+            p.TabIndex = 3;
+        }
+        private void hienThiDetail(SanPham_DTO sp)
+        {
+
+            setValuePanel(panel_Detail);
+            //panel_Detail.Dock = DockStyle.Fill;
+            txb_Note.Text = sp.NOTE;
+            nub_soLuong.Value = sp.SLORDER;
+            pictureBox_Detail.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
+            lbl_GiaSP.Text = themDauChamVaoSo(sp.GIASANPHAM);
+            lbl_tenSP.Text = sp.TENSANPHAM;
+        }
+
+        private void btn_CloseDetail_Click(object sender, EventArgs e)
+        {
+            panel_Detail.Visible = false;
+        }
+
+        private void btn_ThoatDetail_Click(object sender, EventArgs e)
+        {
+            panel_Detail.Visible = false;
+        }
+
+        private void btn_closeKH_Click(object sender, EventArgs e)
+        {
+            panel_KhachHang.Visible = false;
+        }
+
+        private void btn_ThoatKH_Click(object sender, EventArgs e)
+        {
+            panel_KhachHang.Visible = false;
+        }
+
+        private int tinhTongTien(List<SanPham_DTO> listOrder)
+        {
+            int tong = 0;
+            if(listOrder!= null)
+            {
+                listOrder.ForEach(s => 
+                {
+                    if(s!=null)
+                    {
+                        tong += (s.GIASANPHAM * s.SLORDER);
+                    }
+                });
+            }
+
+            return tong;
+        }
+
+        private void setTongTienUI()
+        {
+            string price = themDauChamVaoSo(tinhTongTien(listOrder));
+            if(price!=null)
+            {
+                lbl_ThanhTien.Text = price;
+            }
+        }
+        private void btn_luuDetail_Click(object sender, EventArgs e)
+        {
+            // sua gia tri list
+            // sua ui
+            SanPham_DTO spfocus = panel_Detail.Tag as SanPham_DTO;
+            SanPham_DTO spFind =  listOrder.Find(s => s.MASANPHAM == spfocus.MASANPHAM);
+
+            if(spFind!= null)
+            {
+                spFind.SLORDER = (int)nub_soLuong.Value;
+                spFind.NOTE = txb_Note.Text;
+                spfocus.SLORDER = (int)nub_soLuong.Value;
+                spfocus.NOTE = txb_Note.Text;
+                setTongTienUI();
+            }
+
+            foreach(Panel p in panel_OrderList.Controls)
+            {
+                if(p is Panel && p!= panel_Detail)
+                {
+                    SanPham_DTO s = p.Tag as SanPham_DTO;
+                    if(s != null && s.MASANPHAM == spFind.MASANPHAM)
+                    {
+                        foreach (Control l in p.Controls)
+                        {
+                            if (l is Label)
+                            {
+                                l.Text = $"{spFind.LoaiSanPham.TENLOAISP}: {spFind.TENSANPHAM}, {themDauChamVaoSo(spFind.GIASANPHAM)} VNĐ, SL:{spFind.SLORDER}"; 
+                                panel_Detail.Visible = false;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    
+                }
+            }
+
+        }
+
         private void themVaoListOrderUI(SanPham_DTO sp)// item menu duoc click
         {
-            
-            
-            
             SanPham_DTO spFind = listOrder.Find(s => s.MASANPHAM == sp.MASANPHAM);
             if(spFind == null)
             {
                 sp.SLORDER = 1;
                 //sp.SLORDER += 1;
                 listOrder.Add(sp);
+                setTongTienUI();
                 int spacing = 10;
-                int panelWidth = panel_OrderLeft.Width - 50;
-                int panelHeight = 30;
+                int panelWidth = panel_OrderList.Width - 20;
+                int panelHeight = 35;
                 int startX = 10;
                 Panel panel = new Panel();
                 panel.Tag = sp;
@@ -121,17 +238,27 @@ namespace GUI
                 panel.BorderStyle = BorderStyle.FixedSingle;
                 Label label = new Label();
                 label.Tag = sp;
-                label.Text = $"{sp.LoaiSanPham.TENLOAISP}: {sp.TENSANPHAM}, {sp.GIASANPHAM} VNĐ, SL:{sp.SLORDER}";
+                label.Text = $"{sp.LoaiSanPham.TENLOAISP}: {sp.TENSANPHAM}, {themDauChamVaoSo(sp.GIASANPHAM)} VNĐ, SL:{sp.SLORDER}";
                 label.Font = new Font("Arial", 14, FontStyle.Regular);
-                label.Size = new Size(panelWidth-45, panelHeight);
-                label.Location = new Point(5, 2);
+                label.Size = new Size(panelWidth-75, panelHeight);
+                label.Location = new Point(5, 5);
                 label.Parent = panel;
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Image = Properties.Resources.detail;
+                pictureBox.Size = new Size(30, 35);
+                pictureBox.Location = new Point(panelWidth - 70, 2);
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Cursor = Cursors.Hand;
+                pictureBox.Click += (sender, e) =>
+                {
+                    hienThiDetail(sp);
+                };
                 System.Windows.Forms.Button xoaBTN = new System.Windows.Forms.Button();
                 xoaBTN.Text = "Xóa";
-                xoaBTN.Size = new Size(40, 25);
+                xoaBTN.Size = new Size(40, 30);
                 xoaBTN.Cursor = Cursors.Hand;
                 xoaBTN.Font = new Font("Arial", 10, FontStyle.Regular);
-                xoaBTN.Location = new Point(panelWidth-43,2);
+                xoaBTN.Location = new Point(panelWidth-35,2);
                 xoaBTN.ForeColor = Color.Red;
                 xoaBTN.FlatStyle = FlatStyle.Flat;
                 xoaBTN.BackColor = Color.Transparent;
@@ -143,6 +270,7 @@ namespace GUI
                 };
 
                 panel.Controls.Add(label);
+                panel.Controls.Add(pictureBox);
                 panel.Controls.Add(xoaBTN);
 
                 panel_OrderList.Controls.Add(panel);
@@ -164,12 +292,13 @@ namespace GUI
                 if(s.MASANPHAM == spFind.MASANPHAM) 
                 {
                     s.SLORDER = spFind.SLORDER;
+                    setTongTienUI();
                 }
             });
 
                 foreach (Control control in panel.Controls)
                 {
-                    if (control is Panel)
+                    if (control is Panel && control != panel_Detail)
                     {
                         SanPham_DTO tagControl = control.Tag as SanPham_DTO;
                         if (tagControl != null)
@@ -181,7 +310,7 @@ namespace GUI
                                 {
                                     if (label is Label)
                                     {
-                                        label.Text = $"{tagControl.LoaiSanPham.TENLOAISP}: {tagControl.TENSANPHAM}, {tagControl.GIASANPHAM} VNĐ, SL:{tagControl.SLORDER}";
+                                        label.Text = $"{tagControl.LoaiSanPham.TENLOAISP}: {tagControl.TENSANPHAM}, {themDauChamVaoSo(tagControl.GIASANPHAM)} VNĐ, SL:{tagControl.SLORDER}";
                                     }
                                 }
                             }
@@ -189,8 +318,6 @@ namespace GUI
                     }
                 }    
         }
-
-
 
         private void xoaSPFromListOrder(Label label)
         {
@@ -200,12 +327,13 @@ namespace GUI
                 if (sp.SLORDER > 1)
                 {
                     sp.SLORDER -= 1;
-                    label.Text = $"{sp.LoaiSanPham.TENLOAISP}: {sp.TENSANPHAM}, {sp.GIASANPHAM} VNĐ, SL:{sp.SLORDER}";
+                    label.Text = $"{sp.LoaiSanPham.TENLOAISP}: {sp.TENSANPHAM}, {themDauChamVaoSo(sp.GIASANPHAM)} VNĐ, SL:{sp.SLORDER}";
                     listOrder.ForEach(s =>
                     {
                         if (s.MASANPHAM == sp.MASANPHAM)
                         {
                             s.SLORDER = sp.SLORDER;
+                            setTongTienUI();
                         }
                     });
                 }
@@ -224,12 +352,13 @@ namespace GUI
         {
             SanPham_DTO spDelete = listOrder.Find(s => s.MASANPHAM == spFind.MASANPHAM);
             listOrder.Remove(spDelete);
-           
+            setTongTienUI();
+
             Panel panelDelete = new Panel();
             int check = 0;
             foreach (Control control in panel.Controls)
             {
-                if (control is Panel)
+                if (control is Panel && control != panel_Detail)
                 {
                     SanPham_DTO tagControl = control.Tag as SanPham_DTO;
                     if (tagControl != null)
@@ -246,14 +375,14 @@ namespace GUI
                     {
                         int x = control.Location.X;
                         int y = control.Location.Y;
-                        control.Location = new Point(10, y - 40);
+                        control.Location = new Point(10, y - 45);
                         
                     }
                 }
             }
             if(check==1)
             {
-                startY -= 40;
+                startY -= 45;
                 panel.Controls.Remove(panelDelete);
             }
             
@@ -310,7 +439,8 @@ namespace GUI
                                 pictureBox.Location = new Point(0, 0);
                                 Label lableGia = new Label();
                                 lableGia.Tag = sp;
-                                lableGia.Text = $"{sp.GIASANPHAM} VNĐ ";
+                                string gia = themDauChamVaoSo(sp.GIASANPHAM);
+                                lableGia.Text = $"{gia} VNĐ ";
                                 lableGia.Location = new Point(1, panelHeight - 80);
                                 lableGia.TextAlign = ContentAlignment.TopCenter;
                                 lableGia.Font = new Font("Arial", 14, FontStyle.Regular);
@@ -322,7 +452,7 @@ namespace GUI
                                 txbTen.ForeColor = Color.SteelBlue;
                                 //Label txbTen = new Label();
                                 txbTen.Text = $"{sp.TENSANPHAM}";
-                                txbTen.Location = new Point(1, panelHeight - 60);
+                                txbTen.Location = new Point(1, panelHeight - 55);
                                 txbTen.ReadOnly = true;
                                 txbTen.Multiline = true;
                                 txbTen.WordWrap = true;
@@ -371,7 +501,7 @@ namespace GUI
                                 // Kiểm tra nếu đã đạt đến cuối hàng
                                 if (startX + panelWidth > panel_Menu.Width)
                                 {
-                                    startX = 10;
+                                    startX = 15;
                                     startY += panelHeight + 20;
                                 }
                             }
@@ -405,7 +535,8 @@ namespace GUI
                                 pictureBox.Location = new Point(0, 0);
                                 Label lableGia = new Label();
                                 lableGia.Tag = sp;
-                                lableGia.Text = $"{sp.GIASANPHAM} VNĐ ";
+                                string gia = themDauChamVaoSo(sp.GIASANPHAM);
+                                lableGia.Text = $"{gia} VNĐ ";
                                 lableGia.Location = new Point(1, panelHeight - 80);
                                 lableGia.TextAlign = ContentAlignment.TopCenter;
                                 lableGia.Font = new Font("Arial", 14, FontStyle.Regular);
@@ -417,7 +548,7 @@ namespace GUI
                                 txbTen.ForeColor = Color.SteelBlue;
                                 //Label txbTen = new Label();
                                 txbTen.Text = $"{sp.TENSANPHAM}";
-                                txbTen.Location = new Point(1, panelHeight - 60);
+                                txbTen.Location = new Point(1, panelHeight - 55);
                                 txbTen.ReadOnly = true;
                                 txbTen.Multiline = true;
                                 txbTen.WordWrap = true;
@@ -466,7 +597,7 @@ namespace GUI
                                 // Kiểm tra nếu đã đạt đến cuối hàng
                                 if (startX + panelWidth > panel_Menu.Width)
                                 {
-                                    startX = 10;
+                                    startX = 15;
                                     startY += panelHeight + 20;
                                 }
                             }
@@ -481,20 +612,146 @@ namespace GUI
 
         private void btn_DoAn_Click(object sender, EventArgs e)
         {
-            hienMenu(1,"");
-            checkMenu = 1;
+            if(checkMenu != 1)
+            {
+                hienMenu(1, "");
+                checkMenu = 1;
+            }
+            
         }
 
         private void btn_DoUong_Click(object sender, EventArgs e)
         {
-            hienMenu(2, "");
-            checkMenu= 2;
+            if(checkMenu != 2)
+            {
+                hienMenu(2, "");
+                checkMenu = 2;
+            }
+            
         }
 
         private void txb_Search_TextChanged(object sender, EventArgs e)
         {
             hienMenu(checkMenu, txb_Search.Text);
 
+        }
+
+        private void btn_KhachHang_Click(object sender, EventArgs e)
+        {
+            setValuePanel(panel_KhachHang);
+            
+            if(khachHang.MAKHACHHANG != "")
+            {
+                txb_SDT.Text = khachHang.SODIENTHOAI;
+                lbl_TenKhachHang.Text = "Tên Khách Hàng: " + khachHang.TENKHACHHANG;
+            }
+            else
+            {
+                lbl_TenKhachHang.Text = string.Empty;
+                txb_SDT.Text = string.Empty;
+            }
+        }
+
+
+        private void txb_SDT_TextChanged(object sender, EventArgs e)
+        {
+            if(txb_SDT.Text.Length >=10)
+            {
+                KhachHang_DTO kh = new KhachHang_DTO();
+                kh = QLKhachHang_BUS.timKhachHang(txb_SDT.Text);
+                panel_KhachHang.Tag = kh;
+                if (kh.SODIENTHOAI != "")
+                {
+                    
+                    lbl_TenKhachHang.Text = "Tên Khách Hàng: " +kh.TENKHACHHANG;
+                    lbl_TenKhachHang.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lbl_TenKhachHang.Text = "Không tìm thấy khách hàng!";
+                    lbl_TenKhachHang.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                lbl_TenKhachHang.Text = "";
+                
+            }
+        }
+
+        private void btn_LuuKH_Click(object sender, EventArgs e)
+        {
+            KhachHang_DTO kh = panel_KhachHang.Tag as KhachHang_DTO;
+            if(kh.SODIENTHOAI != "")
+            {
+                khachHang = kh;
+                panel_KhachHang.Visible = false;
+            }
+            else
+            {
+                lbl_TenKhachHang.Text = "Không thể lưu!";
+                lbl_TenKhachHang.ForeColor = Color.Red;
+            }
+        }
+
+        private void btn_ThemKH_Click(object sender, EventArgs e)
+        {
+            panel_ThemKH.Visible = true;
+            
+        }
+
+        private void btn_closeThem_Click(object sender, EventArgs e)
+        {
+            panel_ThemKH.Visible = false;
+        }
+
+        private void btn_ThoatThem_Click(object sender, EventArgs e)
+        {
+            panel_ThemKH.Visible = false;
+        }
+
+
+        private bool checkTxbThem()
+        {
+            if(txb_ThemSDTKH.Text == "" || txb_ThemTenKH.Text == "")
+            {
+                return false;
+            }
+            return true;
+        }
+        private void btn_ThemSubmit_Click(object sender, EventArgs e)
+        {
+            
+            if(checkTxbThem())
+            {
+                KhachHang_DTO khNew = new KhachHang_DTO();
+                khNew.SODIENTHOAI = txb_ThemSDTKH.Text.Replace(" ", "");
+                khNew.TENKHACHHANG = txb_ThemTenKH.Text;
+                khachHang.DIEM = 0;
+
+                //KhachHang_DTO kh = panel_ThemKH.Tag as KhachHang_DTO;
+                if (khNew.SODIENTHOAI != "")
+                {
+                    int check = QLKhachHang_BUS.themKhachHang(khNew);
+                    if(check == 1 )
+                    {
+                        panel_ThemKH.Tag = khNew;
+                        MessageBox.Show("Thêm thành công!");
+                        txb_SDT.Text = khNew.SODIENTHOAI;
+                        lbl_TenKhachHang.Text = khNew.TENKHACHHANG;
+                        panel_ThemKH.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại!");
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Nhập đầy đủ thông tin!");
+            }
         }
     }
 }

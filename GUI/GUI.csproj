@@ -156,6 +156,8 @@
     <None Include="Resources\logo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\closeIcon.png" />
+    <None Include="Resources\detail.png" />
     <None Include="Resources\17uplon.jpg" />
     <None Include="Resources\6mienggaran.jpg" />
     <None Include="Resources\5canhga.jpg" />
