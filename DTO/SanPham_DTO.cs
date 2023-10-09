@@ -38,6 +38,7 @@ namespace DTO
             this.SOLUONG = 0;
             this.SLORDER = 0;
             this.ANHSANPHAM = null;
+            this.NOTE = null;
             this.LoaiSanPham = new LoaiSanPham_DTO() { MALOAISP = "", TENLOAISP = ""};
         }
     }

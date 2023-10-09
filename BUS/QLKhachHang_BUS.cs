@@ -80,7 +80,7 @@ namespace BUS
                 else
                 {
                     KHACHHANG kdb = new KHACHHANG();
-                    kdb = db.KHACHHANGs.Where(k => k.SODIENTHOAI == khAdd.SODIENTHOAI).FirstOrDefault();
+                    kdb = db.KHACHHANGs.Where(k => k.SODIENTHOAI.Replace(" ", "") == khAdd.SODIENTHOAI).FirstOrDefault();
                     if (kdb==null)
                     {
                         kdb = new KHACHHANG();
@@ -103,18 +103,19 @@ namespace BUS
            
             if(listKH.Count > 0)
             {
-                kh = listKH.Find(k=> k.SODIENTHOAI == sdt);
+                kh = listKH.Find(k=> k.SODIENTHOAI.Replace(" ", "") == sdt.Replace(" ", ""));
             }
             else
             {
                 db.KHACHHANGs.ToList().ForEach(k =>
                 {
-                    if(k.SODIENTHOAI.Equals(sdt))
+                    if(k.SODIENTHOAI.Replace(" ", "").Equals(sdt.Replace(" ", "")))
                     {
                         kh.TENKHACHHANG=k.TENKHACHHANG;
                         kh.MAKHACHHANG = k.MAKHACHHANG;
                         kh.DIEM = (int)k.DIEM;
                         kh.SODIENTHOAI = k.SODIENTHOAI;
+                        
                     }
                 });
             }

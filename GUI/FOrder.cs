@@ -110,7 +110,6 @@ namespace GUI
             
         }
 
-
         private void setValuePanel(Panel p)
         {
             p.Visible = true;
@@ -126,6 +125,7 @@ namespace GUI
             setValuePanel(panel_Detail);
             //panel_Detail.Dock = DockStyle.Fill;
             txb_Note.Text = sp.NOTE;
+            panel_Detail.Tag = sp;
             nub_soLuong.Value = sp.SLORDER;
             pictureBox_Detail.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
             lbl_GiaSP.Text = themDauChamVaoSo(sp.GIASANPHAM);
@@ -181,14 +181,21 @@ namespace GUI
         {
             // sua gia tri list
             // sua ui
-            SanPham_DTO spfocus = panel_Detail.Tag as SanPham_DTO;
-            SanPham_DTO spFind =  listOrder.Find(s => s.MASANPHAM == spfocus.MASANPHAM);
+            SanPham_DTO spfocus = new SanPham_DTO();
+            spfocus = panel_Detail.Tag as SanPham_DTO;
+            SanPham_DTO spFind = new SanPham_DTO();
+            if (spfocus.MASANPHAM != null)
+            {
+                spFind = listOrder.Find(s => s.MASANPHAM == spfocus.MASANPHAM);
+            }
+            
 
-            if(spFind!= null)
+            if(spFind.MASANPHAM != null)
             {
                 spFind.SLORDER = (int)nub_soLuong.Value;
                 spFind.NOTE = txb_Note.Text;
-                spfocus.SLORDER = (int)nub_soLuong.Value;
+                //MessageBox.Show("c" + spfocus.SLORDER.ToString() + "p" + nub_soLuong.Value.ToString());
+                //spfocus.SLORDER = (int)nub_soLuong.Value;
                 spfocus.NOTE = txb_Note.Text;
                 setTongTienUI();
             }
@@ -644,11 +651,13 @@ namespace GUI
             {
                 txb_SDT.Text = khachHang.SODIENTHOAI;
                 lbl_TenKhachHang.Text = "Tên Khách Hàng: " + khachHang.TENKHACHHANG;
+                panel_KhachHang.Tag = khachHang;
             }
             else
             {
                 lbl_TenKhachHang.Text = string.Empty;
                 txb_SDT.Text = string.Empty;
+                panel_KhachHang.Tag = khachHang;
             }
         }
 
@@ -665,6 +674,7 @@ namespace GUI
                     
                     lbl_TenKhachHang.Text = "Tên Khách Hàng: " +kh.TENKHACHHANG;
                     lbl_TenKhachHang.ForeColor = Color.Green;
+                    
                 }
                 else
                 {
@@ -681,17 +691,25 @@ namespace GUI
 
         private void btn_LuuKH_Click(object sender, EventArgs e)
         {
-            KhachHang_DTO kh = panel_KhachHang.Tag as KhachHang_DTO;
-            if(kh.SODIENTHOAI != "")
+            if(txb_SDT.Text != "")
             {
-                khachHang = kh;
-                panel_KhachHang.Visible = false;
-            }
-            else
+                KhachHang_DTO kh = panel_KhachHang.Tag as KhachHang_DTO;
+                if (kh.SODIENTHOAI != "")
+                {
+                    khachHang = kh;
+                    panel_KhachHang.Visible = false;
+                }
+                else
+                {
+                    lbl_TenKhachHang.Text = "Không thể lưu!";
+                    lbl_TenKhachHang.ForeColor = Color.Red;
+                }
+            }else
             {
-                lbl_TenKhachHang.Text = "Không thể lưu!";
-                lbl_TenKhachHang.ForeColor = Color.Red;
+                lbl_TenKhachHang.Text = "Vui lòng nhập số điện thoại";
+                lbl_TenKhachHang.ForeColor= Color.Red;
             }
+            
         }
 
         private void btn_ThemKH_Click(object sender, EventArgs e)
@@ -724,28 +742,36 @@ namespace GUI
             
             if(checkTxbThem())
             {
-                KhachHang_DTO khNew = new KhachHang_DTO();
-                khNew.SODIENTHOAI = txb_ThemSDTKH.Text.Replace(" ", "");
-                khNew.TENKHACHHANG = txb_ThemTenKH.Text;
-                khachHang.DIEM = 0;
-
-                //KhachHang_DTO kh = panel_ThemKH.Tag as KhachHang_DTO;
-                if (khNew.SODIENTHOAI != "")
+                if(txb_ThemSDTKH.Text.Length>=10)
                 {
-                    int check = QLKhachHang_BUS.themKhachHang(khNew);
-                    if(check == 1 )
+                    KhachHang_DTO khNew = new KhachHang_DTO();
+                    khNew.SODIENTHOAI = txb_ThemSDTKH.Text.Replace(" ", "");
+                    khNew.TENKHACHHANG = txb_ThemTenKH.Text;
+                    khachHang.DIEM = 0;
+
+                    //KhachHang_DTO kh = panel_ThemKH.Tag as KhachHang_DTO;
+                    if (khNew.SODIENTHOAI != "")
                     {
-                        panel_ThemKH.Tag = khNew;
-                        MessageBox.Show("Thêm thành công!");
-                        txb_SDT.Text = khNew.SODIENTHOAI;
-                        lbl_TenKhachHang.Text = khNew.TENKHACHHANG;
-                        panel_ThemKH.Visible = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thêm thất bại!");
+                        int check = QLKhachHang_BUS.themKhachHang(khNew);
+                        if (check == 1)
+                        {
+                            panel_ThemKH.Tag = khNew;
+                            MessageBox.Show("Thêm thành công!");
+                            txb_SDT.Text = khNew.SODIENTHOAI;
+                            lbl_TenKhachHang.Text = khNew.TENKHACHHANG;
+                            panel_ThemKH.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm thất bại!");
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Số điện thoại chưa đúng!");
+                }
+                
 
             }
             else
