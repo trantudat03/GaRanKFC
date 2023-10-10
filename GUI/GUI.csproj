@@ -87,7 +87,7 @@
       <DependentUpon>FTestConnectDB.cs</DependentUpon>
     </Compile>
     <Compile Include="FThanhToan.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FThanhToan.Designer.cs">
       <DependentUpon>FThanhToan.cs</DependentUpon>

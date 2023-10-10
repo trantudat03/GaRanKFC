@@ -38,10 +38,10 @@ namespace BUS
             return listKM;
         }
 
-        public static List<KhuyenMai_DTO> layKMTheoDieuKien(int diem, int giaTriDonHang)
+        public static List<KhuyenMai_DTO> layKMTheoDieuKien(KhachHang_DTO kh, int giaTriDonHang)
         {
             List<KhuyenMai_DTO> listTheoDieuKien = new List<KhuyenMai_DTO>();
-            if (diem >=0 && giaTriDonHang >=0)
+            if (kh.DIEM >=0 && giaTriDonHang >=0)
             {
                 
                 if (listKM.Count > 0)
@@ -49,7 +49,7 @@ namespace BUS
                     //KhuyenMai_DTO item = new KhuyenMai_DTO();
                     listKM.ForEach(k =>
                     {
-                        if(diem >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
+                        if(kh.DIEM >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
                         {
                             listTheoDieuKien.Add(k);
                         }
@@ -59,7 +59,7 @@ namespace BUS
                 {
                     db.KHUYENMAIs.ToList().ForEach(k =>
                     {
-                        if(diem >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
+                        if(kh.DIEM >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
                         {
                             KhuyenMai_DTO item = new KhuyenMai_DTO();
                             item.MAKHUYENMAI = k.MAKHUYENMAI;
@@ -78,13 +78,14 @@ namespace BUS
             }
             else
             {
-                
+                if(kh.MAKHACHHANG == "")
+                {
                     if (listKM.Count > 0)
                     {
                         //KhuyenMai_DTO item = new KhuyenMai_DTO();
                         listKM.ForEach(k =>
                         {
-                            if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang>= k.DIEUKIEN.GIATRIDONHANG)
+                            if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
                             {
                                 listTheoDieuKien.Add(k);
                             }
@@ -94,7 +95,7 @@ namespace BUS
                     {
                         db.KHUYENMAIs.ToList().ForEach(k =>
                         {
-                            if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang>= k.DIEUKIEN.GIATRIDONHANG)
+                            if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
                             {
                                 KhuyenMai_DTO item = new KhuyenMai_DTO();
                                 item.MAKHUYENMAI = k.MAKHUYENMAI;
@@ -110,6 +111,8 @@ namespace BUS
                             }
                         });
                     }
+                }
+                    
                 
             }
             return listTheoDieuKien;

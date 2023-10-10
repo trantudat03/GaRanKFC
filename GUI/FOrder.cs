@@ -29,15 +29,17 @@ namespace GUI
         private static List<SanPham_DTO> listOrder = new List<SanPham_DTO>();
         private static KhachHang_DTO khachHang = new KhachHang_DTO();
         private static List<KhuyenMai_DTO> khuyenMai = new List<KhuyenMai_DTO>();
+        private static FThanhToan fthanhToan;
         private static int thanhTien = 0;
         //Panel detailOrder = new Panel();
         private static int startY = 10;
         private static int checkMenu = 1;
-
+        private static bool checkThanhToan = false;
         private void FOrder_Load(object sender, EventArgs e)
         {
             hienMenu(1, "");
             setDefaut();
+            
             //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
         }
 
@@ -54,6 +56,16 @@ namespace GUI
             panel_KhachHang.Visible = false;
             panel_ThemKH.Visible = false;
             panel_KhuyenMai.Visible = false;
+            
+            
+            listOrder.Clear();
+
+            khachHang.MAKHACHHANG = "";
+            //startY = 10;
+            //checkMenu = 1;
+            //checkThanhToan = false;
+            //thanhTien = 0;
+            //khuyenMai.Clear();
         }
        
 
@@ -122,6 +134,8 @@ namespace GUI
             p.Location = new Point(60, 25);
             p.TabIndex = 3;
         }
+
+        
         private void hienThiDetail(SanPham_DTO sp)
         {
 
@@ -649,7 +663,6 @@ namespace GUI
         private void btn_KhachHang_Click(object sender, EventArgs e)
         {
             setValuePanel(panel_KhachHang);
-            
             if(khachHang.MAKHACHHANG != "")
             {
                 txb_SDT.Text = khachHang.SODIENTHOAI;
@@ -780,23 +793,39 @@ namespace GUI
             }
         }
 
+        //private void fThanhToanClose(object sender, FormClosedEventArgs e)
+        //{
+        //    checkThanhToan = fthanhToan.getCheckThanhToan();
+        //    if(checkThanhToan)
+        //    {
+        //        setDefaut();
+        //    }
+        //}
+
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
             
-            
-            khuyenMai = QLKhuyenMai_BUS.layKMTheoDieuKien(khachHang.DIEM, thanhTien);
+            khuyenMai.Clear();
+            panel_KhuyenMaiDS.Controls.Clear();
             thanhTien = tinhTongTien(listOrder);
+            khuyenMai = QLKhuyenMai_BUS.layKMTheoDieuKien(khachHang, thanhTien);
             if(thanhTien >0)
             {
                 if (khuyenMai.Count > 0)
                 {
                     setValuePanel(panel_KhuyenMai);
                     panel_KhuyenMai.Visible = true;
+                    panel_KhuyenMai.AutoScroll = true;
                     hienDanhSachKhuyenMai(khuyenMai);
+
                 }
                 else
                 {
-                    MessageBox.Show("Thanh toan thanh cong");
+                    KhuyenMai_DTO km = new KhuyenMai_DTO();
+                    fthanhToan = new FThanhToan(khachHang, thanhTien,km,listOrder);
+                    fthanhToan.ShowDialog();
+                    
+                    //fthanhToan.FormClosed += fThanhToanClose;
                 }
             }
             else
@@ -898,7 +927,10 @@ namespace GUI
 
         private void btn_KhuyenMaiOk_Click(object sender, EventArgs e)
         {
-
+            panel_KhuyenMai.Visible = false;
+            KhuyenMai_DTO km = panel_KhuyenMai.Tag as KhuyenMai_DTO;
+            fthanhToan = new FThanhToan(khachHang,thanhTien,km,listOrder);
+            fthanhToan.ShowDialog();
         }
 
         

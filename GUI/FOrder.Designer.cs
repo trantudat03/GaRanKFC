@@ -44,17 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel_OrderLeft = new System.Windows.Forms.Panel();
             this.panel_OrderList = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel_KhuyenMai = new System.Windows.Forms.Panel();
             this.panel_KhuyenMaiDS = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -91,7 +80,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_ThongTin = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
             this.panel_Type.SuspendLayout();
             this.panel_Group.SuspendLayout();
@@ -100,7 +88,6 @@
             this.panel_TongTien.SuspendLayout();
             this.panel_OrderLeft.SuspendLayout();
             this.panel_OrderList.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel_KhuyenMai.SuspendLayout();
             this.panel_KhachHang.SuspendLayout();
             this.panel_ThemKH.SuspendLayout();
@@ -293,7 +280,6 @@
             // 
             this.panel_OrderList.AutoScroll = true;
             this.panel_OrderList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_OrderList.Controls.Add(this.panel1);
             this.panel_OrderList.Controls.Add(this.panel_KhuyenMai);
             this.panel_OrderList.Controls.Add(this.panel_KhachHang);
             this.panel_OrderList.Controls.Add(this.panel_Detail);
@@ -304,122 +290,6 @@
             this.panel_OrderList.Size = new System.Drawing.Size(585, 627);
             this.panel_OrderList.TabIndex = 2;
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Location = new System.Drawing.Point(14, 41);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 432);
-            this.panel1.TabIndex = 9999;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(409, 73);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(60, 19);
-            this.label20.TabIndex = 15;
-            this.label20.Text = "label20";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(245, 77);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(128, 19);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "Tên Khuyễn Mãi";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(242, 122);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 19);
-            this.label18.TabIndex = 13;
-            this.label18.Text = "label18";
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(308, 119);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(70, 27);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "50000";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 124);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(138, 19);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Danh Sách Order";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(160, 75);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(33, 19);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "null";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(12, 77);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(136, 19);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Tên Khách Hàng:";
-            // 
-            // panel2
-            // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Location = new System.Drawing.Point(16, 179);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(457, 158);
-            this.panel2.TabIndex = 8;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(454, 10);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(23, 23);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "X";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(7, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 33);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Thanh Toán";
-            // 
             // panel_KhuyenMai
             // 
             this.panel_KhuyenMai.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -428,10 +298,10 @@
             this.panel_KhuyenMai.Controls.Add(this.btn_KhuyenMaiClose);
             this.panel_KhuyenMai.Controls.Add(this.btn_KhuyenMaiOk);
             this.panel_KhuyenMai.Controls.Add(this.label10);
-            this.panel_KhuyenMai.Location = new System.Drawing.Point(10, 61);
+            this.panel_KhuyenMai.Location = new System.Drawing.Point(43, 51);
             this.panel_KhuyenMai.Name = "panel_KhuyenMai";
-            this.panel_KhuyenMai.Size = new System.Drawing.Size(197, 68);
-            this.panel_KhuyenMai.TabIndex = 2;
+            this.panel_KhuyenMai.Size = new System.Drawing.Size(197, 61);
+            this.panel_KhuyenMai.TabIndex = 3;
             // 
             // panel_KhuyenMaiDS
             // 
@@ -498,10 +368,10 @@
             this.panel_KhachHang.Controls.Add(this.btn_LuuKH);
             this.panel_KhachHang.Controls.Add(this.label4);
             this.panel_KhachHang.Controls.Add(this.txb_SDT);
-            this.panel_KhachHang.Location = new System.Drawing.Point(208, 8);
+            this.panel_KhachHang.Location = new System.Drawing.Point(142, 405);
             this.panel_KhachHang.Name = "panel_KhachHang";
             this.panel_KhachHang.Size = new System.Drawing.Size(360, 127);
-            this.panel_KhachHang.TabIndex = 1;
+            this.panel_KhachHang.TabIndex = 3;
             // 
             // panel_ThemKH
             // 
@@ -700,10 +570,10 @@
             this.panel_Detail.Controls.Add(this.btn_luuDetail);
             this.panel_Detail.Controls.Add(this.txb_Note);
             this.panel_Detail.Controls.Add(this.label1);
-            this.panel_Detail.Location = new System.Drawing.Point(39, 20);
+            this.panel_Detail.Location = new System.Drawing.Point(264, 51);
             this.panel_Detail.Name = "panel_Detail";
             this.panel_Detail.Size = new System.Drawing.Size(262, 64);
-            this.panel_Detail.TabIndex = 0;
+            this.panel_Detail.TabIndex = 3;
             // 
             // btn_ThoatDetail
             // 
@@ -830,15 +700,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Số Đơn Hôm nay: 1";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(15, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 56);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "QRCode";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // pictureBox_Detail
             // 
             this.pictureBox_Detail.Location = new System.Drawing.Point(27, 13);
@@ -865,8 +726,6 @@
             this.panel_TongTien.ResumeLayout(false);
             this.panel_OrderLeft.ResumeLayout(false);
             this.panel_OrderList.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel_KhuyenMai.ResumeLayout(false);
             this.panel_KhuyenMai.PerformLayout();
             this.panel_KhachHang.ResumeLayout(false);
@@ -938,17 +797,5 @@
         private System.Windows.Forms.Button btn_KhuyenMaiOk;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel_KhuyenMaiDS;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button1;
     }
 }

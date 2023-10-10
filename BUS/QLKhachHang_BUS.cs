@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAO.Models;
 using DTO;
+using static System.Data.Entity.Infrastructure.Design.Executor;
+
 namespace BUS
 {
     public class QLKhachHang_BUS
@@ -121,6 +123,39 @@ namespace BUS
             }
 
             return kh;
+        }
+
+        public static int capNhatDiem(KhachHang_DTO kh, int diemCong)
+        {
+            if(kh.MAKHACHHANG != "")
+            {
+                if(listKH.Count >0)
+                {
+                    KhachHang_DTO khUpDate = new KhachHang_DTO();
+                    khUpDate = listKH.Find(k => k.MAKHACHHANG.Equals(kh.MAKHACHHANG));
+                    if(khUpDate.MAKHACHHANG != "")
+                    {
+                        khUpDate.DIEM += diemCong;
+                        KHACHHANG KhDb = db.KHACHHANGs.Where(k => k.MAKHACHHANG == khUpDate.MAKHACHHANG).FirstOrDefault();
+                        if(KhDb != null)
+                        {
+                            KhDb.DIEM += diemCong;
+                            db.SaveChanges();
+                        }
+                    }
+                }
+                else
+                {
+                    KHACHHANG KhDb = db.KHACHHANGs.Where(k => k.MAKHACHHANG == kh.MAKHACHHANG).FirstOrDefault();
+                    if (KhDb != null)
+                    {
+                        KhDb.DIEM += diemCong;
+                        db.SaveChanges();
+                    }
+                }
+            }
+
+            return 0;
         }
     }
 }
