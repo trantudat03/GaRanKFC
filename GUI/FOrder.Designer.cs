@@ -37,14 +37,41 @@
             this.panel_Control = new System.Windows.Forms.Panel();
             this.panel_ControlPK = new System.Windows.Forms.Panel();
             this.btn_KhachHang = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_ThanhToan = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel_TongTien = new System.Windows.Forms.Panel();
             this.lbl_ThanhTien = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_OrderLeft = new System.Windows.Forms.Panel();
             this.panel_OrderList = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel_KhuyenMai = new System.Windows.Forms.Panel();
+            this.panel_KhuyenMaiDS = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btn_KhuyenMaiClose = new System.Windows.Forms.Label();
+            this.btn_KhuyenMaiOk = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel_KhachHang = new System.Windows.Forms.Panel();
+            this.panel_ThemKH = new System.Windows.Forms.Panel();
+            this.txb_ThemTenKH = new System.Windows.Forms.TextBox();
+            this.btn_ThoatThem = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_closeThem = new System.Windows.Forms.Label();
+            this.btn_ThemSubmit = new System.Windows.Forms.Button();
+            this.txb_ThemSDTKH = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_ThemKH = new System.Windows.Forms.Button();
             this.lbl_TenKhachHang = new System.Windows.Forms.Label();
             this.btn_ThoatKH = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,7 +83,6 @@
             this.btn_ThoatDetail = new System.Windows.Forms.Button();
             this.lbl_GiaSP = new System.Windows.Forms.Label();
             this.lbl_tenSP = new System.Windows.Forms.Label();
-            this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
             this.nub_soLuong = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_CloseDetail = new System.Windows.Forms.Label();
@@ -64,16 +90,9 @@
             this.txb_Note = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_ThongTin = new System.Windows.Forms.Panel();
-            this.btn_ThemKH = new System.Windows.Forms.Button();
-            this.panel_ThemKH = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txb_ThemSDTKH = new System.Windows.Forms.TextBox();
-            this.btn_ThemSubmit = new System.Windows.Forms.Button();
-            this.btn_closeThem = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btn_ThoatThem = new System.Windows.Forms.Button();
-            this.txb_ThemTenKH = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
             this.panel_Type.SuspendLayout();
             this.panel_Group.SuspendLayout();
             this.panel_Control.SuspendLayout();
@@ -81,11 +100,14 @@
             this.panel_TongTien.SuspendLayout();
             this.panel_OrderLeft.SuspendLayout();
             this.panel_OrderList.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel_KhuyenMai.SuspendLayout();
             this.panel_KhachHang.SuspendLayout();
-            this.panel_Detail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).BeginInit();
             this.panel_ThemKH.SuspendLayout();
+            this.panel_Detail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).BeginInit();
+            this.panel_ThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Type
@@ -153,7 +175,7 @@
             this.panel_Menu.Location = new System.Drawing.Point(0, 73);
             this.panel_Menu.Name = "panel_Menu";
             this.panel_Menu.Size = new System.Drawing.Size(547, 681);
-            this.panel_Menu.TabIndex = 2;
+            this.panel_Menu.TabIndex = 0;
             this.panel_Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Menu_Paint);
             // 
             // panel_Control
@@ -171,7 +193,7 @@
             // panel_ControlPK
             // 
             this.panel_ControlPK.Controls.Add(this.btn_KhachHang);
-            this.panel_ControlPK.Controls.Add(this.button1);
+            this.panel_ControlPK.Controls.Add(this.btn_ThanhToan);
             this.panel_ControlPK.Controls.Add(this.button2);
             this.panel_ControlPK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_ControlPK.Location = new System.Drawing.Point(0, 0);
@@ -193,18 +215,19 @@
             this.btn_KhachHang.UseVisualStyleBackColor = false;
             this.btn_KhachHang.Click += new System.EventHandler(this.btn_KhachHang_Click);
             // 
-            // button1
+            // btn_ThanhToan
             // 
-            this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(8, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 71);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thanh Toán";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_ThanhToan.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_ThanhToan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThanhToan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThanhToan.ForeColor = System.Drawing.Color.White;
+            this.btn_ThanhToan.Location = new System.Drawing.Point(8, 5);
+            this.btn_ThanhToan.Name = "btn_ThanhToan";
+            this.btn_ThanhToan.Size = new System.Drawing.Size(115, 71);
+            this.btn_ThanhToan.TabIndex = 0;
+            this.btn_ThanhToan.Text = "Thanh Toán";
+            this.btn_ThanhToan.UseVisualStyleBackColor = false;
+            this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
             // button2
             // 
@@ -270,6 +293,8 @@
             // 
             this.panel_OrderList.AutoScroll = true;
             this.panel_OrderList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_OrderList.Controls.Add(this.panel1);
+            this.panel_OrderList.Controls.Add(this.panel_KhuyenMai);
             this.panel_OrderList.Controls.Add(this.panel_KhachHang);
             this.panel_OrderList.Controls.Add(this.panel_Detail);
             this.panel_OrderList.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -278,6 +303,188 @@
             this.panel_OrderList.Name = "panel_OrderList";
             this.panel_OrderList.Size = new System.Drawing.Size(585, 627);
             this.panel_OrderList.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Location = new System.Drawing.Point(14, 41);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(537, 432);
+            this.panel1.TabIndex = 9999;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(409, 73);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(60, 19);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "label20";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(245, 77);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(128, 19);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "Tên Khuyễn Mãi";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(242, 122);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(60, 19);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "label18";
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(308, 119);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(70, 27);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "50000";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 124);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(138, 19);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Danh Sách Order";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(160, 75);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(33, 19);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "null";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(12, 77);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(136, 19);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Tên Khách Hàng:";
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Location = new System.Drawing.Point(16, 179);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(457, 158);
+            this.panel2.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(454, 10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(23, 23);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "X";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(7, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 33);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Thanh Toán";
+            // 
+            // panel_KhuyenMai
+            // 
+            this.panel_KhuyenMai.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_KhuyenMai.Controls.Add(this.panel_KhuyenMaiDS);
+            this.panel_KhuyenMai.Controls.Add(this.label12);
+            this.panel_KhuyenMai.Controls.Add(this.btn_KhuyenMaiClose);
+            this.panel_KhuyenMai.Controls.Add(this.btn_KhuyenMaiOk);
+            this.panel_KhuyenMai.Controls.Add(this.label10);
+            this.panel_KhuyenMai.Location = new System.Drawing.Point(10, 61);
+            this.panel_KhuyenMai.Name = "panel_KhuyenMai";
+            this.panel_KhuyenMai.Size = new System.Drawing.Size(197, 68);
+            this.panel_KhuyenMai.TabIndex = 2;
+            // 
+            // panel_KhuyenMaiDS
+            // 
+            this.panel_KhuyenMaiDS.AutoScroll = true;
+            this.panel_KhuyenMaiDS.BackColor = System.Drawing.Color.White;
+            this.panel_KhuyenMaiDS.Location = new System.Drawing.Point(36, 103);
+            this.panel_KhuyenMaiDS.Name = "panel_KhuyenMaiDS";
+            this.panel_KhuyenMaiDS.Size = new System.Drawing.Size(311, 154);
+            this.panel_KhuyenMaiDS.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(35, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(148, 33);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Khuyễn Mãi";
+            // 
+            // btn_KhuyenMaiClose
+            // 
+            this.btn_KhuyenMaiClose.AutoSize = true;
+            this.btn_KhuyenMaiClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_KhuyenMaiClose.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_KhuyenMaiClose.ForeColor = System.Drawing.Color.Red;
+            this.btn_KhuyenMaiClose.Location = new System.Drawing.Point(353, 10);
+            this.btn_KhuyenMaiClose.Name = "btn_KhuyenMaiClose";
+            this.btn_KhuyenMaiClose.Size = new System.Drawing.Size(23, 23);
+            this.btn_KhuyenMaiClose.TabIndex = 5;
+            this.btn_KhuyenMaiClose.Text = "X";
+            this.btn_KhuyenMaiClose.Click += new System.EventHandler(this.btn_KhuyenMaiClose_Click);
+            // 
+            // btn_KhuyenMaiOk
+            // 
+            this.btn_KhuyenMaiOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_KhuyenMaiOk.Location = new System.Drawing.Point(36, 277);
+            this.btn_KhuyenMaiOk.Name = "btn_KhuyenMaiOk";
+            this.btn_KhuyenMaiOk.Size = new System.Drawing.Size(75, 40);
+            this.btn_KhuyenMaiOk.TabIndex = 1;
+            this.btn_KhuyenMaiOk.Text = "OK";
+            this.btn_KhuyenMaiOk.UseVisualStyleBackColor = true;
+            this.btn_KhuyenMaiOk.Click += new System.EventHandler(this.btn_KhuyenMaiOk_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(37, 81);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(202, 19);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Danh sách có thể áp dụng";
             // 
             // panel_KhachHang
             // 
@@ -291,10 +498,118 @@
             this.panel_KhachHang.Controls.Add(this.btn_LuuKH);
             this.panel_KhachHang.Controls.Add(this.label4);
             this.panel_KhachHang.Controls.Add(this.txb_SDT);
-            this.panel_KhachHang.Location = new System.Drawing.Point(90, 190);
+            this.panel_KhachHang.Location = new System.Drawing.Point(208, 8);
             this.panel_KhachHang.Name = "panel_KhachHang";
-            this.panel_KhachHang.Size = new System.Drawing.Size(358, 409);
+            this.panel_KhachHang.Size = new System.Drawing.Size(360, 127);
             this.panel_KhachHang.TabIndex = 1;
+            // 
+            // panel_ThemKH
+            // 
+            this.panel_ThemKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_ThemKH.Controls.Add(this.txb_ThemTenKH);
+            this.panel_ThemKH.Controls.Add(this.btn_ThoatThem);
+            this.panel_ThemKH.Controls.Add(this.label9);
+            this.panel_ThemKH.Controls.Add(this.label8);
+            this.panel_ThemKH.Controls.Add(this.btn_closeThem);
+            this.panel_ThemKH.Controls.Add(this.btn_ThemSubmit);
+            this.panel_ThemKH.Controls.Add(this.txb_ThemSDTKH);
+            this.panel_ThemKH.Controls.Add(this.label5);
+            this.panel_ThemKH.Location = new System.Drawing.Point(20, 25);
+            this.panel_ThemKH.Name = "panel_ThemKH";
+            this.panel_ThemKH.Size = new System.Drawing.Size(294, 315);
+            this.panel_ThemKH.TabIndex = 8;
+            // 
+            // txb_ThemTenKH
+            // 
+            this.txb_ThemTenKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txb_ThemTenKH.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_ThemTenKH.Location = new System.Drawing.Point(54, 187);
+            this.txb_ThemTenKH.Name = "txb_ThemTenKH";
+            this.txb_ThemTenKH.Size = new System.Drawing.Size(188, 30);
+            this.txb_ThemTenKH.TabIndex = 9;
+            // 
+            // btn_ThoatThem
+            // 
+            this.btn_ThoatThem.Location = new System.Drawing.Point(197, 249);
+            this.btn_ThoatThem.Name = "btn_ThoatThem";
+            this.btn_ThoatThem.Size = new System.Drawing.Size(75, 39);
+            this.btn_ThoatThem.TabIndex = 8;
+            this.btn_ThoatThem.Text = "Thoát";
+            this.btn_ThoatThem.UseVisualStyleBackColor = true;
+            this.btn_ThoatThem.Click += new System.EventHandler(this.btn_ThoatThem_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(50, 146);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(131, 19);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Tên Khách Hàng";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(25, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(217, 33);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Thêm Khách Hàng";
+            // 
+            // btn_closeThem
+            // 
+            this.btn_closeThem.AutoSize = true;
+            this.btn_closeThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_closeThem.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_closeThem.ForeColor = System.Drawing.Color.Red;
+            this.btn_closeThem.Location = new System.Drawing.Point(267, 7);
+            this.btn_closeThem.Name = "btn_closeThem";
+            this.btn_closeThem.Size = new System.Drawing.Size(23, 23);
+            this.btn_closeThem.TabIndex = 4;
+            this.btn_closeThem.Text = "X";
+            this.btn_closeThem.Click += new System.EventHandler(this.btn_closeThem_Click);
+            // 
+            // btn_ThemSubmit
+            // 
+            this.btn_ThemSubmit.Location = new System.Drawing.Point(23, 249);
+            this.btn_ThemSubmit.Name = "btn_ThemSubmit";
+            this.btn_ThemSubmit.Size = new System.Drawing.Size(82, 39);
+            this.btn_ThemSubmit.TabIndex = 2;
+            this.btn_ThemSubmit.Text = "Thêm";
+            this.btn_ThemSubmit.UseVisualStyleBackColor = true;
+            this.btn_ThemSubmit.Click += new System.EventHandler(this.btn_ThemSubmit_Click);
+            // 
+            // txb_ThemSDTKH
+            // 
+            this.txb_ThemSDTKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txb_ThemSDTKH.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_ThemSDTKH.Location = new System.Drawing.Point(54, 97);
+            this.txb_ThemSDTKH.Name = "txb_ThemSDTKH";
+            this.txb_ThemSDTKH.Size = new System.Drawing.Size(188, 30);
+            this.txb_ThemSDTKH.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(50, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Số Điện Thoại";
+            // 
+            // btn_ThemKH
+            // 
+            this.btn_ThemKH.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThemKH.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThemKH.Location = new System.Drawing.Point(238, 72);
+            this.btn_ThemKH.Name = "btn_ThemKH";
+            this.btn_ThemKH.Size = new System.Drawing.Size(96, 45);
+            this.btn_ThemKH.TabIndex = 7;
+            this.btn_ThemKH.Text = "Thêm";
+            this.btn_ThemKH.UseVisualStyleBackColor = true;
+            this.btn_ThemKH.Click += new System.EventHandler(this.btn_ThemKH_Click);
             // 
             // lbl_TenKhachHang
             // 
@@ -385,9 +700,9 @@
             this.panel_Detail.Controls.Add(this.btn_luuDetail);
             this.panel_Detail.Controls.Add(this.txb_Note);
             this.panel_Detail.Controls.Add(this.label1);
-            this.panel_Detail.Location = new System.Drawing.Point(59, 21);
+            this.panel_Detail.Location = new System.Drawing.Point(39, 20);
             this.panel_Detail.Name = "panel_Detail";
-            this.panel_Detail.Size = new System.Drawing.Size(293, 138);
+            this.panel_Detail.Size = new System.Drawing.Size(262, 64);
             this.panel_Detail.TabIndex = 0;
             // 
             // btn_ThoatDetail
@@ -421,15 +736,6 @@
             this.lbl_tenSP.Size = new System.Drawing.Size(62, 23);
             this.lbl_tenSP.TabIndex = 8;
             this.lbl_tenSP.Text = "label4";
-            // 
-            // pictureBox_Detail
-            // 
-            this.pictureBox_Detail.Location = new System.Drawing.Point(27, 13);
-            this.pictureBox_Detail.Name = "pictureBox_Detail";
-            this.pictureBox_Detail.Size = new System.Drawing.Size(164, 115);
-            this.pictureBox_Detail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_Detail.TabIndex = 7;
-            this.pictureBox_Detail.TabStop = false;
             // 
             // nub_soLuong
             // 
@@ -505,119 +811,42 @@
             // panel_ThongTin
             // 
             this.panel_ThongTin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_ThongTin.Controls.Add(this.label7);
             this.panel_ThongTin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_ThongTin.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel_ThongTin.Location = new System.Drawing.Point(0, 0);
             this.panel_ThongTin.Name = "panel_ThongTin";
             this.panel_ThongTin.Size = new System.Drawing.Size(585, 42);
             this.panel_ThongTin.TabIndex = 2;
             // 
-            // btn_ThemKH
+            // label7
             // 
-            this.btn_ThemKH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ThemKH.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ThemKH.Location = new System.Drawing.Point(238, 72);
-            this.btn_ThemKH.Name = "btn_ThemKH";
-            this.btn_ThemKH.Size = new System.Drawing.Size(96, 45);
-            this.btn_ThemKH.TabIndex = 7;
-            this.btn_ThemKH.Text = "Thêm";
-            this.btn_ThemKH.UseVisualStyleBackColor = true;
-            this.btn_ThemKH.Click += new System.EventHandler(this.btn_ThemKH_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(6, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(168, 21);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Số Đơn Hôm nay: 1";
             // 
-            // panel_ThemKH
+            // button1
             // 
-            this.panel_ThemKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_ThemKH.Controls.Add(this.txb_ThemTenKH);
-            this.panel_ThemKH.Controls.Add(this.btn_ThoatThem);
-            this.panel_ThemKH.Controls.Add(this.label9);
-            this.panel_ThemKH.Controls.Add(this.label8);
-            this.panel_ThemKH.Controls.Add(this.btn_closeThem);
-            this.panel_ThemKH.Controls.Add(this.btn_ThemSubmit);
-            this.panel_ThemKH.Controls.Add(this.txb_ThemSDTKH);
-            this.panel_ThemKH.Controls.Add(this.label5);
-            this.panel_ThemKH.Location = new System.Drawing.Point(20, 25);
-            this.panel_ThemKH.Name = "panel_ThemKH";
-            this.panel_ThemKH.Size = new System.Drawing.Size(294, 315);
-            this.panel_ThemKH.TabIndex = 8;
+            this.button1.Location = new System.Drawing.Point(15, 370);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 56);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "QRCode";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // pictureBox_Detail
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Số Điện Thoại";
-            // 
-            // txb_ThemSDTKH
-            // 
-            this.txb_ThemSDTKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txb_ThemSDTKH.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_ThemSDTKH.Location = new System.Drawing.Point(54, 97);
-            this.txb_ThemSDTKH.Name = "txb_ThemSDTKH";
-            this.txb_ThemSDTKH.Size = new System.Drawing.Size(188, 30);
-            this.txb_ThemSDTKH.TabIndex = 1;
-            // 
-            // btn_ThemSubmit
-            // 
-            this.btn_ThemSubmit.Location = new System.Drawing.Point(23, 249);
-            this.btn_ThemSubmit.Name = "btn_ThemSubmit";
-            this.btn_ThemSubmit.Size = new System.Drawing.Size(82, 39);
-            this.btn_ThemSubmit.TabIndex = 2;
-            this.btn_ThemSubmit.Text = "Thêm";
-            this.btn_ThemSubmit.UseVisualStyleBackColor = true;
-            this.btn_ThemSubmit.Click += new System.EventHandler(this.btn_ThemSubmit_Click);
-            // 
-            // btn_closeThem
-            // 
-            this.btn_closeThem.AutoSize = true;
-            this.btn_closeThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_closeThem.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_closeThem.ForeColor = System.Drawing.Color.Red;
-            this.btn_closeThem.Location = new System.Drawing.Point(267, 7);
-            this.btn_closeThem.Name = "btn_closeThem";
-            this.btn_closeThem.Size = new System.Drawing.Size(23, 23);
-            this.btn_closeThem.TabIndex = 4;
-            this.btn_closeThem.Text = "X";
-            this.btn_closeThem.Click += new System.EventHandler(this.btn_closeThem_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(25, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(217, 33);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Thêm Khách Hàng";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(50, 146);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 19);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Tên Khách Hàng";
-            // 
-            // btn_ThoatThem
-            // 
-            this.btn_ThoatThem.Location = new System.Drawing.Point(197, 249);
-            this.btn_ThoatThem.Name = "btn_ThoatThem";
-            this.btn_ThoatThem.Size = new System.Drawing.Size(75, 39);
-            this.btn_ThoatThem.TabIndex = 8;
-            this.btn_ThoatThem.Text = "Thoát";
-            this.btn_ThoatThem.UseVisualStyleBackColor = true;
-            this.btn_ThoatThem.Click += new System.EventHandler(this.btn_ThoatThem_Click);
-            // 
-            // txb_ThemTenKH
-            // 
-            this.txb_ThemTenKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txb_ThemTenKH.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_ThemTenKH.Location = new System.Drawing.Point(54, 187);
-            this.txb_ThemTenKH.Name = "txb_ThemTenKH";
-            this.txb_ThemTenKH.Size = new System.Drawing.Size(188, 30);
-            this.txb_ThemTenKH.TabIndex = 9;
+            this.pictureBox_Detail.Location = new System.Drawing.Point(27, 13);
+            this.pictureBox_Detail.Name = "pictureBox_Detail";
+            this.pictureBox_Detail.Size = new System.Drawing.Size(164, 115);
+            this.pictureBox_Detail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_Detail.TabIndex = 7;
+            this.pictureBox_Detail.TabStop = false;
             // 
             // FOrder
             // 
@@ -636,14 +865,20 @@
             this.panel_TongTien.ResumeLayout(false);
             this.panel_OrderLeft.ResumeLayout(false);
             this.panel_OrderList.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel_KhuyenMai.ResumeLayout(false);
+            this.panel_KhuyenMai.PerformLayout();
             this.panel_KhachHang.ResumeLayout(false);
             this.panel_KhachHang.PerformLayout();
-            this.panel_Detail.ResumeLayout(false);
-            this.panel_Detail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).EndInit();
             this.panel_ThemKH.ResumeLayout(false);
             this.panel_ThemKH.PerformLayout();
+            this.panel_Detail.ResumeLayout(false);
+            this.panel_Detail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).EndInit();
+            this.panel_ThongTin.ResumeLayout(false);
+            this.panel_ThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -658,7 +893,7 @@
         private System.Windows.Forms.Button btn_DoUong;
         private System.Windows.Forms.Panel panel_Menu;
         private System.Windows.Forms.TextBox txb_Search;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_ThanhToan;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel_OrderList;
         private System.Windows.Forms.Panel panel_Detail;
@@ -696,5 +931,24 @@
         private System.Windows.Forms.Button btn_ThoatThem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txb_ThemTenKH;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel_KhuyenMai;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label btn_KhuyenMaiClose;
+        private System.Windows.Forms.Button btn_KhuyenMaiOk;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel_KhuyenMaiDS;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button1;
     }
 }

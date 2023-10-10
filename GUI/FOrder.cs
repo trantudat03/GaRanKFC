@@ -25,12 +25,14 @@ namespace GUI
             listSP = QuanLySanPham_BUS.layDuLieu();
         }
 
-        List<SanPham_DTO> listSP = new List<SanPham_DTO>();
-        List<SanPham_DTO> listOrder = new List<SanPham_DTO>();
-        KhachHang_DTO khachHang = new KhachHang_DTO();
+        private static List<SanPham_DTO> listSP = new List<SanPham_DTO>();
+        private static List<SanPham_DTO> listOrder = new List<SanPham_DTO>();
+        private static KhachHang_DTO khachHang = new KhachHang_DTO();
+        private static List<KhuyenMai_DTO> khuyenMai = new List<KhuyenMai_DTO>();
+        private static int thanhTien = 0;
         //Panel detailOrder = new Panel();
         private static int startY = 10;
-        int checkMenu = 1;
+        private static int checkMenu = 1;
 
         private void FOrder_Load(object sender, EventArgs e)
         {
@@ -51,6 +53,7 @@ namespace GUI
             panel_Detail.Visible = false;
             panel_KhachHang.Visible = false;
             panel_ThemKH.Visible = false;
+            panel_KhuyenMai.Visible = false;
         }
        
 
@@ -738,8 +741,7 @@ namespace GUI
             return true;
         }
         private void btn_ThemSubmit_Click(object sender, EventArgs e)
-        {
-            
+        {  
             if(checkTxbThem())
             {
                 if(txb_ThemSDTKH.Text.Length>=10)
@@ -771,13 +773,134 @@ namespace GUI
                 {
                     MessageBox.Show("Số điện thoại chưa đúng!");
                 }
-                
-
             }
             else
             {
                 MessageBox.Show("Nhập đầy đủ thông tin!");
             }
         }
+
+        private void btn_ThanhToan_Click(object sender, EventArgs e)
+        {
+            
+            
+            khuyenMai = QLKhuyenMai_BUS.layKMTheoDieuKien(khachHang.DIEM, thanhTien);
+            thanhTien = tinhTongTien(listOrder);
+            if(thanhTien >0)
+            {
+                if (khuyenMai.Count > 0)
+                {
+                    setValuePanel(panel_KhuyenMai);
+                    panel_KhuyenMai.Visible = true;
+                    hienDanhSachKhuyenMai(khuyenMai);
+                }
+                else
+                {
+                    MessageBox.Show("Thanh toan thanh cong");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chua co san pham order");
+            }
+            
+            
+        }
+
+
+        private void setDefautPanelColor(Panel p)
+        {
+            foreach (Control control in panel_KhuyenMaiDS.Controls)
+            {
+                
+                if (control is Panel && control != p)
+                {
+                    control.BackColor = Color.White;
+                    control.ForeColor = Color.Black;
+                }
+            }
+        }
+        private void hienDanhSachKhuyenMai(List<KhuyenMai_DTO> listKM)
+        {     
+            //MessageBox.Show(thanhTien.ToString() + "p" + khachHang.DIEM.ToString());
+            if(listKM.Count > 0 )
+            {
+                int x = 5;
+                int y = 8;
+                
+                int space = 12;
+                listKM.ForEach(k =>
+                {
+                    //MessageBox.Show(k.TENKHUYENMAI);
+                    
+                    int width = panel_KhuyenMaiDS.Width - 2*x;
+                    int height = 35;
+                    Panel p = new Panel();
+                    p.Size = new Size(width, height);
+                    p.Location = new Point(x, y);
+                    p.BorderStyle = BorderStyle.FixedSingle;
+                    p.Cursor = Cursors.Hand;
+                    p.Click += (senter, e) =>
+                    {
+                        panel_KhuyenMai.Tag = k;
+                        if (p.BackColor != Color.Red)
+                        {
+                            p.BackColor = Color.DodgerBlue;
+                            p.ForeColor = Color.White;
+                            setDefautPanelColor(p);
+                        }
+                    };
+                    Label l = new Label();
+                    l.Size = new Size(width-5, height-6);
+                    l.Location = new Point(3, 7);
+                    l.Font = new Font("Arial", 11, FontStyle.Regular);
+                    l.Click += (senter, e) =>
+                    {
+                        panel_KhuyenMai.Tag = k;
+                        if (l.ForeColor != Color.White)
+                        {
+                            p.BackColor = Color.DodgerBlue;
+                            p.ForeColor = Color.White;
+                            setDefautPanelColor(p);
+                        }
+                    };
+                    int tien = 0;
+                    int soTienToiThieu = 0;
+                    if(k.PHANTRAM > 0)
+                    {
+                        tien = k.PHANTRAM;
+                        soTienToiThieu = k.SOTIENGIAMTOIDA;
+                    }
+                    else
+                    {
+                        tien = k.SOTIENGIAM;
+                    }
+                    if(tien<100)
+                    {
+                        l.Text = $"{k.TENKHUYENMAI}, {tien}%, tối đa {soTienToiThieu} ";
+                    }
+                    else
+                    {
+                        l.Text = $"{k.TENKHUYENMAI}, giảm: {tien}VNĐ";
+                    }
+                    p.Controls.Add(l);
+                    panel_KhuyenMaiDS.Controls.Add(p);
+                    y = y + space + height;
+                });
+                
+            }
+        }
+
+        private void btn_KhuyenMaiClose_Click(object sender, EventArgs e)
+        {
+            panel_KhuyenMai.Visible = false;
+        }
+
+        private void btn_KhuyenMaiOk_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

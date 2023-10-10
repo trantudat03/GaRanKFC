@@ -52,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DieuKien_DTO.cs" />
     <Compile Include="KhachHang_DTO.cs" />
+    <Compile Include="KhuyenMai_DTO.cs" />
     <Compile Include="LoaiSanPham_DTO.cs" />
     <Compile Include="NguoiDung_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
