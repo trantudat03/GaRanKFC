@@ -6,28 +6,33 @@ namespace DAO.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("KHACHHANG")]
-    public partial class KHACHHANG
+    [Table("DONHANGHUY")]
+    public partial class DONHANGHUY
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KHACHHANG()
+        public DONHANGHUY()
         {
-            DONHANGs = new HashSet<DONHANG>();
+            CHITIETDONHANGHUYs = new HashSet<CHITIETDONHANGHUY>();
         }
 
         [Key]
         [StringLength(25)]
+        public string MADONHANGHUY { get; set; }
+
+        [Required]
+        [StringLength(25)]
+        public string MANGUOIDUNG { get; set; }
+
+        [StringLength(25)]
         public string MAKHACHHANG { get; set; }
 
-        [StringLength(150)]
-        public string TENKHACHHANG { get; set; }
+        public int? TONGGIA { get; set; }
 
-        [StringLength(11)]
-        public string SODIENTHOAI { get; set; }
+        public int? SOLUONGSP { get; set; }
 
-        public int? DIEM { get; set; }
+        public DateTime? THOIGIAN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DONHANG> DONHANGs { get; set; }
+        public virtual ICollection<CHITIETDONHANGHUY> CHITIETDONHANGHUYs { get; set; }
     }
 }

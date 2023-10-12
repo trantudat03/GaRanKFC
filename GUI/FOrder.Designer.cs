@@ -38,7 +38,7 @@
             this.panel_ControlPK = new System.Windows.Forms.Panel();
             this.btn_KhachHang = new System.Windows.Forms.Button();
             this.btn_ThanhToan = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_HuyDon = new System.Windows.Forms.Button();
             this.panel_TongTien = new System.Windows.Forms.Panel();
             this.lbl_ThanhTien = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@
             this.btn_ThoatDetail = new System.Windows.Forms.Button();
             this.lbl_GiaSP = new System.Windows.Forms.Label();
             this.lbl_tenSP = new System.Windows.Forms.Label();
+            this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
             this.nub_soLuong = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_CloseDetail = new System.Windows.Forms.Label();
@@ -79,8 +80,7 @@
             this.txb_Note = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_ThongTin = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
+            this.lbl_DonHangNgay = new System.Windows.Forms.Label();
             this.panel_Type.SuspendLayout();
             this.panel_Group.SuspendLayout();
             this.panel_Control.SuspendLayout();
@@ -92,9 +92,9 @@
             this.panel_KhachHang.SuspendLayout();
             this.panel_ThemKH.SuspendLayout();
             this.panel_Detail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).BeginInit();
             this.panel_ThongTin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Type
@@ -181,7 +181,7 @@
             // 
             this.panel_ControlPK.Controls.Add(this.btn_KhachHang);
             this.panel_ControlPK.Controls.Add(this.btn_ThanhToan);
-            this.panel_ControlPK.Controls.Add(this.button2);
+            this.panel_ControlPK.Controls.Add(this.btn_HuyDon);
             this.panel_ControlPK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_ControlPK.Location = new System.Drawing.Point(0, 0);
             this.panel_ControlPK.Name = "panel_ControlPK";
@@ -216,18 +216,19 @@
             this.btn_ThanhToan.UseVisualStyleBackColor = false;
             this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
-            // button2
+            // btn_HuyDon
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(131, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 71);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Hủy";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_HuyDon.BackColor = System.Drawing.Color.Red;
+            this.btn_HuyDon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_HuyDon.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_HuyDon.ForeColor = System.Drawing.Color.White;
+            this.btn_HuyDon.Location = new System.Drawing.Point(131, 5);
+            this.btn_HuyDon.Name = "btn_HuyDon";
+            this.btn_HuyDon.Size = new System.Drawing.Size(115, 71);
+            this.btn_HuyDon.TabIndex = 1;
+            this.btn_HuyDon.Text = "Hủy";
+            this.btn_HuyDon.UseVisualStyleBackColor = false;
+            this.btn_HuyDon.Click += new System.EventHandler(this.btn_HuyDon_Click);
             // 
             // panel_TongTien
             // 
@@ -368,7 +369,7 @@
             this.panel_KhachHang.Controls.Add(this.btn_LuuKH);
             this.panel_KhachHang.Controls.Add(this.label4);
             this.panel_KhachHang.Controls.Add(this.txb_SDT);
-            this.panel_KhachHang.Location = new System.Drawing.Point(142, 405);
+            this.panel_KhachHang.Location = new System.Drawing.Point(71, 155);
             this.panel_KhachHang.Name = "panel_KhachHang";
             this.panel_KhachHang.Size = new System.Drawing.Size(360, 127);
             this.panel_KhachHang.TabIndex = 3;
@@ -607,6 +608,15 @@
             this.lbl_tenSP.TabIndex = 8;
             this.lbl_tenSP.Text = "label4";
             // 
+            // pictureBox_Detail
+            // 
+            this.pictureBox_Detail.Location = new System.Drawing.Point(27, 13);
+            this.pictureBox_Detail.Name = "pictureBox_Detail";
+            this.pictureBox_Detail.Size = new System.Drawing.Size(164, 115);
+            this.pictureBox_Detail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_Detail.TabIndex = 7;
+            this.pictureBox_Detail.TabStop = false;
+            // 
             // nub_soLuong
             // 
             this.nub_soLuong.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -681,7 +691,7 @@
             // panel_ThongTin
             // 
             this.panel_ThongTin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_ThongTin.Controls.Add(this.label7);
+            this.panel_ThongTin.Controls.Add(this.lbl_DonHangNgay);
             this.panel_ThongTin.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_ThongTin.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel_ThongTin.Location = new System.Drawing.Point(0, 0);
@@ -689,25 +699,16 @@
             this.panel_ThongTin.Size = new System.Drawing.Size(585, 42);
             this.panel_ThongTin.TabIndex = 2;
             // 
-            // label7
+            // lbl_DonHangNgay
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(6, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(168, 21);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Số Đơn Hôm nay: 1";
-            // 
-            // pictureBox_Detail
-            // 
-            this.pictureBox_Detail.Location = new System.Drawing.Point(27, 13);
-            this.pictureBox_Detail.Name = "pictureBox_Detail";
-            this.pictureBox_Detail.Size = new System.Drawing.Size(164, 115);
-            this.pictureBox_Detail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_Detail.TabIndex = 7;
-            this.pictureBox_Detail.TabStop = false;
+            this.lbl_DonHangNgay.AutoSize = true;
+            this.lbl_DonHangNgay.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_DonHangNgay.ForeColor = System.Drawing.Color.Red;
+            this.lbl_DonHangNgay.Location = new System.Drawing.Point(6, 10);
+            this.lbl_DonHangNgay.Name = "lbl_DonHangNgay";
+            this.lbl_DonHangNgay.Size = new System.Drawing.Size(168, 21);
+            this.lbl_DonHangNgay.TabIndex = 0;
+            this.lbl_DonHangNgay.Text = "Số Đơn Hôm nay: 1";
             // 
             // FOrder
             // 
@@ -734,10 +735,10 @@
             this.panel_ThemKH.PerformLayout();
             this.panel_Detail.ResumeLayout(false);
             this.panel_Detail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).EndInit();
             this.panel_ThongTin.ResumeLayout(false);
             this.panel_ThongTin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -753,7 +754,7 @@
         private System.Windows.Forms.Panel panel_Menu;
         private System.Windows.Forms.TextBox txb_Search;
         private System.Windows.Forms.Button btn_ThanhToan;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_HuyDon;
         private System.Windows.Forms.Panel panel_OrderList;
         private System.Windows.Forms.Panel panel_Detail;
         private System.Windows.Forms.NumericUpDown nub_soLuong;
@@ -790,7 +791,7 @@
         private System.Windows.Forms.Button btn_ThoatThem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txb_ThemTenKH;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_DonHangNgay;
         private System.Windows.Forms.Panel panel_KhuyenMai;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label btn_KhuyenMaiClose;

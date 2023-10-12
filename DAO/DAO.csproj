@@ -56,18 +56,21 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Models\CHITIETCOMBO.cs" />
     <Compile Include="Models\CHITIETDONHANG.cs" />
+    <Compile Include="Models\CHITIETDONHANGHUY.cs" />
+    <Compile Include="Models\CHITIETTHANHTOAN.cs" />
     <Compile Include="Models\CHUCVU.cs" />
     <Compile Include="Models\COMBO.cs" />
     <Compile Include="Models\DIEUKIEN.cs" />
     <Compile Include="Models\DONHANG.cs" />
+    <Compile Include="Models\DONHANGHUY.cs" />
     <Compile Include="Models\KHACHHANG.cs" />
     <Compile Include="Models\KHUYENMAI.cs" />
     <Compile Include="Models\LOAISANPHAM.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\NGUOIDUNG.cs" />
+    <Compile Include="Models\PHUONGTHUCTHANHTOAN.cs" />
     <Compile Include="Models\SANPHAM.cs" />
     <Compile Include="Models\SANPHAMHANGNGAY.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\THONGBAOHANGNGAY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,6 +84,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

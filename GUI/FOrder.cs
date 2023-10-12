@@ -30,14 +30,19 @@ namespace GUI
         private static KhachHang_DTO khachHang = new KhachHang_DTO();
         private static List<KhuyenMai_DTO> khuyenMai = new List<KhuyenMai_DTO>();
         private static FThanhToan fthanhToan;
+        private static FHuyDon fhuyDon;
         private static int thanhTien = 0;
         //Panel detailOrder = new Panel();
         private static int startY = 10;
         private static int checkMenu = 1;
+        private static int donCuaNgay = 0;
         private static bool checkThanhToan = false;
+        
         private void FOrder_Load(object sender, EventArgs e)
         {
+            DateTime date = DateTime.Now;
             hienMenu(1, "");
+            donCuaNgay = QLDonHang_BUS.tinhSoDonTheoNgay(date.ToString("yyyy-MM-dd"));
             setDefaut();
             
             //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
@@ -48,7 +53,6 @@ namespace GUI
             //txb_Search.
 
         }
-
         private void setDefaut()
         {
             lbl_ThanhTien.Text = "0";
@@ -56,19 +60,18 @@ namespace GUI
             panel_KhachHang.Visible = false;
             panel_ThemKH.Visible = false;
             panel_KhuyenMai.Visible = false;
-            
-            
+            xoaTatCaListOrder(listOrder);
             listOrder.Clear();
-
-            khachHang.MAKHACHHANG = "";
-            //startY = 10;
-            //checkMenu = 1;
-            //checkThanhToan = false;
-            //thanhTien = 0;
-            //khuyenMai.Clear();
+            khuyenMai.Clear();
+            khachHang = new KhachHang_DTO();
+            startY = 10;
+            checkMenu = 1;
+            checkThanhToan = false;
+            thanhTien = 0;
+            donCuaNgay++;
+            lbl_DonHangNgay.Text = $"Số đơn hôm nay: {donCuaNgay}";
+            
         }
-       
-
         private void panel_OrderList_Paint(object sender, PaintEventArgs e)
         {
 
@@ -369,6 +372,28 @@ namespace GUI
                     }
                 }
             
+            }
+        }
+
+        private void xoaTatCaListOrder(List<SanPham_DTO> lOrder)
+        {
+            
+            if(lOrder.Count > 0)
+            {
+                
+                lOrder.ForEach(s =>
+                {
+                    //Control control = new Control();
+
+                    foreach (Control control in panel_OrderList.Controls)
+                    {
+                        if (control is Panel && control.Height == 35)
+                        {
+                            
+                            panel_OrderList.Controls.Remove(control);
+                        }
+                    }
+                });
             }
         }
 
@@ -793,14 +818,20 @@ namespace GUI
             }
         }
 
-        //private void fThanhToanClose(object sender, FormClosedEventArgs e)
-        //{
-        //    checkThanhToan = fthanhToan.getCheckThanhToan();
-        //    if(checkThanhToan)
-        //    {
-        //        setDefaut();
-        //    }
-        //}
+        private void luuDonHang()
+        {
+
+        }
+
+        private void fThanhToanClose(object sender, FormClosedEventArgs e)
+        {
+            checkThanhToan = fthanhToan.getCheckThanhToan();
+            //MessageBox.Show(checkThanhToan.ToString());
+            if (checkThanhToan)
+            {   
+                setDefaut();
+            }
+        }
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
@@ -822,10 +853,12 @@ namespace GUI
                 else
                 {
                     KhuyenMai_DTO km = new KhuyenMai_DTO();
-                    fthanhToan = new FThanhToan(khachHang, thanhTien,km,listOrder);
+                    NguoiDung_DTO user = new NguoiDung_DTO(); // test user
+                    fthanhToan = new FThanhToan(khachHang, thanhTien,km,listOrder, user);
+                    fthanhToan.FormClosed += fThanhToanClose;
                     fthanhToan.ShowDialog();
                     
-                    //fthanhToan.FormClosed += fThanhToanClose;
+                    
                 }
             }
             else
@@ -835,7 +868,6 @@ namespace GUI
             
             
         }
-
 
         private void setDefautPanelColor(Panel p)
         {
@@ -879,6 +911,16 @@ namespace GUI
                             setDefautPanelColor(p);
                         }
                     };
+                    KhuyenMai_DTO km = panel_KhuyenMai.Tag as KhuyenMai_DTO;
+                    if (km != null)
+                    {
+                        if(km.MAKHUYENMAI == k.MAKHUYENMAI)
+                        {
+                            p.BackColor = Color.DodgerBlue;
+                            p.ForeColor = Color.White;
+                            setDefautPanelColor(p);
+                        }
+                    }
                     Label l = new Label();
                     l.Size = new Size(width-5, height-6);
                     l.Location = new Point(3, 7);
@@ -913,6 +955,7 @@ namespace GUI
                         l.Text = $"{k.TENKHUYENMAI}, giảm: {tien}VNĐ";
                     }
                     p.Controls.Add(l);
+                    
                     panel_KhuyenMaiDS.Controls.Add(p);
                     y = y + space + height;
                 });
@@ -929,10 +972,20 @@ namespace GUI
         {
             panel_KhuyenMai.Visible = false;
             KhuyenMai_DTO km = panel_KhuyenMai.Tag as KhuyenMai_DTO;
-            fthanhToan = new FThanhToan(khachHang,thanhTien,km,listOrder);
+            if(km == null)
+            {
+                km = new KhuyenMai_DTO();
+            }
+            NguoiDung_DTO user = new NguoiDung_DTO();
+            fthanhToan = new FThanhToan(khachHang,thanhTien,km,listOrder, user);
+            fthanhToan.FormClosed += fThanhToanClose;
             fthanhToan.ShowDialog();
         }
 
-        
+        private void btn_HuyDon_Click(object sender, EventArgs e)
+        {
+            fhuyDon = new FHuyDon();
+            fhuyDon.ShowDialog();
+        }
     }
 }

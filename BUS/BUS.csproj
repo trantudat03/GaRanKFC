@@ -53,6 +53,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLChiTietDonHang_BUS.cs" />
+    <Compile Include="QLChiTietThanhToan_BUS.cs" />
+    <Compile Include="QLDonHang_BUS.cs" />
     <Compile Include="QLKhachHang_BUS.cs" />
     <Compile Include="QLKhuyenMai_BUS.cs" />
     <Compile Include="QLNguoiDung_BUS.cs" />

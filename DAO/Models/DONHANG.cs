@@ -13,6 +13,7 @@ namespace DAO.Models
         public DONHANG()
         {
             CHITIETDONHANGs = new HashSet<CHITIETDONHANG>();
+            CHITIETTHANHTOANs = new HashSet<CHITIETTHANHTOAN>();
         }
 
         [Key]
@@ -23,11 +24,9 @@ namespace DAO.Models
         [StringLength(25)]
         public string MANGUOIDUNG { get; set; }
 
-        [Required]
         [StringLength(25)]
         public string MAKHACHHANG { get; set; }
 
-        [Required]
         [StringLength(25)]
         public string MAKHUYENMAI { get; set; }
 
@@ -39,6 +38,9 @@ namespace DAO.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETTHANHTOAN> CHITIETTHANHTOANs { get; set; }
 
         public virtual KHACHHANG KHACHHANG { get; set; }
 

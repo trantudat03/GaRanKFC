@@ -12,16 +12,18 @@ namespace GUI
 {
     public partial class FMain : Form
     {
+
+        private static NguoiDung_DTO user = new NguoiDung_DTO();
         public FMain()
         {
             InitializeComponent();
 
         }
 
-        public FMain(NguoiDung_DTO user)
+        public FMain(NguoiDung_DTO u)
         {
             InitializeComponent();
-
+            user = u;
         }
 
         private void setStyle()
@@ -51,10 +53,14 @@ namespace GUI
             formOrder.Dock = DockStyle.Fill;
         }
 
-        private void btn_Order_MouseHover(object sender, EventArgs e)
+        public NguoiDung_DTO getUser()
         {
-            
-            
+            return user;
+        }
+
+        private void btn_QuanLy_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void groupBoxUser_Enter(object sender, EventArgs e)
@@ -66,5 +72,7 @@ namespace GUI
         {
 
         }
+
+        
     }
 }

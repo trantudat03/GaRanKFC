@@ -14,17 +14,20 @@ namespace DAO.Models
 
         public virtual DbSet<CHITIETCOMBO> CHITIETCOMBOes { get; set; }
         public virtual DbSet<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
+        public virtual DbSet<CHITIETDONHANGHUY> CHITIETDONHANGHUYs { get; set; }
+        public virtual DbSet<CHITIETTHANHTOAN> CHITIETTHANHTOANs { get; set; }
         public virtual DbSet<CHUCVU> CHUCVUs { get; set; }
         public virtual DbSet<COMBO> COMBOes { get; set; }
         public virtual DbSet<DIEUKIEN> DIEUKIENs { get; set; }
         public virtual DbSet<DONHANG> DONHANGs { get; set; }
+        public virtual DbSet<DONHANGHUY> DONHANGHUYs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<KHUYENMAI> KHUYENMAIs { get; set; }
         public virtual DbSet<LOAISANPHAM> LOAISANPHAMs { get; set; }
         public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
+        public virtual DbSet<PHUONGTHUCTHANHTOAN> PHUONGTHUCTHANHTOANs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<SANPHAMHANGNGAY> SANPHAMHANGNGAYs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THONGBAOHANGNGAY> THONGBAOHANGNGAYs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -42,6 +45,22 @@ namespace DAO.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<CHITIETDONHANG>()
+                .Property(e => e.MADONHANG)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CHITIETDONHANGHUY>()
+                .Property(e => e.MASANPHAM)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CHITIETDONHANGHUY>()
+                .Property(e => e.MADONHANGHUY)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CHITIETTHANHTOAN>()
+                .Property(e => e.MAPHUONGTHUC)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CHITIETTHANHTOAN>()
                 .Property(e => e.MADONHANG)
                 .IsUnicode(false);
 
@@ -97,6 +116,28 @@ namespace DAO.Models
                 .WithRequired(e => e.DONHANG)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<DONHANG>()
+                .HasMany(e => e.CHITIETTHANHTOANs)
+                .WithRequired(e => e.DONHANG)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DONHANGHUY>()
+                .Property(e => e.MADONHANGHUY)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DONHANGHUY>()
+                .Property(e => e.MANGUOIDUNG)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DONHANGHUY>()
+                .Property(e => e.MAKHACHHANG)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DONHANGHUY>()
+                .HasMany(e => e.CHITIETDONHANGHUYs)
+                .WithRequired(e => e.DONHANGHUY)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.MAKHACHHANG)
                 .IsUnicode(false);
@@ -106,11 +147,6 @@ namespace DAO.Models
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<KHACHHANG>()
-                .HasMany(e => e.DONHANGs)
-                .WithRequired(e => e.KHACHHANG)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<KHUYENMAI>()
                 .Property(e => e.MAKHUYENMAI)
                 .IsUnicode(false);
@@ -118,11 +154,6 @@ namespace DAO.Models
             modelBuilder.Entity<KHUYENMAI>()
                 .Property(e => e.MADIEUKIEN)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<KHUYENMAI>()
-                .HasMany(e => e.DONHANGs)
-                .WithRequired(e => e.KHUYENMAI)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LOAISANPHAM>()
                 .Property(e => e.MALOAISP)
@@ -159,6 +190,15 @@ namespace DAO.Models
                 .WithRequired(e => e.NGUOIDUNG)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<PHUONGTHUCTHANHTOAN>()
+                .Property(e => e.MAPHUONGTHUC)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PHUONGTHUCTHANHTOAN>()
+                .HasMany(e => e.CHITIETTHANHTOANs)
+                .WithRequired(e => e.PHUONGTHUCTHANHTOAN)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SANPHAM>()
                 .Property(e => e.MASANPHAM)
                 .IsUnicode(false);
@@ -178,6 +218,11 @@ namespace DAO.Models
 
             modelBuilder.Entity<SANPHAM>()
                 .HasMany(e => e.CHITIETDONHANGs)
+                .WithRequired(e => e.SANPHAM)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<SANPHAM>()
+                .HasMany(e => e.CHITIETDONHANGHUYs)
                 .WithRequired(e => e.SANPHAM)
                 .WillCascadeOnDelete(false);
 

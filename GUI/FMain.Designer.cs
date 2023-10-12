@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             this.panel_sideBar = new System.Windows.Forms.Panel();
-            this.btn_QuanLy = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btn_Order = new System.Windows.Forms.Button();
+            this.btn_QuanLy = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelGroup = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.lbl_logout = new System.Windows.Forms.Label();
             this.lbl_UserName = new System.Windows.Forms.Label();
             this.panel_sideBar.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroup.SuspendLayout();
@@ -49,8 +52,8 @@
             // panel_sideBar
             // 
             this.panel_sideBar.BackColor = System.Drawing.SystemColors.Control;
-            this.panel_sideBar.Controls.Add(this.btn_QuanLy);
-            this.panel_sideBar.Controls.Add(this.btn_Order);
+            this.panel_sideBar.Controls.Add(this.panel1);
+            this.panel_sideBar.Controls.Add(this.panel3);
             this.panel_sideBar.Controls.Add(this.panel2);
             this.panel_sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_sideBar.Location = new System.Drawing.Point(0, 0);
@@ -59,20 +62,15 @@
             this.panel_sideBar.Size = new System.Drawing.Size(208, 720);
             this.panel_sideBar.TabIndex = 0;
             // 
-            // btn_QuanLy
+            // panel3
             // 
-            this.btn_QuanLy.BackColor = System.Drawing.Color.Transparent;
-            this.btn_QuanLy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_QuanLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_QuanLy.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_QuanLy.ForeColor = System.Drawing.Color.Black;
-            this.btn_QuanLy.Location = new System.Drawing.Point(3, 369);
-            this.btn_QuanLy.Name = "btn_QuanLy";
-            this.btn_QuanLy.Size = new System.Drawing.Size(208, 63);
-            this.btn_QuanLy.TabIndex = 2;
-            this.btn_QuanLy.Text = "Quản Lý";
-            this.btn_QuanLy.UseMnemonic = false;
-            this.btn_QuanLy.UseVisualStyleBackColor = false;
+            this.panel3.Controls.Add(this.btn_Order);
+            this.panel3.Controls.Add(this.btn_QuanLy);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 174);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(208, 204);
+            this.panel3.TabIndex = 4;
             // 
             // btn_Order
             // 
@@ -81,14 +79,29 @@
             this.btn_Order.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Order.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Order.ForeColor = System.Drawing.Color.Black;
-            this.btn_Order.Location = new System.Drawing.Point(0, 268);
+            this.btn_Order.Location = new System.Drawing.Point(-3, 48);
             this.btn_Order.Name = "btn_Order";
             this.btn_Order.Size = new System.Drawing.Size(208, 63);
             this.btn_Order.TabIndex = 1;
             this.btn_Order.Text = "Order";
             this.btn_Order.UseVisualStyleBackColor = false;
             this.btn_Order.Click += new System.EventHandler(this.btn_Order_Click);
-            this.btn_Order.MouseHover += new System.EventHandler(this.btn_Order_MouseHover);
+            // 
+            // btn_QuanLy
+            // 
+            this.btn_QuanLy.BackColor = System.Drawing.Color.Transparent;
+            this.btn_QuanLy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QuanLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QuanLy.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QuanLy.ForeColor = System.Drawing.Color.Black;
+            this.btn_QuanLy.Location = new System.Drawing.Point(0, 133);
+            this.btn_QuanLy.Name = "btn_QuanLy";
+            this.btn_QuanLy.Size = new System.Drawing.Size(208, 63);
+            this.btn_QuanLy.TabIndex = 2;
+            this.btn_QuanLy.Text = "Quản Lý";
+            this.btn_QuanLy.UseMnemonic = false;
+            this.btn_QuanLy.UseVisualStyleBackColor = false;
+            this.btn_QuanLy.Click += new System.EventHandler(this.btn_QuanLy_Click);
             // 
             // panel2
             // 
@@ -138,6 +151,14 @@
             this.panelMain.Size = new System.Drawing.Size(1152, 539);
             this.panelMain.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 378);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(208, 342);
+            this.panel1.TabIndex = 3;
+            // 
             // panel_Header
             // 
             this.panel_Header.Controls.Add(this.lbl_logout);
@@ -183,6 +204,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FMain_Load);
             this.panel_sideBar.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelGroup.ResumeLayout(false);
@@ -205,6 +227,8 @@
         private System.Windows.Forms.Label lbl_UserName;
         private System.Windows.Forms.Label lbl_logout;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

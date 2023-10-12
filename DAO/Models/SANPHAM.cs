@@ -14,6 +14,7 @@ namespace DAO.Models
         {
             CHITIETCOMBOes = new HashSet<CHITIETCOMBO>();
             CHITIETDONHANGs = new HashSet<CHITIETDONHANG>();
+            CHITIETDONHANGHUYs = new HashSet<CHITIETDONHANGHUY>();
         }
 
         [Key]
@@ -41,6 +42,9 @@ namespace DAO.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETDONHANGHUY> CHITIETDONHANGHUYs { get; set; }
 
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }
 

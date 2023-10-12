@@ -141,6 +141,7 @@ namespace BUS
                         {
                             KhDb.DIEM += diemCong;
                             db.SaveChanges();
+                            return 1;
                         }
                     }
                 }
@@ -151,6 +152,7 @@ namespace BUS
                     {
                         KhDb.DIEM += diemCong;
                         db.SaveChanges();
+                        return 1;
                     }
                 }
             }
