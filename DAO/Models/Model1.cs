@@ -29,6 +29,7 @@ namespace DAO.Models
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<SANPHAMHANGNGAY> SANPHAMHANGNGAYs { get; set; }
         public virtual DbSet<THONGBAOHANGNGAY> THONGBAOHANGNGAYs { get; set; }
+        public virtual DbSet<TRANGTHAI> TRANGTHAIs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

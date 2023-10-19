@@ -37,6 +37,8 @@ namespace DAO.Models
 
         public int? SOLUONG { get; set; }
 
+        public int? IDTRANGTHAI { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETCOMBO> CHITIETCOMBOes { get; set; }
 
@@ -47,6 +49,8 @@ namespace DAO.Models
         public virtual ICollection<CHITIETDONHANGHUY> CHITIETDONHANGHUYs { get; set; }
 
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }
+
+        public virtual TRANGTHAI TRANGTHAI { get; set; }
 
         public virtual SANPHAMHANGNGAY SANPHAMHANGNGAY { get; set; }
     }

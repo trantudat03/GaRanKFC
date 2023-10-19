@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.panel_sideBar = new System.Windows.Forms.Panel();
+            this.panel_QuanLy = new System.Windows.Forms.Panel();
+            this.btn_QLKhuyenMai = new System.Windows.Forms.Button();
+            this.btn_ThongKe = new System.Windows.Forms.Button();
+            this.btn_QLKhachHang = new System.Windows.Forms.Button();
+            this.btn_QLNguoiDung = new System.Windows.Forms.Button();
+            this.btn_QLSanPham = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_Order = new System.Windows.Forms.Button();
             this.btn_QuanLy = new System.Windows.Forms.Button();
@@ -37,11 +43,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelGroup = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.lbl_logout = new System.Windows.Forms.Label();
             this.lbl_UserName = new System.Windows.Forms.Label();
             this.panel_sideBar.SuspendLayout();
+            this.panel_QuanLy.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,15 +58,106 @@
             // panel_sideBar
             // 
             this.panel_sideBar.BackColor = System.Drawing.SystemColors.Control;
-            this.panel_sideBar.Controls.Add(this.panel1);
+            this.panel_sideBar.Controls.Add(this.panel_QuanLy);
             this.panel_sideBar.Controls.Add(this.panel3);
             this.panel_sideBar.Controls.Add(this.panel2);
             this.panel_sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_sideBar.Location = new System.Drawing.Point(0, 0);
             this.panel_sideBar.Margin = new System.Windows.Forms.Padding(4);
             this.panel_sideBar.Name = "panel_sideBar";
-            this.panel_sideBar.Size = new System.Drawing.Size(208, 720);
+            this.panel_sideBar.Size = new System.Drawing.Size(208, 811);
             this.panel_sideBar.TabIndex = 0;
+            // 
+            // panel_QuanLy
+            // 
+            this.panel_QuanLy.Controls.Add(this.btn_QLKhuyenMai);
+            this.panel_QuanLy.Controls.Add(this.btn_ThongKe);
+            this.panel_QuanLy.Controls.Add(this.btn_QLKhachHang);
+            this.panel_QuanLy.Controls.Add(this.btn_QLNguoiDung);
+            this.panel_QuanLy.Controls.Add(this.btn_QLSanPham);
+            this.panel_QuanLy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_QuanLy.Location = new System.Drawing.Point(0, 378);
+            this.panel_QuanLy.Name = "panel_QuanLy";
+            this.panel_QuanLy.Size = new System.Drawing.Size(208, 433);
+            this.panel_QuanLy.TabIndex = 3;
+            this.panel_QuanLy.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_QuanLy_Paint);
+            // 
+            // btn_QLKhuyenMai
+            // 
+            this.btn_QLKhuyenMai.BackColor = System.Drawing.Color.Transparent;
+            this.btn_QLKhuyenMai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLKhuyenMai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QLKhuyenMai.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QLKhuyenMai.ForeColor = System.Drawing.Color.Black;
+            this.btn_QLKhuyenMai.Location = new System.Drawing.Point(6, 246);
+            this.btn_QLKhuyenMai.Name = "btn_QLKhuyenMai";
+            this.btn_QLKhuyenMai.Size = new System.Drawing.Size(198, 63);
+            this.btn_QLKhuyenMai.TabIndex = 7;
+            this.btn_QLKhuyenMai.Text = "Khuyễn Mãi";
+            this.btn_QLKhuyenMai.UseMnemonic = false;
+            this.btn_QLKhuyenMai.UseVisualStyleBackColor = false;
+            // 
+            // btn_ThongKe
+            // 
+            this.btn_ThongKe.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ThongKe.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThongKe.ForeColor = System.Drawing.Color.Black;
+            this.btn_ThongKe.Location = new System.Drawing.Point(3, 326);
+            this.btn_ThongKe.Name = "btn_ThongKe";
+            this.btn_ThongKe.Size = new System.Drawing.Size(202, 63);
+            this.btn_ThongKe.TabIndex = 6;
+            this.btn_ThongKe.Text = "Thống Kê";
+            this.btn_ThongKe.UseMnemonic = false;
+            this.btn_ThongKe.UseVisualStyleBackColor = false;
+            this.btn_ThongKe.Click += new System.EventHandler(this.btn_ThongKe_Click);
+            // 
+            // btn_QLKhachHang
+            // 
+            this.btn_QLKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.btn_QLKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QLKhachHang.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QLKhachHang.ForeColor = System.Drawing.Color.Black;
+            this.btn_QLKhachHang.Location = new System.Drawing.Point(3, 170);
+            this.btn_QLKhachHang.Name = "btn_QLKhachHang";
+            this.btn_QLKhachHang.Size = new System.Drawing.Size(202, 63);
+            this.btn_QLKhachHang.TabIndex = 5;
+            this.btn_QLKhachHang.Text = "Khách Hàng";
+            this.btn_QLKhachHang.UseMnemonic = false;
+            this.btn_QLKhachHang.UseVisualStyleBackColor = false;
+            // 
+            // btn_QLNguoiDung
+            // 
+            this.btn_QLNguoiDung.BackColor = System.Drawing.Color.Transparent;
+            this.btn_QLNguoiDung.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLNguoiDung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QLNguoiDung.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QLNguoiDung.ForeColor = System.Drawing.Color.Black;
+            this.btn_QLNguoiDung.Location = new System.Drawing.Point(3, 91);
+            this.btn_QLNguoiDung.Name = "btn_QLNguoiDung";
+            this.btn_QLNguoiDung.Size = new System.Drawing.Size(202, 63);
+            this.btn_QLNguoiDung.TabIndex = 4;
+            this.btn_QLNguoiDung.Text = "Người Dùng";
+            this.btn_QLNguoiDung.UseMnemonic = false;
+            this.btn_QLNguoiDung.UseVisualStyleBackColor = false;
+            // 
+            // btn_QLSanPham
+            // 
+            this.btn_QLSanPham.BackColor = System.Drawing.Color.Transparent;
+            this.btn_QLSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QLSanPham.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QLSanPham.ForeColor = System.Drawing.Color.Black;
+            this.btn_QLSanPham.Location = new System.Drawing.Point(3, 14);
+            this.btn_QLSanPham.Name = "btn_QLSanPham";
+            this.btn_QLSanPham.Size = new System.Drawing.Size(202, 63);
+            this.btn_QLSanPham.TabIndex = 3;
+            this.btn_QLSanPham.Text = "Sản Phẩm";
+            this.btn_QLSanPham.UseMnemonic = false;
+            this.btn_QLSanPham.UseVisualStyleBackColor = false;
+            this.btn_QLSanPham.Click += new System.EventHandler(this.btn_QLSanPham_Click);
             // 
             // panel3
             // 
@@ -79,9 +176,9 @@
             this.btn_Order.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Order.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Order.ForeColor = System.Drawing.Color.Black;
-            this.btn_Order.Location = new System.Drawing.Point(-3, 48);
+            this.btn_Order.Location = new System.Drawing.Point(0, 48);
             this.btn_Order.Name = "btn_Order";
-            this.btn_Order.Size = new System.Drawing.Size(208, 63);
+            this.btn_Order.Size = new System.Drawing.Size(205, 63);
             this.btn_Order.TabIndex = 1;
             this.btn_Order.Text = "Order";
             this.btn_Order.UseVisualStyleBackColor = false;
@@ -126,7 +223,7 @@
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(208, 682);
+            this.panel4.Location = new System.Drawing.Point(208, 773);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1152, 38);
@@ -140,7 +237,7 @@
             this.panelGroup.Location = new System.Drawing.Point(208, 0);
             this.panelGroup.Margin = new System.Windows.Forms.Padding(4);
             this.panelGroup.Name = "panelGroup";
-            this.panelGroup.Size = new System.Drawing.Size(1152, 682);
+            this.panelGroup.Size = new System.Drawing.Size(1152, 773);
             this.panelGroup.TabIndex = 0;
             // 
             // panelMain
@@ -148,16 +245,8 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 143);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1152, 539);
+            this.panelMain.Size = new System.Drawing.Size(1152, 630);
             this.panelMain.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 378);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(208, 342);
-            this.panel1.TabIndex = 3;
             // 
             // panel_Header
             // 
@@ -194,7 +283,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 720);
+            this.ClientSize = new System.Drawing.Size(1360, 811);
             this.Controls.Add(this.panelGroup);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel_sideBar);
@@ -204,6 +293,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FMain_Load);
             this.panel_sideBar.ResumeLayout(false);
+            this.panel_QuanLy.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -228,7 +318,12 @@
         private System.Windows.Forms.Label lbl_logout;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_QuanLy;
+        private System.Windows.Forms.Button btn_QLSanPham;
+        private System.Windows.Forms.Button btn_ThongKe;
+        private System.Windows.Forms.Button btn_QLKhachHang;
+        private System.Windows.Forms.Button btn_QLNguoiDung;
+        private System.Windows.Forms.Button btn_QLKhuyenMai;
     }
 }
 

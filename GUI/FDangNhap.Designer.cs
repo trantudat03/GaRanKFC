@@ -35,11 +35,11 @@
             this.txb_MatKhau = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_eyePass = new System.Windows.Forms.PictureBox();
-            this.lbl_QuenMK = new System.Windows.Forms.Label();
-            this.btn_Thoat = new System.Windows.Forms.Button();
-            this.lbl_ThongBao = new System.Windows.Forms.Label();
             this.lbl_ThongBaoTDN = new System.Windows.Forms.Label();
+            this.lbl_ThongBao = new System.Windows.Forms.Label();
+            this.btn_Thoat = new System.Windows.Forms.Button();
+            this.lbl_QuenMK = new System.Windows.Forms.Label();
+            this.btn_eyePass = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_eyePass)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.txb_TenDangNhap.MaximumSize = new System.Drawing.Size(400, 100);
             this.txb_TenDangNhap.MinimumSize = new System.Drawing.Size(247, 40);
             this.txb_TenDangNhap.Name = "txb_TenDangNhap";
-            this.txb_TenDangNhap.Size = new System.Drawing.Size(286, 40);
+            this.txb_TenDangNhap.Size = new System.Drawing.Size(286, 34);
             this.txb_TenDangNhap.TabIndex = 1;
             // 
             // btn_DangNhap
@@ -94,7 +94,7 @@
             this.txb_MatKhau.Location = new System.Drawing.Point(24, 187);
             this.txb_MatKhau.MinimumSize = new System.Drawing.Size(247, 40);
             this.txb_MatKhau.Name = "txb_MatKhau";
-            this.txb_MatKhau.Size = new System.Drawing.Size(247, 40);
+            this.txb_MatKhau.Size = new System.Drawing.Size(247, 34);
             this.txb_MatKhau.TabIndex = 6;
             this.txb_MatKhau.UseSystemPasswordChar = true;
             this.txb_MatKhau.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -127,18 +127,36 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
-            // btn_eyePass
+            // lbl_ThongBaoTDN
             // 
-            this.btn_eyePass.BackColor = System.Drawing.Color.White;
-            this.btn_eyePass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_eyePass.Image = global::GUI.Properties.Resources.eyePass;
-            this.btn_eyePass.Location = new System.Drawing.Point(277, 188);
-            this.btn_eyePass.Name = "btn_eyePass";
-            this.btn_eyePass.Size = new System.Drawing.Size(33, 29);
-            this.btn_eyePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_eyePass.TabIndex = 8;
-            this.btn_eyePass.TabStop = false;
-            this.btn_eyePass.Click += new System.EventHandler(this.btn_eyePass_Click);
+            this.lbl_ThongBaoTDN.AutoSize = true;
+            this.lbl_ThongBaoTDN.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThongBaoTDN.Location = new System.Drawing.Point(24, 119);
+            this.lbl_ThongBaoTDN.Name = "lbl_ThongBaoTDN";
+            this.lbl_ThongBaoTDN.Size = new System.Drawing.Size(86, 19);
+            this.lbl_ThongBaoTDN.TabIndex = 12;
+            this.lbl_ThongBaoTDN.Text = "Thông báo";
+            // 
+            // lbl_ThongBao
+            // 
+            this.lbl_ThongBao.AutoSize = true;
+            this.lbl_ThongBao.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThongBao.Location = new System.Drawing.Point(24, 241);
+            this.lbl_ThongBao.Name = "lbl_ThongBao";
+            this.lbl_ThongBao.Size = new System.Drawing.Size(86, 19);
+            this.lbl_ThongBao.TabIndex = 11;
+            this.lbl_ThongBao.Text = "Thông báo";
+            // 
+            // btn_Thoat
+            // 
+            this.btn_Thoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Thoat.Location = new System.Drawing.Point(277, 345);
+            this.btn_Thoat.Name = "btn_Thoat";
+            this.btn_Thoat.Size = new System.Drawing.Size(82, 33);
+            this.btn_Thoat.TabIndex = 10;
+            this.btn_Thoat.Text = "Thoát";
+            this.btn_Thoat.UseVisualStyleBackColor = true;
+            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
             // lbl_QuenMK
             // 
@@ -152,36 +170,18 @@
             this.lbl_QuenMK.Text = "Quên mật khẩu?";
             this.lbl_QuenMK.Click += new System.EventHandler(this.lbl_QuenMK_Click);
             // 
-            // btn_Thoat
+            // btn_eyePass
             // 
-            this.btn_Thoat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Thoat.Location = new System.Drawing.Point(277, 345);
-            this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(82, 33);
-            this.btn_Thoat.TabIndex = 10;
-            this.btn_Thoat.Text = "Thoát";
-            this.btn_Thoat.UseVisualStyleBackColor = true;
-            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
-            // 
-            // lbl_ThongBao
-            // 
-            this.lbl_ThongBao.AutoSize = true;
-            this.lbl_ThongBao.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ThongBao.Location = new System.Drawing.Point(24, 241);
-            this.lbl_ThongBao.Name = "lbl_ThongBao";
-            this.lbl_ThongBao.Size = new System.Drawing.Size(86, 19);
-            this.lbl_ThongBao.TabIndex = 11;
-            this.lbl_ThongBao.Text = "Thông báo";
-            // 
-            // lbl_ThongBaoTDN
-            // 
-            this.lbl_ThongBaoTDN.AutoSize = true;
-            this.lbl_ThongBaoTDN.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ThongBaoTDN.Location = new System.Drawing.Point(24, 119);
-            this.lbl_ThongBaoTDN.Name = "lbl_ThongBaoTDN";
-            this.lbl_ThongBaoTDN.Size = new System.Drawing.Size(86, 19);
-            this.lbl_ThongBaoTDN.TabIndex = 12;
-            this.lbl_ThongBaoTDN.Text = "Thông báo";
+            this.btn_eyePass.BackColor = System.Drawing.Color.White;
+            this.btn_eyePass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_eyePass.Image = global::GUI.Properties.Resources.eyePass;
+            this.btn_eyePass.Location = new System.Drawing.Point(274, 190);
+            this.btn_eyePass.Name = "btn_eyePass";
+            this.btn_eyePass.Size = new System.Drawing.Size(33, 29);
+            this.btn_eyePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_eyePass.TabIndex = 8;
+            this.btn_eyePass.TabStop = false;
+            this.btn_eyePass.Click += new System.EventHandler(this.btn_eyePass_Click);
             // 
             // FDangNhap
             // 

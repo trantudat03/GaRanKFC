@@ -172,8 +172,14 @@
   <data name="detail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\detail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="17uplon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\17uplon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1khoaitaynghienlon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1khoaitaynghienlon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="closeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\closeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="3canhga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3canhga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,17 +193,14 @@
   <data name="3mienggaran" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3mienggaran.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1khoaitaychienlon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1khoaitaychienlon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1comgabittet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1comgabittet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="17uplon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\17uplon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1khoaitaychienlon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1khoaitaychienlon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1khoaitaynghienvua" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1khoaitaynghienvua.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,7 +208,7 @@
   <data name="1nuocsuoi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1nuocsuoi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="closeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\closeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imgIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

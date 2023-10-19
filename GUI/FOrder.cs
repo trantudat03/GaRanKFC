@@ -22,10 +22,10 @@ namespace GUI
         public FOrder()
         {
             InitializeComponent();
-            listSP = QuanLySanPham_BUS.layDuLieu();
+            
         }
 
-        private static List<SanPham_DTO> listSP = new List<SanPham_DTO>();
+        public static List<SanPham_DTO> listSP = new List<SanPham_DTO>();
         private static List<SanPham_DTO> listOrder = new List<SanPham_DTO>();
         private static KhachHang_DTO khachHang = new KhachHang_DTO();
         private static List<KhuyenMai_DTO> khuyenMai = new List<KhuyenMai_DTO>();
@@ -41,10 +41,12 @@ namespace GUI
         private void FOrder_Load(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
+            listSP = QuanLySanPham_BUS.layDuLieu();
             hienMenu(1, "");
             donCuaNgay = QLDonHang_BUS.tinhSoDonTheoNgay(date.ToString("yyyy-MM-dd"));
             setDefaut();
             
+
             //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
         }
 
@@ -53,7 +55,12 @@ namespace GUI
             //txb_Search.
 
         }
-        private void setDefaut()
+
+        public List<SanPham_DTO> getListOrder()
+        {
+            return listOrder;
+        }
+        public void setDefaut()
         {
             lbl_ThanhTien.Text = "0";
             panel_Detail.Visible = false;
@@ -70,12 +77,24 @@ namespace GUI
             thanhTien = 0;
             donCuaNgay++;
             lbl_DonHangNgay.Text = $"Số đơn hôm nay: {donCuaNgay}";
-            
+           
         }
         private void panel_OrderList_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        public void setListSp()
+        {
+            panel_Menu.Controls.Clear();
+            listSP.Clear();
+            listSP = QuanLySanPham_BUS.layDuLieu();
+            hienMenu(1, "");
+            //panel_Menu.Controls.Clear();
+
+        }
+
+       
 
         private void panel_Menu_Paint(object sender, PaintEventArgs e)
         {
@@ -438,25 +457,22 @@ namespace GUI
             //MessageBox.Show(index.ToString());
         }
 
-
-        private void hienMenu(int type, string strSearch)
+        
+        public void hienMenu(int type, string strSearch)
         {
             
             if (type != 0)
             {
                 panel_Menu.Controls.Clear();
-                if(listSP != null)
-
-                    
+                //panel_Menu.Controls.Clear();
+                if (listSP != null) 
                 {
-                    
-                    
                     int spacing = 30;
                     int startX = 15;
-                    int startY = 10;
+                    startY = 10;
                     int panelWidth = 160;
                     int panelHeight = 210;
-
+                    //MessageBox.Show("helo");
                     if (strSearch != "")
                     {
                         listSP.ForEach((sp) =>
@@ -477,13 +493,15 @@ namespace GUI
                                     SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
                                     addItemToOrder(spClick);
                                 }; // them su kien click
-                                panel.Size = new Size(panelWidth, panelHeight);
+                                panel.Size = new Size(210, 160);
                                 panel.Cursor = Cursors.Hand;
                                 PictureBox pictureBox = new PictureBox();
                                 pictureBox.Tag = sp;
                                 pictureBox.Size = new Size(panelWidth, 120);
                                 //pictureBox.Image = Properties.Resources._1mienggaran;
-                                pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
+                                //pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
+                                Image image = Image.FromFile(@"..\\..\\Resources\\" + sp.ANHSANPHAM);
+                                pictureBox.Image = image;
                                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 pictureBox.Location = new Point(0, 0);
                                 Label lableGia = new Label();
@@ -573,13 +591,15 @@ namespace GUI
                                     SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
                                     addItemToOrder(spClick);
                                 }; // them su kien click
-                                panel.Size = new Size(panelWidth, panelHeight);
+                                panel.Size = new Size(160, 210);
                                 panel.Cursor = Cursors.Hand;
                                 PictureBox pictureBox = new PictureBox();
                                 pictureBox.Tag = sp;
                                 pictureBox.Size = new Size(panelWidth, 120);
                                 //pictureBox.Image = Properties.Resources._1mienggaran;
-                                pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
+                                //pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
+                                Image image = Image.FromFile(@"..\\..\\Resources\\" + sp.ANHSANPHAM);
+                                pictureBox.Image = image;
                                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 pictureBox.Location = new Point(0, 0);
                                 Label lableGia = new Label();
@@ -986,6 +1006,11 @@ namespace GUI
         {
             fhuyDon = new FHuyDon();
             fhuyDon.ShowDialog();
+        }
+
+        private void panel_ThongTin_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

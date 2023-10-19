@@ -20,13 +20,15 @@ namespace DTO
 
         public int SOLUONG { get; set; }
 
+        public int IDTRANGTHAI { get; set; }
+
         public int SLORDER { get; set; }
 
         public string NOTE { get; set; }
 
         public LoaiSanPham_DTO LoaiSanPham { get; set; }
 
-        
+        public TrangThaiSP_DTO TRANGTHAI { get; set; }
 
         public SanPham_DTO()
         {
@@ -40,6 +42,7 @@ namespace DTO
             this.ANHSANPHAM = null;
             this.NOTE = null;
             this.LoaiSanPham = new LoaiSanPham_DTO() { MALOAISP = "", TENLOAISP = ""};
+            this.TRANGTHAI = new TrangThaiSP_DTO();
         }
     }
 }

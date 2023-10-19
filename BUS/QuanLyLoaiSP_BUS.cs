@@ -21,6 +21,7 @@ namespace BUS
                 LoaiSanPham_DTO item = new LoaiSanPham_DTO();
                 item.MALOAISP = l.MALOAISP;
                 item.TENLOAISP = l.TENLOAISP;
+                list.Add(item);
             });
 
             return list;

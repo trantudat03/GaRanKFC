@@ -698,6 +698,7 @@
             this.panel_ThongTin.Name = "panel_ThongTin";
             this.panel_ThongTin.Size = new System.Drawing.Size(585, 42);
             this.panel_ThongTin.TabIndex = 2;
+            this.panel_ThongTin.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_ThongTin_Paint);
             // 
             // lbl_DonHangNgay
             // 

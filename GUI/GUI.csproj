@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,11 +81,11 @@
     <Compile Include="FOrder.Designer.cs">
       <DependentUpon>FOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FQuanLyLoaiSanPham.cs">
+    <Compile Include="FQuanLySanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FQuanLyLoaiSanPham.Designer.cs">
-      <DependentUpon>FQuanLyLoaiSanPham.cs</DependentUpon>
+    <Compile Include="FQuanLySanPham.Designer.cs">
+      <DependentUpon>FQuanLySanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="FTestConnectDB.cs">
       <SubType>Form</SubType>
@@ -98,6 +99,13 @@
     <Compile Include="FThanhToan.Designer.cs">
       <DependentUpon>FThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FThongKe.Designer.cs">
+      <DependentUpon>FThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\libraryFunc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testuserControl.cs">
@@ -118,14 +126,17 @@
     <EmbeddedResource Include="FOrder.resx">
       <DependentUpon>FOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FQuanLyLoaiSanPham.resx">
-      <DependentUpon>FQuanLyLoaiSanPham.cs</DependentUpon>
+    <EmbeddedResource Include="FQuanLySanPham.resx">
+      <DependentUpon>FQuanLySanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FTestConnectDB.resx">
       <DependentUpon>FTestConnectDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FThanhToan.resx">
       <DependentUpon>FThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FThongKe.resx">
+      <DependentUpon>FThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,6 +185,7 @@
     <None Include="Resources\logo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\imgIcon.png" />
     <None Include="Resources\closeIcon.png" />
     <None Include="Resources\detail.png" />
     <None Include="Resources\17uplon.jpg" />
@@ -203,6 +215,7 @@
     <Content Include="Resources\1mienggaran.jpg" />
     <None Include="Resources\1mienggaran1.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
