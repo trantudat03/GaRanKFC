@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Globalization;
+using System.Data.Entity;
 
 namespace BUS
 {
@@ -152,5 +153,62 @@ namespace BUS
 
             return 0;
         }
+
+        public static string kiemTraSanPhamCoTheXoa(SanPham_DTO sp)
+        {
+            try
+            {
+                if (sp.MASANPHAM != null)
+                {
+                    SANPHAM delete = db.SANPHAMs.Find(sp.MASANPHAM);
+                    CHITIETDONHANG detail = new CHITIETDONHANG();
+                    if (delete != null)
+                    {
+
+                        detail = delete.CHITIETDONHANGs.FirstOrDefault();
+                        if (detail == null)
+                        {
+                            CHITIETDONHANGHUY detailHuy = delete.CHITIETDONHANGHUYs.FirstOrDefault();
+                            if (detailHuy == null)
+                            {
+                                return delete.MASANPHAM;
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                        }
+                        else
+                        {
+                            return null;
+                        }
+
+                    }
+
+                }
+                return null;
+            }catch
+            {
+                return null;
+            }
+            
+        }
+
+        public static int xoaSanPham(string maSanPham)
+        {
+            try
+            {
+                SANPHAM delete = db.SANPHAMs.Find(maSanPham);
+                if (delete != null)
+                {
+                    db.SANPHAMs.Remove(delete);
+                    db.SaveChanges();
+                    return 1;
+                }
+                return 0;
+            }catch { return 0; }
+        }
+
+        
     }
 }

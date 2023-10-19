@@ -10,5 +10,6 @@ namespace DTO
     {
         public string MALOAISP { get; set; }
         public string TENLOAISP { get; set; }
+        public int TONGSOLUON { get; set; }// nham muc dic luu tong so luong sp cua loai do
     }
 }
