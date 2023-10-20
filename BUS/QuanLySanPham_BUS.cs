@@ -29,6 +29,8 @@ namespace BUS
 
             return sb.ToString();
         }
+
+        
         public static List<SanPham_DTO> layDuLieu()
         {
             List<SanPham_DTO> list = new List<SanPham_DTO>();
@@ -45,6 +47,7 @@ namespace BUS
                 sp.SOLUONG = int.Parse(s.SOLUONG.ToString());
                 sp.LoaiSanPham.TENLOAISP = s.LOAISANPHAM.TENLOAISP;
                 sp.LoaiSanPham.MALOAISP = s.LOAISANPHAM.MALOAISP.ToString();
+                sp.IDTRANGTHAI = (int)s.IDTRANGTHAI;
                 sp.TRANGTHAI.TENTRANGTHAI = s.TRANGTHAI.TENTRANGTHAI;
                 sp.TRANGTHAI.IDTRANGTHAI = s.TRANGTHAI.IDTRANGTHAI;
                 list.Add(sp);

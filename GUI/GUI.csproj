@@ -105,6 +105,12 @@
     <Compile Include="FThongKe.Designer.cs">
       <DependentUpon>FThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="FThongTinChung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FThongTinChung.Designer.cs">
+      <DependentUpon>FThongTinChung.cs</DependentUpon>
+    </Compile>
     <Compile Include="Function\libraryFunc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FThongKe.resx">
       <DependentUpon>FThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FThongTinChung.resx">
+      <DependentUpon>FThongTinChung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,6 +194,10 @@
     <None Include="Resources\logo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\iconKFC.png" />
+    <None Include="Resources\iconDonHang.png" />
+    <None Include="Resources\iconBieuDo1.jpg" />
+    <None Include="Resources\iconBieuDo.jpg" />
     <None Include="Resources\imgIcon.png" />
     <None Include="Resources\closeIcon.png" />
     <None Include="Resources\detail.png" />

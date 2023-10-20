@@ -66,13 +66,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgv_DanhSach = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -88,6 +81,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.lbl_thongBaoPage3 = new System.Windows.Forms.Label();
             this.dgv_LoaiSanPham = new System.Windows.Forms.DataGridView();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,7 +99,13 @@
             this.btn_ThemLoaiSP = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_thongBaoPage3 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -592,55 +592,6 @@
             this.dgv_DanhSach.TabIndex = 3;
             this.dgv_DanhSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DanhSach_CellClick);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã Sản Phẩm";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên Sản Phẩm ";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giá Sản Phẩm";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Ảnh Sản Phẩm";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 140;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Thời Hạn";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Loại Sản Phẩm";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Trạng Thái";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 125;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -809,6 +760,16 @@
             this.panel15.Size = new System.Drawing.Size(961, 380);
             this.panel15.TabIndex = 18;
             // 
+            // lbl_thongBaoPage3
+            // 
+            this.lbl_thongBaoPage3.AutoSize = true;
+            this.lbl_thongBaoPage3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_thongBaoPage3.Location = new System.Drawing.Point(570, 29);
+            this.lbl_thongBaoPage3.Name = "lbl_thongBaoPage3";
+            this.lbl_thongBaoPage3.Size = new System.Drawing.Size(105, 23);
+            this.lbl_thongBaoPage3.TabIndex = 20;
+            this.lbl_thongBaoPage3.Text = "Thong Bao";
+            // 
             // dgv_LoaiSanPham
             // 
             this.dgv_LoaiSanPham.AllowUserToAddRows = false;
@@ -949,6 +910,7 @@
             this.btn_XoaLoaiSP.TabIndex = 6;
             this.btn_XoaLoaiSP.Text = "Xóa";
             this.btn_XoaLoaiSP.UseVisualStyleBackColor = true;
+            this.btn_XoaLoaiSP.Click += new System.EventHandler(this.btn_XoaLoaiSP_Click);
             // 
             // btn_SuaLoaiSanPham
             // 
@@ -991,15 +953,54 @@
             this.panel2.Size = new System.Drawing.Size(1296, 717);
             this.panel2.TabIndex = 20;
             // 
-            // lbl_thongBaoPage3
+            // Column1
             // 
-            this.lbl_thongBaoPage3.AutoSize = true;
-            this.lbl_thongBaoPage3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_thongBaoPage3.Location = new System.Drawing.Point(570, 29);
-            this.lbl_thongBaoPage3.Name = "lbl_thongBaoPage3";
-            this.lbl_thongBaoPage3.Size = new System.Drawing.Size(105, 23);
-            this.lbl_thongBaoPage3.TabIndex = 20;
-            this.lbl_thongBaoPage3.Text = "Thong Bao";
+            this.Column1.HeaderText = "Mã Sản Phẩm";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên Sản Phẩm ";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 170;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giá Sản Phẩm";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Ảnh Sản Phẩm";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 155;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Thời Hạn";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Loại Sản Phẩm";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Trạng Thái";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
             // 
             // FQuanLySanPham
             // 
@@ -1096,13 +1097,6 @@
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.PictureBox pcb_HienThiAnhSp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txb_SearchDGV;
         private System.Windows.Forms.Button btn_LuuSua;
@@ -1131,5 +1125,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.Label lbl_thongBaoPage3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

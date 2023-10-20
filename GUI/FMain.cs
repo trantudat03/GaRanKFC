@@ -13,11 +13,12 @@ namespace GUI
     public partial class FMain : Form
     {
         FOrder formOrder;
-        FThongKe formThongKe;
+        FThongKe formThongKe = new FThongKe();
         FQuanLySanPham formSanPham = new FQuanLySanPham();
         private static NguoiDung_DTO user = new NguoiDung_DTO();
         public static bool checkThayDoi = false;
         public static int checkPage = 0;
+        public static FThongTinChung fThongTinChung = new FThongTinChung();
         public FMain()
         {
             InitializeComponent();
@@ -92,15 +93,12 @@ namespace GUI
 
         private void btn_QuanLy_Click(object sender, EventArgs e)
         {
-            if(checkPage!=1)
+            if(checkPage!=1)// neu dang o order
             {
                 if (formOrder.getListOrder().Count == 0)
                 {
                     panel_QuanLy.Visible = true;
-                    panelMain.Controls.Clear();
-                    //formOrder.Visible = false;
-                    //formOrder.Dock = DockStyle.None;
-                    formThongKe = new FThongKe();
+                    setMainPanel(fThongTinChung);
                     checkPage = 1;
                 }
                 else
@@ -142,7 +140,12 @@ namespace GUI
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
-            setMainPanel(formThongKe);
+            if(checkPage !=6)
+            {
+                setMainPanel(formThongKe);
+                checkPage = 6;
+            }
+            
 
         }
 

@@ -75,7 +75,6 @@ namespace GUI
             checkMenu = 1;
             checkThanhToan = false;
             thanhTien = 0;
-            donCuaNgay++;
             lbl_DonHangNgay.Text = $"Số đơn hôm nay: {donCuaNgay}";
            
         }
@@ -166,7 +165,8 @@ namespace GUI
             txb_Note.Text = sp.NOTE;
             panel_Detail.Tag = sp;
             nub_soLuong.Value = sp.SLORDER;
-            pictureBox_Detail.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
+            Image image = Image.FromFile(@"..\\..\\Resources\\" + sp.ANHSANPHAM);
+            pictureBox_Detail.Image = image;
             lbl_GiaSP.Text = themDauChamVaoSo(sp.GIASANPHAM);
             lbl_tenSP.Text = sp.TENSANPHAM;
         }
@@ -263,6 +263,7 @@ namespace GUI
 
         }
 
+        // thao tao them vao list order 
         private void themVaoListOrderUI(SanPham_DTO sp)// item menu duoc click
         {
             SanPham_DTO spFind = listOrder.Find(s => s.MASANPHAM == sp.MASANPHAM);
@@ -273,7 +274,7 @@ namespace GUI
                 listOrder.Add(sp);
                 setTongTienUI();
                 int spacing = 10;
-                int panelWidth = panel_OrderList.Width - 20;
+                int panelWidth = panel_OrderList.Width - 40;
                 int panelHeight = 35;
                 int startX = 10;
                 Panel panel = new Panel();
@@ -471,7 +472,7 @@ namespace GUI
                     int startX = 15;
                     startY = 10;
                     int panelWidth = 160;
-                    int panelHeight = 210;
+                    int panelHeight =210 ;
                     //MessageBox.Show("helo");
                     if (strSearch != "")
                     {
@@ -493,7 +494,7 @@ namespace GUI
                                     SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
                                     addItemToOrder(spClick);
                                 }; // them su kien click
-                                panel.Size = new Size(210, 160);
+                                panel.Size = new Size(panelWidth, panelHeight);
                                 panel.Cursor = Cursors.Hand;
                                 PictureBox pictureBox = new PictureBox();
                                 pictureBox.Tag = sp;
@@ -591,14 +592,23 @@ namespace GUI
                                     SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
                                     addItemToOrder(spClick);
                                 }; // them su kien click
-                                panel.Size = new Size(160, 210);
+                                panel.Size = new Size(panelWidth, panelHeight);
                                 panel.Cursor = Cursors.Hand;
                                 PictureBox pictureBox = new PictureBox();
                                 pictureBox.Tag = sp;
                                 pictureBox.Size = new Size(panelWidth, 120);
                                 //pictureBox.Image = Properties.Resources._1mienggaran;
                                 //pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
-                                Image image = Image.FromFile(@"..\\..\\Resources\\" + sp.ANHSANPHAM);
+                                Image image ;
+                                if (sp.ANHSANPHAM!= string.Empty)
+                                {
+                                     image = Image.FromFile(@"..\\..\\Resources\\" + sp.ANHSANPHAM);
+                                }
+                                else
+                                {
+                                     image = (Image)Properties.Resources.imgIcon;
+                                }
+                                
                                 pictureBox.Image = image;
                                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 pictureBox.Location = new Point(0, 0);
@@ -848,7 +858,8 @@ namespace GUI
             checkThanhToan = fthanhToan.getCheckThanhToan();
             //MessageBox.Show(checkThanhToan.ToString());
             if (checkThanhToan)
-            {   
+            {
+                donCuaNgay++;
                 setDefaut();
             }
         }

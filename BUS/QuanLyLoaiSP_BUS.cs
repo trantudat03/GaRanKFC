@@ -3,6 +3,7 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,26 +48,28 @@ namespace BUS
             List<LoaiSanPham_DTO> list = new List<LoaiSanPham_DTO>();
 
 
-            var query = from l in db.LOAISANPHAMs
-                        join s in db.SANPHAMs on l.MALOAISP equals s.MALOAISP
-                        group s by new { l.MALOAISP, l.TENLOAISP } into g
-                        select new
-                        {
-                            MALOAISP = g.Key.MALOAISP,
-                            TENLOAISP = g.Key.TENLOAISP,
-                            TONGSOLUONG = g.Count()
-                        };
+            var query = from loaiSanPham in db.LOAISANPHAMs
+                         join sanPham in db.SANPHAMs on loaiSanPham.MALOAISP equals sanPham.MALOAISP into sanPhamGroup
+                         select new
+                         {
+                             MALOAISP = loaiSanPham.MALOAISP,
+                             TENLOAISP = loaiSanPham.TENLOAISP,
+                             TONGXUATHIEN = sanPhamGroup.Count()
+                         };
+
+            
 
             foreach (var result in query)
             {
                 LoaiSanPham_DTO item = new LoaiSanPham_DTO();
                 item.MALOAISP = result.MALOAISP;
                 item.TENLOAISP = result.TENLOAISP;
-                item.TONGSOLUON = result.TONGSOLUONG;
+                item.TONGSOLUON = result.TONGXUATHIEN;
                 list.Add(item);
             }
             return list;
         }
+
 
         public static string themLoaiSP(LoaiSanPham_DTO loai)
         {
@@ -84,6 +87,50 @@ namespace BUS
             return null;
         }
 
+
+        public static string suaLoaiSp(LoaiSanPham_DTO loai)
+        {
+            if(loai.MALOAISP != null)
+            {
+                LOAISANPHAM update = db.LOAISANPHAMs.Find(loai.MALOAISP);
+
+                if (update != null)
+                {
+                    update.TENLOAISP = loai.TENLOAISP;
+                    db.SaveChanges();
+                    return loai.MALOAISP;
+                }
+                
+            }
+            return null;
+            
+        }
+
+        public static string kiemTraCoTheXoa(LoaiSanPham_DTO loai)
+        {
+            SANPHAM item = db.SANPHAMs.ToList().Find(i => i.MALOAISP == loai.MALOAISP);
+            if (item!=null)
+            {
+                return null;
+            }
+            else
+            {
+                return loai.MALOAISP;
+            }
+            
+        }
+
+        public static int xoaLoaiSanPham(string maLoai)
+        {
+            if(!string.IsNullOrEmpty(maLoai))
+            {
+                LOAISANPHAM delete = db.LOAISANPHAMs.Find(maLoai);
+                db.LOAISANPHAMs.Remove(delete);
+                db.SaveChanges();
+                return 1;
+            }
+            return 0;
+        }
 
     }
 }

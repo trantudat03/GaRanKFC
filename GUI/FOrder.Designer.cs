@@ -107,7 +107,7 @@
             this.panel_Type.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel_Type.Location = new System.Drawing.Point(0, 0);
             this.panel_Type.Name = "panel_Type";
-            this.panel_Type.Size = new System.Drawing.Size(547, 73);
+            this.panel_Type.Size = new System.Drawing.Size(547, 90);
             this.panel_Type.TabIndex = 1;
             // 
             // txb_Search
@@ -159,9 +159,9 @@
             this.panel_Menu.AutoScroll = true;
             this.panel_Menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_Menu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Menu.Location = new System.Drawing.Point(0, 73);
+            this.panel_Menu.Location = new System.Drawing.Point(0, 90);
             this.panel_Menu.Name = "panel_Menu";
-            this.panel_Menu.Size = new System.Drawing.Size(547, 681);
+            this.panel_Menu.Size = new System.Drawing.Size(547, 664);
             this.panel_Menu.TabIndex = 0;
             this.panel_Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Menu_Paint);
             // 
