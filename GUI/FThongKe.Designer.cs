@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabThongKe = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -56,17 +56,16 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.BieuDoCotSpBanChay = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel_NameColumn = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cmb_DateTimeSP = new System.Windows.Forms.ComboBox();
             this.groupBox_DateTimeSP = new System.Windows.Forms.GroupBox();
             this.dateTimePickerToSP = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerFromSP = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cmb_DateTimeSP = new System.Windows.Forms.ComboBox();
             this.tabThongKe.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -128,21 +127,21 @@
             // dgv_ThongKe
             // 
             this.dgv_ThongKe.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dgv_ThongKe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dgv_ThongKe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_ThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_ThongKe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_ThongKe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(25)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_ThongKe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(25)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ThongKe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_ThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ThongKe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -354,12 +353,20 @@
             this.BieuDoCotSpBanChay.AutoScroll = true;
             this.BieuDoCotSpBanChay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BieuDoCotSpBanChay.Controls.Add(this.dateTimePicker1);
-            this.BieuDoCotSpBanChay.Controls.Add(this.label7);
             this.BieuDoCotSpBanChay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BieuDoCotSpBanChay.Location = new System.Drawing.Point(57, 0);
             this.BieuDoCotSpBanChay.Name = "BieuDoCotSpBanChay";
             this.BieuDoCotSpBanChay.Size = new System.Drawing.Size(773, 444);
             this.BieuDoCotSpBanChay.TabIndex = 7;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(104, 88);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 30);
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // panel_NameColumn
             // 
@@ -389,15 +396,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(288, 685);
             this.panel2.TabIndex = 1;
-            // 
-            // cmb_DateTimeSP
-            // 
-            this.cmb_DateTimeSP.FormattingEnabled = true;
-            this.cmb_DateTimeSP.Location = new System.Drawing.Point(34, 61);
-            this.cmb_DateTimeSP.Name = "cmb_DateTimeSP";
-            this.cmb_DateTimeSP.Size = new System.Drawing.Size(224, 27);
-            this.cmb_DateTimeSP.TabIndex = 6;
-            this.cmb_DateTimeSP.SelectedIndexChanged += new System.EventHandler(this.cmb_DateTimeSP_SelectedIndexChanged);
             // 
             // groupBox_DateTimeSP
             // 
@@ -451,24 +449,14 @@
             this.dateTimePickerFromSP.TabIndex = 0;
             this.dateTimePickerFromSP.ValueChanged += new System.EventHandler(this.dateTimePickerFromSP_ValueChanged);
             // 
-            // label7
+            // cmb_DateTimeSP
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(324, 205);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 32);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Hello 1231";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(104, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 30);
-            this.dateTimePicker1.TabIndex = 3;
+            this.cmb_DateTimeSP.FormattingEnabled = true;
+            this.cmb_DateTimeSP.Location = new System.Drawing.Point(34, 61);
+            this.cmb_DateTimeSP.Name = "cmb_DateTimeSP";
+            this.cmb_DateTimeSP.Size = new System.Drawing.Size(224, 27);
+            this.cmb_DateTimeSP.TabIndex = 6;
+            this.cmb_DateTimeSP.SelectedIndexChanged += new System.EventHandler(this.cmb_DateTimeSP_SelectedIndexChanged);
             // 
             // FThongKe
             // 
@@ -496,7 +484,6 @@
             this.panel7.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.BieuDoCotSpBanChay.ResumeLayout(false);
-            this.BieuDoCotSpBanChay.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox_DateTimeSP.ResumeLayout(false);
             this.groupBox_DateTimeSP.PerformLayout();
@@ -541,7 +528,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePickerFromSP;
         private System.Windows.Forms.ComboBox cmb_DateTimeSP;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

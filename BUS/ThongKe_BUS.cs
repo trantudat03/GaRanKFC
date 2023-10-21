@@ -311,5 +311,26 @@ namespace BUS
             }
             return listSp;
         }
+
+        public static int doanhThuTheoNgay(DateTime date)
+        {
+            int doanhThu = 0;
+
+            var query = (
+                            from dh in db.DONHANGs
+                            where dh.THOIGIAN.Value.Day == date.Day && dh.THOIGIAN.Value.Month == date.Month && dh.THOIGIAN.Value.Year == date.Year
+                            select new
+                            {
+
+                                TONG_GIA = dh.TONGGIA
+                            }
+                        );
+
+            var result = query.ToList();
+
+             doanhThu = (int)result.Sum(dh => dh.TONG_GIA);
+
+            return doanhThu;
+        }
     }
 }

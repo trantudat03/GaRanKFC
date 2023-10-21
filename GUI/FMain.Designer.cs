@@ -142,6 +142,7 @@
             this.btn_QLNguoiDung.Text = "Người Dùng";
             this.btn_QLNguoiDung.UseMnemonic = false;
             this.btn_QLNguoiDung.UseVisualStyleBackColor = false;
+            this.btn_QLNguoiDung.Click += new System.EventHandler(this.btn_QLNguoiDung_Click);
             // 
             // btn_QLSanPham
             // 

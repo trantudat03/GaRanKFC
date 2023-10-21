@@ -17,5 +17,15 @@ namespace DTO
         public string MATKHAU { get; set; }
 
         public string MACHUCVU { get; set; }
+
+        public string SODIENTHOAI { get; set; }
+
+        public string EMAIL { get; set; }
+
+        public string MATRANGTHAI { get; set; }
+
+        public string TENCHUCVU { get; set; }
+
+        public string TENTRANGTHAI { get; set; }
     }
 }

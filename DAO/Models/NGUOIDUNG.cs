@@ -33,10 +33,21 @@ namespace DAO.Models
         [StringLength(25)]
         public string MACHUCVU { get; set; }
 
+        [StringLength(255)]
+        public string EMAIL { get; set; }
+
+        [StringLength(12)]
+        public string SODIENTHOAI { get; set; }
+
+        [StringLength(25)]
+        public string MATRANGTHAI { get; set; }
+
         public virtual CHUCVU CHUCVU { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
+
+        public virtual TRANGTHAINGUOIDUNG TRANGTHAINGUOIDUNG { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THONGBAOHANGNGAY> THONGBAOHANGNGAYs { get; set; }

@@ -33,7 +33,7 @@ namespace GUI
         private static FHuyDon fhuyDon;
         private static int thanhTien = 0;
         //Panel detailOrder = new Panel();
-        private static int startY = 10;
+        private static int startYOrderList = 10;
         private static int checkMenu = 1;
         private static int donCuaNgay = 0;
         private static bool checkThanhToan = false;
@@ -71,7 +71,7 @@ namespace GUI
             listOrder.Clear();
             khuyenMai.Clear();
             khachHang = new KhachHang_DTO();
-            startY = 10;
+            startYOrderList = 10;
             checkMenu = 1;
             checkThanhToan = false;
             thanhTien = 0;
@@ -280,7 +280,7 @@ namespace GUI
                 Panel panel = new Panel();
                 panel.Tag = sp;
                 panel.Size = new Size(panelWidth, panelHeight);
-                panel.Location = new Point(startX, startY);
+                panel.Location = new Point(startX, startYOrderList);
                 panel.BackColor = Color.White;
                 panel.BorderStyle = BorderStyle.FixedSingle;
                 Label label = new Label();
@@ -321,7 +321,7 @@ namespace GUI
                 panel.Controls.Add(xoaBTN);
 
                 panel_OrderList.Controls.Add(panel);
-                startY += spacing + panelHeight;
+                startYOrderList += spacing + panelHeight;
             }else
             {
                 // tim và hiển thị lại 
@@ -451,7 +451,7 @@ namespace GUI
             }
             if(check==1)
             {
-                startY -= 45;
+                startYOrderList -= 45;
                 panel.Controls.Remove(panelDelete);
             }
             
@@ -470,7 +470,7 @@ namespace GUI
                 {
                     int spacing = 30;
                     int startX = 15;
-                    startY = 10;
+                    int startY = 10;
                     int panelWidth = 160;
                     int panelHeight =210 ;
                     //MessageBox.Show("helo");

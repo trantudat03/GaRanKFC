@@ -19,6 +19,7 @@ namespace GUI
         public static bool checkThayDoi = false;
         public static int checkPage = 0;
         public static FThongTinChung fThongTinChung = new FThongTinChung();
+        public static FQuanLyNguoiDung fNguoiDung = new FQuanLyNguoiDung();
         public FMain()
         {
             InitializeComponent();
@@ -153,6 +154,16 @@ namespace GUI
         {
 
             setMainPanel(formSanPham);
+        }
+
+        private void btn_QLNguoiDung_Click(object sender, EventArgs e)
+        {
+            if(checkPage !=3)
+            {
+                addUserControl(fNguoiDung);
+                checkPage = 3;
+            }
+            
         }
     }
 }

@@ -35,7 +35,6 @@
             this.lbl_ThongBao = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmb_TrangThai = new System.Windows.Forms.ComboBox();
-            this.PB_AnhSanPham = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.nud_HanSanPham = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,7 +53,6 @@
             this.btn_LuuSua = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.cmb_SuaTrangThai = new System.Windows.Forms.ComboBox();
-            this.pcb_SuaAnhSP = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.nud_SuaHanSP = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,6 +64,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgv_DanhSach = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -77,7 +82,6 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lbl_TenSanPham = new System.Windows.Forms.Label();
-            this.pcb_HienThiAnhSp = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -99,24 +103,18 @@
             this.btn_ThemLoaiSP = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PB_AnhSanPham = new System.Windows.Forms.PictureBox();
+            this.pcb_SuaAnhSP = new System.Windows.Forms.PictureBox();
+            this.pcb_HienThiAnhSp = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AnhSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_HanSanPham)).BeginInit();
             this.panel5.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox_Sua.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_SuaAnhSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SuaHanSP)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
@@ -124,7 +122,6 @@
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_HienThiAnhSp)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -134,6 +131,9 @@
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AnhSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_SuaAnhSP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_HienThiAnhSp)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Them
@@ -224,22 +224,6 @@
             this.cmb_TrangThai.Name = "cmb_TrangThai";
             this.cmb_TrangThai.Size = new System.Drawing.Size(178, 29);
             this.cmb_TrangThai.TabIndex = 17;
-            // 
-            // PB_AnhSanPham
-            // 
-            this.PB_AnhSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PB_AnhSanPham.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PB_AnhSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_AnhSanPham.Image = global::GUI.Properties.Resources.imgIcon;
-            this.PB_AnhSanPham.Location = new System.Drawing.Point(178, 288);
-            this.PB_AnhSanPham.Name = "PB_AnhSanPham";
-            this.PB_AnhSanPham.Size = new System.Drawing.Size(114, 83);
-            this.PB_AnhSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_AnhSanPham.TabIndex = 16;
-            this.PB_AnhSanPham.TabStop = false;
-            this.PB_AnhSanPham.Click += new System.EventHandler(this.PB_AnhSanPham_Click);
             // 
             // label7
             // 
@@ -442,22 +426,6 @@
             this.cmb_SuaTrangThai.Size = new System.Drawing.Size(178, 29);
             this.cmb_SuaTrangThai.TabIndex = 17;
             // 
-            // pcb_SuaAnhSP
-            // 
-            this.pcb_SuaAnhSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pcb_SuaAnhSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_SuaAnhSP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_SuaAnhSP.Image = global::GUI.Properties.Resources.imgIcon;
-            this.pcb_SuaAnhSP.Location = new System.Drawing.Point(190, 158);
-            this.pcb_SuaAnhSP.Name = "pcb_SuaAnhSP";
-            this.pcb_SuaAnhSP.Size = new System.Drawing.Size(174, 97);
-            this.pcb_SuaAnhSP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcb_SuaAnhSP.TabIndex = 16;
-            this.pcb_SuaAnhSP.TabStop = false;
-            this.pcb_SuaAnhSP.Click += new System.EventHandler(this.pcb_SuaAnhSP_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -592,6 +560,55 @@
             this.dgv_DanhSach.TabIndex = 3;
             this.dgv_DanhSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DanhSach_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã Sản Phẩm";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên Sản Phẩm ";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 170;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giá Sản Phẩm";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Ảnh Sản Phẩm";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 155;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Thời Hạn";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Loại Sản Phẩm";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Trạng Thái";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -712,21 +729,6 @@
             this.lbl_TenSanPham.TabIndex = 21;
             this.lbl_TenSanPham.Text = "ten sp";
             // 
-            // pcb_HienThiAnhSp
-            // 
-            this.pcb_HienThiAnhSp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pcb_HienThiAnhSp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_HienThiAnhSp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_HienThiAnhSp.Image = global::GUI.Properties.Resources.imgIcon;
-            this.pcb_HienThiAnhSp.Location = new System.Drawing.Point(10, 32);
-            this.pcb_HienThiAnhSp.Name = "pcb_HienThiAnhSp";
-            this.pcb_HienThiAnhSp.Size = new System.Drawing.Size(174, 144);
-            this.pcb_HienThiAnhSp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcb_HienThiAnhSp.TabIndex = 20;
-            this.pcb_HienThiAnhSp.TabStop = false;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panel11);
@@ -747,7 +749,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(961, 677);
+            this.panel11.Size = new System.Drawing.Size(961, 680);
             this.panel11.TabIndex = 3;
             // 
             // panel15
@@ -757,7 +759,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(0, 49);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(961, 380);
+            this.panel15.Size = new System.Drawing.Size(961, 383);
             this.panel15.TabIndex = 18;
             // 
             // lbl_thongBaoPage3
@@ -786,7 +788,7 @@
             this.dgv_LoaiSanPham.Name = "dgv_LoaiSanPham";
             this.dgv_LoaiSanPham.RowHeadersWidth = 51;
             this.dgv_LoaiSanPham.RowTemplate.Height = 24;
-            this.dgv_LoaiSanPham.Size = new System.Drawing.Size(441, 184);
+            this.dgv_LoaiSanPham.Size = new System.Drawing.Size(441, 187);
             this.dgv_LoaiSanPham.TabIndex = 0;
             this.dgv_LoaiSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_LoaiSanPham_CellClick);
             // 
@@ -815,7 +817,7 @@
             // 
             this.panel14.Controls.Add(this.groupBoxLoaiSP);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 429);
+            this.panel14.Location = new System.Drawing.Point(0, 432);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(961, 248);
             this.panel14.TabIndex = 17;
@@ -898,7 +900,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel12.Location = new System.Drawing.Point(961, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(299, 677);
+            this.panel12.Size = new System.Drawing.Size(299, 680);
             this.panel12.TabIndex = 2;
             // 
             // btn_XoaLoaiSP
@@ -953,54 +955,52 @@
             this.panel2.Size = new System.Drawing.Size(1296, 717);
             this.panel2.TabIndex = 20;
             // 
-            // Column1
+            // PB_AnhSanPham
             // 
-            this.Column1.HeaderText = "Mã Sản Phẩm";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
+            this.PB_AnhSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PB_AnhSanPham.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_AnhSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PB_AnhSanPham.Image = global::GUI.Properties.Resources.imgIcon;
+            this.PB_AnhSanPham.Location = new System.Drawing.Point(178, 288);
+            this.PB_AnhSanPham.Name = "PB_AnhSanPham";
+            this.PB_AnhSanPham.Size = new System.Drawing.Size(114, 83);
+            this.PB_AnhSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_AnhSanPham.TabIndex = 16;
+            this.PB_AnhSanPham.TabStop = false;
+            this.PB_AnhSanPham.Click += new System.EventHandler(this.PB_AnhSanPham_Click);
             // 
-            // Column2
+            // pcb_SuaAnhSP
             // 
-            this.Column2.HeaderText = "Tên Sản Phẩm ";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 170;
+            this.pcb_SuaAnhSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcb_SuaAnhSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcb_SuaAnhSP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_SuaAnhSP.Image = global::GUI.Properties.Resources.imgIcon;
+            this.pcb_SuaAnhSP.Location = new System.Drawing.Point(190, 158);
+            this.pcb_SuaAnhSP.Name = "pcb_SuaAnhSP";
+            this.pcb_SuaAnhSP.Size = new System.Drawing.Size(174, 97);
+            this.pcb_SuaAnhSP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcb_SuaAnhSP.TabIndex = 16;
+            this.pcb_SuaAnhSP.TabStop = false;
+            this.pcb_SuaAnhSP.Click += new System.EventHandler(this.pcb_SuaAnhSP_Click);
             // 
-            // Column3
+            // pcb_HienThiAnhSp
             // 
-            this.Column3.HeaderText = "Giá Sản Phẩm";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Ảnh Sản Phẩm";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 155;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Thời Hạn";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Loại Sản Phẩm";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Trạng Thái";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 125;
+            this.pcb_HienThiAnhSp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcb_HienThiAnhSp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcb_HienThiAnhSp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_HienThiAnhSp.Image = global::GUI.Properties.Resources.imgIcon;
+            this.pcb_HienThiAnhSp.Location = new System.Drawing.Point(10, 32);
+            this.pcb_HienThiAnhSp.Name = "pcb_HienThiAnhSp";
+            this.pcb_HienThiAnhSp.Size = new System.Drawing.Size(174, 144);
+            this.pcb_HienThiAnhSp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcb_HienThiAnhSp.TabIndex = 20;
+            this.pcb_HienThiAnhSp.TabStop = false;
             // 
             // FQuanLySanPham
             // 
@@ -1016,7 +1016,6 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AnhSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_HanSanPham)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -1025,7 +1024,6 @@
             this.panel7.ResumeLayout(false);
             this.groupBox_Sua.ResumeLayout(false);
             this.groupBox_Sua.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_SuaAnhSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SuaHanSP)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
@@ -1036,7 +1034,6 @@
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_HienThiAnhSp)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
@@ -1049,6 +1046,9 @@
             this.panel13.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AnhSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_SuaAnhSP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_HienThiAnhSp)).EndInit();
             this.ResumeLayout(false);
 
         }

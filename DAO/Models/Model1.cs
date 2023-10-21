@@ -30,6 +30,7 @@ namespace DAO.Models
         public virtual DbSet<SANPHAMHANGNGAY> SANPHAMHANGNGAYs { get; set; }
         public virtual DbSet<THONGBAOHANGNGAY> THONGBAOHANGNGAYs { get; set; }
         public virtual DbSet<TRANGTHAI> TRANGTHAIs { get; set; }
+        public virtual DbSet<TRANGTHAINGUOIDUNG> TRANGTHAINGUOIDUNGs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -182,6 +183,18 @@ namespace DAO.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
+                .Property(e => e.EMAIL)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
+                .Property(e => e.SODIENTHOAI)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
+                .Property(e => e.MATRANGTHAI)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
                 .HasMany(e => e.DONHANGs)
                 .WithRequired(e => e.NGUOIDUNG)
                 .WillCascadeOnDelete(false);
@@ -241,6 +254,10 @@ namespace DAO.Models
 
             modelBuilder.Entity<THONGBAOHANGNGAY>()
                 .Property(e => e.MANGUOIDUNG)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TRANGTHAINGUOIDUNG>()
+                .Property(e => e.MATRANGTHAI)
                 .IsUnicode(false);
         }
     }

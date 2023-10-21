@@ -73,6 +73,7 @@
     <Compile Include="Models\SANPHAMHANGNGAY.cs" />
     <Compile Include="Models\THONGBAOHANGNGAY.cs" />
     <Compile Include="Models\TRANGTHAI.cs" />
+    <Compile Include="Models\TRANGTHAINGUOIDUNG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

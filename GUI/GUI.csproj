@@ -81,6 +81,12 @@
     <Compile Include="FOrder.Designer.cs">
       <DependentUpon>FOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FQuanLyNguoiDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FQuanLyNguoiDung.Designer.cs">
+      <DependentUpon>FQuanLyNguoiDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="FQuanLySanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FOrder.resx">
       <DependentUpon>FOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FQuanLyNguoiDung.resx">
+      <DependentUpon>FQuanLyNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FQuanLySanPham.resx">
       <DependentUpon>FQuanLySanPham.cs</DependentUpon>
@@ -194,6 +203,7 @@
     <None Include="Resources\logo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\group %281%29.png" />
     <None Include="Resources\iconKFC.png" />
     <None Include="Resources\iconDonHang.png" />
     <None Include="Resources\iconBieuDo1.jpg" />
