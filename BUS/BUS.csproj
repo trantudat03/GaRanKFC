@@ -58,6 +58,7 @@
     <Compile Include="QLChiTietDonHang_BUS.cs" />
     <Compile Include="QLChiTietThanhToan_BUS.cs" />
     <Compile Include="QLChucVu_BUS.cs" />
+    <Compile Include="QLDieuKien_BUS.cs" />
     <Compile Include="QLDonHang_BUS.cs" />
     <Compile Include="QLKhachHang_BUS.cs" />
     <Compile Include="QLKhuyenMai_BUS.cs" />

@@ -48,7 +48,6 @@
             this.txb_TenDangNhap = new System.Windows.Forms.TextBox();
             this.btn_Thoat = new System.Windows.Forms.Button();
             this.txb_SoDienThoai = new System.Windows.Forms.TextBox();
-            this.lbl_ThongBao = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmb_TrangThai = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
+            this.lbl_ThongBao = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -295,16 +295,6 @@
             this.txb_SoDienThoai.Size = new System.Drawing.Size(178, 28);
             this.txb_SoDienThoai.TabIndex = 20;
             // 
-            // lbl_ThongBao
-            // 
-            this.lbl_ThongBao.AutoSize = true;
-            this.lbl_ThongBao.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ThongBao.Location = new System.Drawing.Point(11, 385);
-            this.lbl_ThongBao.Name = "lbl_ThongBao";
-            this.lbl_ThongBao.Size = new System.Drawing.Size(122, 26);
-            this.lbl_ThongBao.TabIndex = 19;
-            this.lbl_ThongBao.Text = "Thong Bao";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -451,7 +441,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(6, 257);
+            this.btn_Xoa.Location = new System.Drawing.Point(26, 257);
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(130, 63);
@@ -462,7 +452,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.Location = new System.Drawing.Point(6, 158);
+            this.btn_Sua.Location = new System.Drawing.Point(26, 149);
             this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(130, 63);
@@ -473,7 +463,7 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.Location = new System.Drawing.Point(6, 54);
+            this.btn_Them.Location = new System.Drawing.Point(26, 27);
             this.btn_Them.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(130, 63);
@@ -481,6 +471,16 @@
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
+            // 
+            // lbl_ThongBao
+            // 
+            this.lbl_ThongBao.AutoSize = true;
+            this.lbl_ThongBao.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThongBao.Location = new System.Drawing.Point(11, 385);
+            this.lbl_ThongBao.Name = "lbl_ThongBao";
+            this.lbl_ThongBao.Size = new System.Drawing.Size(122, 26);
+            this.lbl_ThongBao.TabIndex = 19;
+            this.lbl_ThongBao.Text = "Thong Bao";
             // 
             // tabPage2
             // 

@@ -32,6 +32,10 @@ namespace DAO.Models
         [StringLength(25)]
         public string MADIEUKIEN { get; set; }
 
+        public DateTime? NGAYBATDAU { get; set; }
+
+        public DateTime? NGAYKETTHUC { get; set; }
+
         public virtual DIEUKIEN DIEUKIEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

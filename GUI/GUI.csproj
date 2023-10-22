@@ -69,6 +69,12 @@
     <Compile Include="FHuyDon.Designer.cs">
       <DependentUpon>FHuyDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="FKhuyenMai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FKhuyenMai.Designer.cs">
+      <DependentUpon>FKhuyenMai.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FHuyDon.resx">
       <DependentUpon>FHuyDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FKhuyenMai.resx">
+      <DependentUpon>FKhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>

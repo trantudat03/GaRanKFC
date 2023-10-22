@@ -96,6 +96,7 @@
             this.btn_QLKhuyenMai.Text = "Khuyễn Mãi";
             this.btn_QLKhuyenMai.UseMnemonic = false;
             this.btn_QLKhuyenMai.UseVisualStyleBackColor = false;
+            this.btn_QLKhuyenMai.Click += new System.EventHandler(this.btn_QLKhuyenMai_Click);
             // 
             // btn_ThongKe
             // 
@@ -127,6 +128,7 @@
             this.btn_QLKhachHang.Text = "Khách Hàng";
             this.btn_QLKhachHang.UseMnemonic = false;
             this.btn_QLKhachHang.UseVisualStyleBackColor = false;
+            this.btn_QLKhachHang.Click += new System.EventHandler(this.btn_QLKhachHang_Click);
             // 
             // btn_QLNguoiDung
             // 

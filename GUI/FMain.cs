@@ -20,6 +20,7 @@ namespace GUI
         public static int checkPage = 0;
         public static FThongTinChung fThongTinChung = new FThongTinChung();
         public static FQuanLyNguoiDung fNguoiDung = new FQuanLyNguoiDung();
+        public static FKhuyenMai fKhuyenMai = new FKhuyenMai();
         public FMain()
         {
             InitializeComponent();
@@ -152,8 +153,12 @@ namespace GUI
 
         private void btn_QLSanPham_Click(object sender, EventArgs e)
         {
-
-            setMainPanel(formSanPham);
+            if(checkPage!=2)
+            {
+                setMainPanel(formSanPham);
+                checkPage = 2;
+            }
+            
         }
 
         private void btn_QLNguoiDung_Click(object sender, EventArgs e)
@@ -164,6 +169,20 @@ namespace GUI
                 checkPage = 3;
             }
             
+        }
+
+        private void btn_QLKhachHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_QLKhuyenMai_Click(object sender, EventArgs e)
+        {
+            if(checkPage!= 5)
+            {
+                addUserControl(fKhuyenMai);
+                checkPage = 5;
+            }
         }
     }
 }

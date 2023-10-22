@@ -19,6 +19,10 @@ namespace DTO
 
         public DieuKien_DTO DIEUKIEN { get; set; }
 
+        public string NGAYBATDAU { get; set; }
+
+        public string NGAYKETTHUC { get; set; }
+
         public KhuyenMai_DTO()
         {
             this.MAKHUYENMAI = "";
@@ -27,6 +31,8 @@ namespace DTO
             this.SOTIENGIAM = 0;
             this.SOTIENGIAMTOIDA = 0;
             this.MADIEUKIEN = "";
+            this.NGAYBATDAU = "";
+            this.NGAYKETTHUC = "";
             this.DIEUKIEN  = new DieuKien_DTO();
         }
     }
