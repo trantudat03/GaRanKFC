@@ -25,7 +25,7 @@ namespace DTO
 
         public KhuyenMai_DTO()
         {
-            this.MAKHUYENMAI = "";
+            this.MAKHUYENMAI = string.Empty;
             this.TENKHUYENMAI = "";
             this.PHANTRAM = 0;
             this.SOTIENGIAM = 0;

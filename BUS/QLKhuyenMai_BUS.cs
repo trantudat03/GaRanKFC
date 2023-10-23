@@ -116,10 +116,14 @@ namespace BUS
                         //KhuyenMai_DTO item = new KhuyenMai_DTO();
                         listKM.ForEach(k =>
                         {
-                            if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
+                            if(k.MAKHUYENMAI != "0")
                             {
-                                listTheoDieuKien.Add(k);
+                                if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
+                                {
+                                    listTheoDieuKien.Add(k);
+                                }
                             }
+                            
                         });
                     }
                     else
@@ -128,17 +132,21 @@ namespace BUS
                         {
                             if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
                             {
-                                KhuyenMai_DTO item = new KhuyenMai_DTO();
-                                item.MAKHUYENMAI = k.MAKHUYENMAI;
-                                item.TENKHUYENMAI = k.TENKHUYENMAI;
-                                item.PHANTRAM = (int)k.PHANTRAM;
-                                item.SOTIENGIAM = (int)k.SOTIENGIAM;
-                                item.SOTIENGIAMTOIDA = (int)k.SOTIENGIAMTOIDA;
-                                item.MADIEUKIEN = k.MADIEUKIEN;
-                                item.DIEUKIEN.TENDIEUKIEN = k.DIEUKIEN.TENDIEUKIEN;
-                                item.DIEUKIEN.MADIEUKIEN = k.MADIEUKIEN;
-                                if (item.MAKHUYENMAI != "")
-                                    listTheoDieuKien.Add(item);
+                                if(k.MAKHUYENMAI != "0")
+                                {
+                                    KhuyenMai_DTO item = new KhuyenMai_DTO();
+                                    item.MAKHUYENMAI = k.MAKHUYENMAI;
+                                    item.TENKHUYENMAI = k.TENKHUYENMAI;
+                                    item.PHANTRAM = (int)k.PHANTRAM;
+                                    item.SOTIENGIAM = (int)k.SOTIENGIAM;
+                                    item.SOTIENGIAMTOIDA = (int)k.SOTIENGIAMTOIDA;
+                                    item.MADIEUKIEN = k.MADIEUKIEN;
+                                    item.DIEUKIEN.TENDIEUKIEN = k.DIEUKIEN.TENDIEUKIEN;
+                                    item.DIEUKIEN.MADIEUKIEN = k.MADIEUKIEN;
+                                    if (item.MAKHUYENMAI != "")
+                                        listTheoDieuKien.Add(item);
+                                }
+                               
                             }
                         });
                     }

@@ -301,7 +301,7 @@
             this.panel_KhuyenMai.Controls.Add(this.label10);
             this.panel_KhuyenMai.Location = new System.Drawing.Point(43, 51);
             this.panel_KhuyenMai.Name = "panel_KhuyenMai";
-            this.panel_KhuyenMai.Size = new System.Drawing.Size(197, 61);
+            this.panel_KhuyenMai.Size = new System.Drawing.Size(197, 374);
             this.panel_KhuyenMai.TabIndex = 3;
             // 
             // panel_KhuyenMaiDS

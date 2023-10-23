@@ -21,8 +21,7 @@ namespace GUI
     {
         public FOrder()
         {
-            InitializeComponent();
-            
+            InitializeComponent();      
         }
 
         public static List<SanPham_DTO> listSP = new List<SanPham_DTO>();
@@ -37,6 +36,7 @@ namespace GUI
         private static int checkMenu = 1;
         private static int donCuaNgay = 0;
         private static bool checkThanhToan = false;
+        public static NguoiDung_DTO user = new NguoiDung_DTO();
         
         private void FOrder_Load(object sender, EventArgs e)
         {
@@ -49,6 +49,12 @@ namespace GUI
 
             //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
         }
+
+        public void setUser(NguoiDung_DTO u)
+        {
+            FOrder.user = u;
+        }
+        
 
         private void setStyle()
         {
@@ -884,7 +890,7 @@ namespace GUI
                 else
                 {
                     KhuyenMai_DTO km = new KhuyenMai_DTO();
-                    NguoiDung_DTO user = new NguoiDung_DTO(); // test user
+                    // test user
                     fthanhToan = new FThanhToan(khachHang, thanhTien,km,listOrder, user);
                     fthanhToan.FormClosed += fThanhToanClose;
                     fthanhToan.ShowDialog();
@@ -1007,7 +1013,7 @@ namespace GUI
             {
                 km = new KhuyenMai_DTO();
             }
-            NguoiDung_DTO user = new NguoiDung_DTO();
+            //NguoiDung_DTO user = new NguoiDung_DTO();
             fthanhToan = new FThanhToan(khachHang,thanhTien,km,listOrder, user);
             fthanhToan.FormClosed += fThanhToanClose;
             fthanhToan.ShowDialog();

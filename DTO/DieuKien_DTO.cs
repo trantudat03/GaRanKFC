@@ -14,12 +14,15 @@ namespace DTO
 
         public int GIATRIDONHANG { get; set; }
 
+        public int SOKHUYENMAI { get; set; }
+
         public DieuKien_DTO() 
         {
-            this.MADIEUKIEN = "";
+            this.MADIEUKIEN = string.Empty;
             this.TENDIEUKIEN = "";
             this.DIEMTOITHIEU = 0;
             this.GIATRIDONHANG = 0;
+            this.SOKHUYENMAI = 0;
         }
     }
 }

@@ -27,7 +27,8 @@ namespace GUI
 
         private void FDangNhap_Load(object sender, EventArgs e)
         {
-
+            txb_TenDangNhap.Text = "admin";
+            txb_MatKhau.Text = "12345";
         }
 
         private void hienThongBao(Control control, string text, Color color)
@@ -97,7 +98,7 @@ namespace GUI
             {
                 NguoiDung_DTO user = new NguoiDung_DTO();
                 
-                user = users.Where(s=> s.TENDANGNHAP ==txb_TenDangNhap.Text && s.MATKHAU == txb_MatKhau.Text).FirstOrDefault();
+                user = users.Where(s=> s.TENDANGNHAP ==txb_TenDangNhap.Text && s.MATKHAU == txb_MatKhau.Text && s.MATRANGTHAI == "2").FirstOrDefault();
                 if(user != null)
                 {
                     hienThongBao(lbl_ThongBao, "Đăng nhập thành công!", Color.Green);
@@ -151,6 +152,11 @@ namespace GUI
         private void lbl_QuenMK_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FDangNhap_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

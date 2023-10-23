@@ -46,6 +46,7 @@
             this.panel_Header = new System.Windows.Forms.Panel();
             this.lbl_logout = new System.Windows.Forms.Label();
             this.lbl_UserName = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_sideBar.SuspendLayout();
             this.panel_QuanLy.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -53,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroup.SuspendLayout();
             this.panel_Header.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_sideBar
@@ -253,8 +255,7 @@
             // 
             // panel_Header
             // 
-            this.panel_Header.Controls.Add(this.lbl_logout);
-            this.panel_Header.Controls.Add(this.lbl_UserName);
+            this.panel_Header.Controls.Add(this.panel1);
             this.panel_Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Header.Location = new System.Drawing.Point(0, 0);
             this.panel_Header.Name = "panel_Header";
@@ -266,21 +267,32 @@
             this.lbl_logout.AutoSize = true;
             this.lbl_logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_logout.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_logout.Location = new System.Drawing.Point(1040, 86);
+            this.lbl_logout.Location = new System.Drawing.Point(44, 35);
             this.lbl_logout.Name = "lbl_logout";
             this.lbl_logout.Size = new System.Drawing.Size(82, 19);
             this.lbl_logout.TabIndex = 1;
             this.lbl_logout.Text = "Đăng xuất";
+            this.lbl_logout.Click += new System.EventHandler(this.lbl_logout_Click);
             // 
             // lbl_UserName
             // 
             this.lbl_UserName.AutoSize = true;
             this.lbl_UserName.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_UserName.Location = new System.Drawing.Point(999, 38);
+            this.lbl_UserName.Location = new System.Drawing.Point(3, 9);
             this.lbl_UserName.Name = "lbl_UserName";
             this.lbl_UserName.Size = new System.Drawing.Size(123, 26);
             this.lbl_UserName.TabIndex = 0;
             this.lbl_UserName.Text = "UserName";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbl_UserName);
+            this.panel1.Controls.Add(this.lbl_logout);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1018, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(134, 143);
+            this.panel1.TabIndex = 2;
             // 
             // FMain
             // 
@@ -293,7 +305,9 @@
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FMain";
-            this.Text = "Form1";
+            this.Text = "Gà Rán Mang Về";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FMain_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FMain_FormClosed);
             this.Load += new System.EventHandler(this.FMain_Load);
             this.panel_sideBar.ResumeLayout(false);
             this.panel_QuanLy.ResumeLayout(false);
@@ -302,7 +316,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelGroup.ResumeLayout(false);
             this.panel_Header.ResumeLayout(false);
-            this.panel_Header.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -327,6 +342,7 @@
         private System.Windows.Forms.Button btn_QLKhachHang;
         private System.Windows.Forms.Button btn_QLNguoiDung;
         private System.Windows.Forms.Button btn_QLKhuyenMai;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

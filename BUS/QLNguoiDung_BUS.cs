@@ -51,7 +51,8 @@ namespace BUS
                         newP.TENTRANGTHAI = n.TRANGTHAINGUOIDUNG.TENTRANGTHAI;
                         newP.SODIENTHOAI = n.SODIENTHOAI;
                         newP.EMAIL = n.EMAIL;
-                        
+                        newP.MATRANGTHAI = n.MATRANGTHAI;
+                        newP.TENTRANGTHAI = n.TRANGTHAINGUOIDUNG.TENTRANGTHAI;
                         list.Add(newP);
                     }
                 });

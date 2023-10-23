@@ -20,9 +20,17 @@ namespace GUI
         public static int indexRowClickKM = -1;
         public static KhuyenMai_DTO selectItem;
         public static int checkChucNang = 0;
+
+        public static int indexRowClickDK = -1;
+        public static DieuKien_DTO selectItemDK;
+        public static int checkChucNangDK = 0;
+        public static bool checkChangeInUserControl = false;
         public FKhuyenMai()
         {
             InitializeComponent();
+            setDataGirdView(QLKhuyenMai_BUS.layDuLieu());
+            setCMB();
+            setDataGridViewDK(QLDieuKien_BUS.layThemSoLuongKhuyenMai());
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -37,13 +45,29 @@ namespace GUI
 
         private void FKhuyenMai_Load(object sender, EventArgs e)
         {
+
             
-            setDataGirdView(QLKhuyenMai_BUS.layDuLieu());
-            setCMB();
             setDefaut();
+            setDefautPage2();
             lbl_ThongBao.Text = string.Empty;
+            lbl_ThongBao2.Text = string.Empty;
         }
 
+
+        private void reLoadPage1()
+        {
+            setDataGirdView(QLKhuyenMai_BUS.layDuLieu());
+            setDefaut();
+            setCMB();
+            checkChangeInUserControl = false;
+        }
+
+        private void reLoadPage2()
+        {
+            setDataGridViewDK(QLDieuKien_BUS.layThemSoLuongKhuyenMai());
+            checkChangeInUserControl = false;
+            setDefautPage2();
+        }
         private void setDefaut()
         {
             groupBoxControl.Visible = true;
@@ -58,6 +82,16 @@ namespace GUI
             nud_PhanTram.Value = 0;
             dtp_NgayBatDau.Value = dtp_NgayKetThuc.Value = DateTime.Now;
 
+        }
+
+        private void setDefautPage2()
+        {
+            checkChucNangDK = 0;
+            indexRowClickDK = -1;
+            selectItemDK = new DieuKien_DTO();
+            txb_TenDieuKien.Text = string.Empty;
+            nud_DiemThoiThieu.Value= 0;
+            nud_TienToiThieu.Value = 0;
         }
 
         private void setCMB()
@@ -376,7 +410,9 @@ namespace GUI
                             if (xoaKhuyenMai() == 1)
                             {
                                 hienThongBao(lbl_ThongBao, $"Xóa {selectItem.TENKHUYENMAI} Thành Công", Color.Red);
+                                checkChangeInUserControl = true;
                                 setDefaut();
+                                
                             }
                             else
                             {
@@ -401,6 +437,7 @@ namespace GUI
                                     {
                                         setDefaut();
                                         hienThongBao(lbl_ThongBao, "Thêm Khuyễn Mãi Thành Công ", Color.Green);
+                                        checkChangeInUserControl = true;
                                     }
                                     else
                                     {
@@ -415,6 +452,7 @@ namespace GUI
                                         {
                                             setDefaut();
                                             hienThongBao(lbl_ThongBao, "Sửa Khuyễn Mãi Thành Công ", Color.Green);
+                                            checkChangeInUserControl = true;
 
                                         }
                                         else
@@ -462,6 +500,249 @@ namespace GUI
             }
         }
 
-        
+
+
+
+        // page 2
+
+
+        private void setDataGridViewDK(List<DieuKien_DTO> list)
+        {
+            dgv_DanhSachDK.Rows.Clear();
+            if(list.Count >0)
+            {
+                int index = 0;
+                list.ForEach(d =>
+                {
+                    dgv_DanhSachDK.Rows.Add(d.MADIEUKIEN, d.TENDIEUKIEN, d.DIEMTOITHIEU, d.GIATRIDONHANG, d.SOKHUYENMAI);
+                    dgv_DanhSachDK.Rows[index].Tag = d;
+                    index++;
+                });
+            }
+        }
+
+        private void dgv_DanhSachDK_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >=0)
+            {
+                indexRowClickDK = e.RowIndex;
+                selectItemDK = new DieuKien_DTO();
+                selectItemDK = dgv_DanhSachDK.Rows[e.RowIndex].Tag as DieuKien_DTO;
+                txb_TenDieuKien.Text = dgv_DanhSachDK.Rows[e.RowIndex].Cells[1].Value.ToString();
+                nud_DiemThoiThieu.Value = int.Parse(dgv_DanhSachDK.Rows[e.RowIndex].Cells[2].Value.ToString());
+                nud_TienToiThieu.Value = int.Parse(dgv_DanhSachDK.Rows[e.RowIndex].Cells[3].Value.ToString());
+
+            }
+        }
+
+        private void addRowDK(DieuKien_DTO item)
+        {
+            
+            dgv_DanhSachDK.Rows.Add(item.MADIEUKIEN, item.TENDIEUKIEN, item.DIEMTOITHIEU, item.GIATRIDONHANG, item.SOKHUYENMAI);
+            dgv_DanhSachKM.Rows[dgv_DanhSachKM.RowCount - 1].Tag = item;
+        }
+
+        private int themDieuKien(DieuKien_DTO item)
+        {
+            if(item!=null)
+            {
+                item = QLDieuKien_BUS.themDieuKien(item);
+                if(item.MADIEUKIEN != string.Empty)
+                {
+                    addRowDK(item);
+                    return 1;
+                }
+            }            
+            return 0;
+        }
+
+
+        private bool checkNullPage2()
+        {
+            if(txb_TenDieuKien.Text == string.Empty)
+                return false;
+            if(nud_DiemThoiThieu.Value == 0 && nud_TienToiThieu.Value == 0)
+                return false;
+            return true;
+        }
+
+
+        private void updateRowDk(int index, DieuKien_DTO item)
+        {
+            if(index >=0 && item.MADIEUKIEN != string.Empty)
+            {
+                dgv_DanhSachDK.Rows[indexRowClickDK].Cells[0].Value = item.MADIEUKIEN;
+                dgv_DanhSachDK.Rows[indexRowClickDK].Cells[1].Value = item.TENDIEUKIEN;
+                dgv_DanhSachDK.Rows[indexRowClickDK].Cells[2].Value = item.DIEMTOITHIEU;
+                dgv_DanhSachDK.Rows[indexRowClickDK].Cells[3].Value = item.GIATRIDONHANG;
+                dgv_DanhSachDK.Rows[indexRowClickDK].Cells[4].Value = item.SOKHUYENMAI;
+            }
+        }
+        private int suaDieuKien(DieuKien_DTO item)
+        {
+            if(item.MADIEUKIEN!= string.Empty)
+            {
+                item = QLDieuKien_BUS.suaDieuKien(item);
+                if(item!=null)
+                {
+                    updateRowDk(indexRowClickDK, item);
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        private void deleteRowDK()
+        {
+            if(indexRowClickDK>=0)
+            {
+                dgv_DanhSachDK.Rows.RemoveAt(indexRowClickDK);
+            }
+        }
+
+        private int xoaDieuKien(DieuKien_DTO item)
+        {
+            if(item.MADIEUKIEN!= string.Empty)
+            {
+                if (QLDieuKien_BUS.xoaDieuKien(item) == 1)
+                {
+                    deleteRowDK();
+                    return 1;
+                }
+            }
+            
+            return 0;
+        }
+        private void btn_XacNhanDK_Click(object sender, EventArgs e)
+        {
+            
+            if(checkChucNangDK!=0)
+            {
+                if(checkChucNangDK == 3 && selectItemDK.MADIEUKIEN != string.Empty)
+                {
+                    if(QLDieuKien_BUS.kiemTraCoTheXoa(selectItemDK))
+                    {
+
+                        DialogResult result = MessageBox.Show($"Bạn có đồng ý xóa Khuyễn Mãi {selectItem.TENKHUYENMAI}",
+                        "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            if (xoaDieuKien(selectItemDK) == 1)// xoa thanh cong
+                            {
+                                hienThongBao(lbl_ThongBao2, "Xóa điều kiện khuyễn mãi thành công", Color.Green);
+                                setDefautPage2();
+                                checkChangeInUserControl = true;
+                            }
+                            else
+                            {
+                                hienThongBao(lbl_ThongBao2, "Xóa điều kiện khuyễn mãi thất bại", Color.Red);
+                            }
+                        }
+                        
+                    }
+                    else
+                    {
+                        hienThongBao(lbl_ThongBao2, $"Điều kiện khuyễn mãi {selectItem.TENKHUYENMAI} không thể xóa", Color.Red);
+                    }
+                }
+                else
+                {
+                    if (checkNullPage2())
+                    {
+                        if (checkChucNangDK == 1)// chuc nang them
+                        {
+                            DieuKien_DTO item = new DieuKien_DTO();
+                            item.TENDIEUKIEN = txb_TenDieuKien.Text;
+                            item.DIEMTOITHIEU = (int)nud_DiemThoiThieu.Value;
+                            item.GIATRIDONHANG = (int)nud_TienToiThieu.Value;
+                            if (themDieuKien(item) == 1)
+                            {
+                                hienThongBao(lbl_ThongBao2, "Thêm điều kiện khuyễn mãi thành công", Color.Green);
+                                setDefautPage2();
+                                checkChangeInUserControl = true;
+                            }
+                            else
+                            {
+                                hienThongBao(lbl_ThongBao2, "Thêm điều kiện khuyễn mãi thất bại", Color.Red);
+                            }
+                        }
+                        else
+                        {
+                            if (checkChucNangDK == 2 && selectItemDK.MADIEUKIEN != string.Empty)
+                            {
+                                selectItemDK.TENDIEUKIEN = txb_TenDieuKien.Text;
+                                selectItemDK.DIEMTOITHIEU = (int)nud_DiemThoiThieu.Value;
+                                selectItemDK.GIATRIDONHANG = (int)nud_TienToiThieu.Value;
+                                if (suaDieuKien(selectItemDK) == 1)
+                                {
+                                    hienThongBao(lbl_ThongBao2, "Sửa điều kiện khuyễn mãi thành công", Color.Green);
+                                    setDefautPage2();
+                                    checkChangeInUserControl = true;
+                                }
+                                else
+                                {
+                                    hienThongBao(lbl_ThongBao2, "Sửa điều kiện khuyễn mãi thất bại", Color.Red);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        hienThongBao(lbl_ThongBao2, "Nhập đầy đủ thông tin", Color.Red);
+                    }
+                }
+               
+                
+            }
+            else
+            {
+                hienThongBao(lbl_ThongBao2, "Vui Lòng Chọn Chức Năng", Color.Red);
+            }
+        }
+
+        private void btn_ThemDieuKien_Click(object sender, EventArgs e)
+        {
+            if(checkChucNangDK!=1)
+            {
+                checkChucNangDK = 1;
+                hienThongBao(lbl_ThongBao2,"Chức Năng Thêm", Color.Green);
+            }
+        }
+
+        private void btn_SuaDieuKien_Click(object sender, EventArgs e)
+        {
+            if(checkChucNangDK!= 2)
+            {
+                checkChucNangDK = 2;
+                hienThongBao(lbl_ThongBao2, "Chức Năng Sửa", Color.Green);
+            }
+        }
+
+        private void btn_XoaDieuKien_Click(object sender, EventArgs e)
+        {
+            if (checkChucNangDK != 3)
+            {
+                checkChucNangDK = 3;
+                hienThongBao(lbl_ThongBao2, "Chức Năng Xóa", Color.Green);
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            
+            if(checkChangeInUserControl)
+            {
+                if(tabControl1.SelectedIndex == 0)
+                {
+                    reLoadPage1();
+
+                }
+                else
+                {
+                    reLoadPage2();
+                }
+            }
+        }
     }
 }

@@ -15,12 +15,13 @@ namespace GUI
         FOrder formOrder;
         FThongKe formThongKe = new FThongKe();
         FQuanLySanPham formSanPham = new FQuanLySanPham();
-        private static NguoiDung_DTO user = new NguoiDung_DTO();
+        public static NguoiDung_DTO user = new NguoiDung_DTO();
         public static bool checkThayDoi = false;
         public static int checkPage = 0;
         public static FThongTinChung fThongTinChung = new FThongTinChung();
         public static FQuanLyNguoiDung fNguoiDung = new FQuanLyNguoiDung();
         public static FKhuyenMai fKhuyenMai = new FKhuyenMai();
+
         public FMain()
         {
             InitializeComponent();
@@ -31,12 +32,18 @@ namespace GUI
         {
             InitializeComponent();
             user = u;
+            lbl_UserName.Text = u.TENNGUOIDUNG;
+        }
+
+        public NguoiDung_DTO getUser()
+        {
+            return user;
         }
 
         private void setStyle()
         {
             lbl_UserName.ForeColor = Color.White;
-            lbl_logout.ForeColor = Color.Blue;
+            lbl_logout.ForeColor = Color.BlueViolet;
             panel_Header.BackColor = Color.FromArgb(167, 0, 0);
             panel_sideBar.BackColor = Color.FromArgb(167, 0, 0);
             setStyleTasbar(btn_Order);
@@ -78,15 +85,12 @@ namespace GUI
         {
             setStyle();
             formOrder = new FOrder();
+            formOrder.setUser(user);
             panelMain.Controls.Add(formOrder);
             formOrder.Dock = DockStyle.Fill;
             setDefaut();
         }
 
-        public NguoiDung_DTO getUser()
-        {
-            return user;
-        }
 
         public void setDefaut()
         {
@@ -182,6 +186,50 @@ namespace GUI
             {
                 addUserControl(fKhuyenMai);
                 checkPage = 5;
+            }
+        }
+
+        private void FMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FDangNhap fDangNhap = new FDangNhap();
+            fDangNhap.Show();
+        }
+
+        private void lbl_logout_Click(object sender, EventArgs e)
+        {
+            if(formOrder.getListOrder().Count>0)
+            {
+                MessageBox.Show("Vui Lòng Hoàn Thành Xong Đơn Hàng");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn đăng xuất",
+     "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }  
+        }
+
+        private void FMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (formOrder.getListOrder().Count > 0)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Vui Lòng Hoàn Thành Xong Đơn Hàng");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn thoát",
+     "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    //this.Close();
+                }else
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

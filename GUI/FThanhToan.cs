@@ -370,7 +370,7 @@ namespace GUI
                     }
                     donHang.TONGGIA = thanhTien;
 
-                    donHang.MANGUOIDUNG = "1";// test user
+                    donHang.MANGUOIDUNG = user.MANGUOIDUNG;// test user
                     donHang.SOLUONGSP = listOrder.Count; // test so luong don 
                     DateTime currentTime = DateTime.Now;
                     donHang.THOIGIAN = currentTime.ToString("yyyy-MM-dd HH:mm:ss");
