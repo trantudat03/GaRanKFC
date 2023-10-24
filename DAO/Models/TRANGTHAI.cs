@@ -16,8 +16,8 @@ namespace DAO.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDTRANGTHAI { get; set; }
+        [StringLength(25)]
+        public string MATRANGTHAI { get; set; }
 
         [StringLength(255)]
         public string TENTRANGTHAI { get; set; }

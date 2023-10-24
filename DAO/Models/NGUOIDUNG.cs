@@ -26,6 +26,12 @@ namespace DAO.Models
         [StringLength(20)]
         public string TENDANGNHAP { get; set; }
 
+        [StringLength(255)]
+        public string EMAIL { get; set; }
+
+        [StringLength(12)]
+        public string SODIENTHOAI { get; set; }
+
         [StringLength(20)]
         public string MATKHAU { get; set; }
 
@@ -33,12 +39,7 @@ namespace DAO.Models
         [StringLength(25)]
         public string MACHUCVU { get; set; }
 
-        [StringLength(255)]
-        public string EMAIL { get; set; }
-
-        [StringLength(12)]
-        public string SODIENTHOAI { get; set; }
-
+        [Required]
         [StringLength(25)]
         public string MATRANGTHAI { get; set; }
 

@@ -36,6 +36,8 @@ namespace DAO.Models
 
         public DateTime? THOIGIAN { get; set; }
 
+        public int? GIATRIKHUYENMAI { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
 

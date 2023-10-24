@@ -9,12 +9,12 @@ namespace DTO
 {
     public class TrangThaiSP_DTO
     {
-        public int IDTRANGTHAI { get; set; }
+        public string MATRANGTHAI { get; set; }
         public string TENTRANGTHAI { get; set; }
 
         public TrangThaiSP_DTO()
         {
-            IDTRANGTHAI = -1;
+            MATRANGTHAI = "0";
             TENTRANGTHAI = null;
         }
     }

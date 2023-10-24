@@ -28,6 +28,7 @@ namespace DAO.Models
         public virtual DbSet<PHUONGTHUCTHANHTOAN> PHUONGTHUCTHANHTOANs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<SANPHAMHANGNGAY> SANPHAMHANGNGAYs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THONGBAOHANGNGAY> THONGBAOHANGNGAYs { get; set; }
         public virtual DbSet<TRANGTHAI> TRANGTHAIs { get; set; }
         public virtual DbSet<TRANGTHAINGUOIDUNG> TRANGTHAINGUOIDUNGs { get; set; }
@@ -175,19 +176,19 @@ namespace DAO.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
-                .Property(e => e.MATKHAU)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NGUOIDUNG>()
-                .Property(e => e.MACHUCVU)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NGUOIDUNG>()
                 .Property(e => e.EMAIL)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
                 .Property(e => e.SODIENTHOAI)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
+                .Property(e => e.MATKHAU)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
+                .Property(e => e.MACHUCVU)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
@@ -226,6 +227,10 @@ namespace DAO.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<SANPHAM>()
+                .Property(e => e.MATRANGTHAI)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<SANPHAM>()
                 .HasMany(e => e.CHITIETCOMBOes)
                 .WithRequired(e => e.SANPHAM)
                 .WillCascadeOnDelete(false);
@@ -256,9 +261,18 @@ namespace DAO.Models
                 .Property(e => e.MANGUOIDUNG)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<TRANGTHAI>()
+                .Property(e => e.MATRANGTHAI)
+                .IsUnicode(false);
+
             modelBuilder.Entity<TRANGTHAINGUOIDUNG>()
                 .Property(e => e.MATRANGTHAI)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<TRANGTHAINGUOIDUNG>()
+                .HasMany(e => e.NGUOIDUNGs)
+                .WithRequired(e => e.TRANGTHAINGUOIDUNG)
+                .WillCascadeOnDelete(false);
         }
     }
 }

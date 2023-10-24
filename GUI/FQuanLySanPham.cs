@@ -57,7 +57,7 @@ namespace GUI
             {
                 cmb_SuaTrangThai.DataSource = QLTrangThai_BUS.layDuLieu();
                 cmb_SuaTrangThai.DisplayMember = "TENTRANGTHAI";
-                cmb_SuaTrangThai.ValueMember = "IDTRANGTHAI";
+                cmb_SuaTrangThai.ValueMember = "MATRANGTHAI";
 
             }
 
@@ -73,7 +73,7 @@ namespace GUI
             {
                 cmb_TrangThai.DataSource = QLTrangThai_BUS.layDuLieu();
                 cmb_TrangThai.DisplayMember = "TENTRANGTHAI";
-                cmb_TrangThai.ValueMember = "IDTRANGTHAI";
+                cmb_TrangThai.ValueMember = "MATRANGTHAI";
 
             }
             cmb_TrangThai.SelectedIndex = 0;
@@ -267,7 +267,7 @@ namespace GUI
                 item.TENSANPHAM = txb_TenSanPham.Text;
                 item.MASANPHAM = "1";
                 item.MALOAISP = cmb_LoaiSanPham.SelectedValue.ToString();
-                item.IDTRANGTHAI = int.Parse(cmb_TrangThai.SelectedValue.ToString());
+                item.MATRANGTHAI = cmb_TrangThai.SelectedValue.ToString();
                 item.ANHSANPHAM = linkImg;
                 item.GIASANPHAM = int.Parse(txb_GiaSanPham.Text);
                 item.THOIHAN = (int)nud_HanSanPham.Value;
@@ -382,8 +382,8 @@ namespace GUI
                
                     SPSelect.TENSANPHAM = txb_SuaTenSP.Text;
                     SPSelect.MALOAISP = cmb_SuaLoaiSP.SelectedValue.ToString();
-                    SPSelect.IDTRANGTHAI = int.Parse(cmb_SuaTrangThai.SelectedValue.ToString());
-                    SPSelect.TRANGTHAI.IDTRANGTHAI = int.Parse(cmb_SuaTrangThai.SelectedValue.ToString());
+                    SPSelect.MATRANGTHAI = cmb_SuaTrangThai.SelectedValue.ToString();
+                    SPSelect.TRANGTHAI.MATRANGTHAI = cmb_SuaTrangThai.SelectedValue.ToString();
                     SPSelect.TRANGTHAI.TENTRANGTHAI = cmb_SuaTrangThai.Text;
                     SPSelect.LoaiSanPham.MALOAISP = cmb_SuaLoaiSP.SelectedValue.ToString();
                     SPSelect.LoaiSanPham.TENLOAISP = cmb_SuaLoaiSP.Text;

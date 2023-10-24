@@ -47,9 +47,9 @@ namespace BUS
                 sp.SOLUONG = int.Parse(s.SOLUONG.ToString());
                 sp.LoaiSanPham.TENLOAISP = s.LOAISANPHAM.TENLOAISP;
                 sp.LoaiSanPham.MALOAISP = s.LOAISANPHAM.MALOAISP.ToString();
-                sp.IDTRANGTHAI = (int)s.IDTRANGTHAI;
+                sp.MATRANGTHAI = s.MATRANGTHAI;
                 sp.TRANGTHAI.TENTRANGTHAI = s.TRANGTHAI.TENTRANGTHAI;
-                sp.TRANGTHAI.IDTRANGTHAI = s.TRANGTHAI.IDTRANGTHAI;
+                sp.TRANGTHAI.MATRANGTHAI = s.TRANGTHAI.MATRANGTHAI;
                 list.Add(sp);
             });
 
@@ -96,7 +96,7 @@ namespace BUS
                     sp.LoaiSanPham.TENLOAISP = s.LOAISANPHAM.TENLOAISP;
                     sp.LoaiSanPham.MALOAISP = s.LOAISANPHAM.MALOAISP.ToString();
                     sp.TRANGTHAI.TENTRANGTHAI = s.TRANGTHAI.TENTRANGTHAI;
-                    sp.TRANGTHAI.IDTRANGTHAI = s.TRANGTHAI.IDTRANGTHAI;
+                    sp.TRANGTHAI.MATRANGTHAI = s.TRANGTHAI.MATRANGTHAI;
                     list.Add(sp);
                 }
                 
@@ -114,7 +114,7 @@ namespace BUS
                 newSP.TENSANPHAM = sanpham.TENSANPHAM;
                 newSP.THOIHAN = sanpham.THOIHAN;
                 newSP.ANHSANPHAM = sanpham.ANHSANPHAM;
-                newSP.IDTRANGTHAI = sanpham.IDTRANGTHAI;
+                newSP.MATRANGTHAI = sanpham.MATRANGTHAI;
                 newSP.SOLUONG = 0;
                 newSP.GIASANPHAM = sanpham.GIASANPHAM;
                 newSP.MALOAISP = sanpham.MALOAISP;
@@ -146,7 +146,7 @@ namespace BUS
                     update.MALOAISP = sp.MALOAISP;
                     update.GIASANPHAM = sp.GIASANPHAM;
                     update.THOIHAN = sp.THOIHAN;
-                    update.IDTRANGTHAI = sp.IDTRANGTHAI;
+                    update.MATRANGTHAI = sp.MATRANGTHAI;
                     update.ANHSANPHAM = sp.ANHSANPHAM;
                     db.SaveChanges();
                     return 1;

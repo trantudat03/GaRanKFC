@@ -37,7 +37,8 @@ namespace DAO.Models
 
         public int? SOLUONG { get; set; }
 
-        public int? IDTRANGTHAI { get; set; }
+        [StringLength(25)]
+        public string MATRANGTHAI { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETCOMBO> CHITIETCOMBOes { get; set; }

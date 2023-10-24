@@ -10,7 +10,7 @@ namespace DTO
     {
         public string MASANPHAM { get; set; }
 
-        public int IDTRANGTHAI { get; set; }
+        public string MATRANGTHAI { get; set; }
 
         public string MALOAISP { get; set; }
 
@@ -44,9 +44,9 @@ namespace DTO
             this.SLORDER = 0;
             this.ANHSANPHAM = null;
             this.NOTE = null;
-            this.IDTRANGTHAI = 0;
+            this.MATRANGTHAI = "0";
             this.LoaiSanPham = new LoaiSanPham_DTO() { MALOAISP = "", TENLOAISP = ""};
-            this.TRANGTHAI = new TrangThaiSP_DTO() { IDTRANGTHAI = 0, TENTRANGTHAI = null};
+            this.TRANGTHAI = new TrangThaiSP_DTO() { MATRANGTHAI = "0", TENTRANGTHAI = null};
         }
     }
 }

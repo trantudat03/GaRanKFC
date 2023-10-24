@@ -32,9 +32,9 @@ namespace DAO.Models
         [StringLength(25)]
         public string MADIEUKIEN { get; set; }
 
-        public DateTime? NGAYBATDAU { get; set; }
-
         public DateTime? NGAYKETTHUC { get; set; }
+
+        public DateTime? NGAYBATDAU { get; set; }
 
         public virtual DIEUKIEN DIEUKIEN { get; set; }
 

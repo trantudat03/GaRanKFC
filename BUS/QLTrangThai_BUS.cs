@@ -19,7 +19,7 @@ namespace BUS
             db.TRANGTHAIs.ToList().ForEach(t =>
             {
                 TrangThaiSP_DTO item = new TrangThaiSP_DTO();
-                item.IDTRANGTHAI = t.IDTRANGTHAI;
+                item.MATRANGTHAI = t.MATRANGTHAI;
                 item.TENTRANGTHAI = t.TENTRANGTHAI;
                 list.Add(item);
             });
