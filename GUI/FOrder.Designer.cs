@@ -72,7 +72,6 @@
             this.btn_ThoatDetail = new System.Windows.Forms.Button();
             this.lbl_GiaSP = new System.Windows.Forms.Label();
             this.lbl_tenSP = new System.Windows.Forms.Label();
-            this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
             this.nub_soLuong = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_CloseDetail = new System.Windows.Forms.Label();
@@ -81,6 +80,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_ThongTin = new System.Windows.Forms.Panel();
             this.lbl_DonHangNgay = new System.Windows.Forms.Label();
+            this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
             this.panel_Type.SuspendLayout();
             this.panel_Group.SuspendLayout();
             this.panel_Control.SuspendLayout();
@@ -92,9 +92,9 @@
             this.panel_KhachHang.SuspendLayout();
             this.panel_ThemKH.SuspendLayout();
             this.panel_Detail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).BeginInit();
             this.panel_ThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Type
@@ -107,7 +107,7 @@
             this.panel_Type.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel_Type.Location = new System.Drawing.Point(0, 0);
             this.panel_Type.Name = "panel_Type";
-            this.panel_Type.Size = new System.Drawing.Size(547, 90);
+            this.panel_Type.Size = new System.Drawing.Size(547, 113);
             this.panel_Type.TabIndex = 1;
             // 
             // txb_Search
@@ -159,9 +159,9 @@
             this.panel_Menu.AutoScroll = true;
             this.panel_Menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_Menu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Menu.Location = new System.Drawing.Point(0, 90);
+            this.panel_Menu.Location = new System.Drawing.Point(0, 113);
             this.panel_Menu.Name = "panel_Menu";
-            this.panel_Menu.Size = new System.Drawing.Size(547, 664);
+            this.panel_Menu.Size = new System.Drawing.Size(547, 641);
             this.panel_Menu.TabIndex = 0;
             this.panel_Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Menu_Paint);
             // 
@@ -608,15 +608,6 @@
             this.lbl_tenSP.TabIndex = 8;
             this.lbl_tenSP.Text = "label4";
             // 
-            // pictureBox_Detail
-            // 
-            this.pictureBox_Detail.Location = new System.Drawing.Point(27, 13);
-            this.pictureBox_Detail.Name = "pictureBox_Detail";
-            this.pictureBox_Detail.Size = new System.Drawing.Size(164, 115);
-            this.pictureBox_Detail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_Detail.TabIndex = 7;
-            this.pictureBox_Detail.TabStop = false;
-            // 
             // nub_soLuong
             // 
             this.nub_soLuong.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -711,6 +702,15 @@
             this.lbl_DonHangNgay.TabIndex = 0;
             this.lbl_DonHangNgay.Text = "Số Đơn Hôm nay: 1";
             // 
+            // pictureBox_Detail
+            // 
+            this.pictureBox_Detail.Location = new System.Drawing.Point(27, 13);
+            this.pictureBox_Detail.Name = "pictureBox_Detail";
+            this.pictureBox_Detail.Size = new System.Drawing.Size(164, 115);
+            this.pictureBox_Detail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_Detail.TabIndex = 7;
+            this.pictureBox_Detail.TabStop = false;
+            // 
             // FOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -736,10 +736,10 @@
             this.panel_ThemKH.PerformLayout();
             this.panel_Detail.ResumeLayout(false);
             this.panel_Detail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).EndInit();
             this.panel_ThongTin.ResumeLayout(false);
             this.panel_ThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).EndInit();
             this.ResumeLayout(false);
 
         }

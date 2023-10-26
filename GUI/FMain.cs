@@ -21,6 +21,7 @@ namespace GUI
         public static FThongTinChung fThongTinChung = new FThongTinChung();
         public static FQuanLyNguoiDung fNguoiDung = new FQuanLyNguoiDung();
         public static FKhuyenMai fKhuyenMai = new FKhuyenMai();
+        public static FQuanLyKhachHang fkhachHang = new FQuanLyKhachHang();
 
         public FMain()
         {
@@ -177,7 +178,11 @@ namespace GUI
 
         private void btn_QLKhachHang_Click(object sender, EventArgs e)
         {
-
+            if (checkPage != 4)
+            {
+                addUserControl(fkhachHang);
+                checkPage = 4;
+            }
         }
 
         private void btn_QLKhuyenMai_Click(object sender, EventArgs e)

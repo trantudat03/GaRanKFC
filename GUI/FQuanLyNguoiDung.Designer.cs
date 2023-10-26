@@ -67,6 +67,26 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.lbl_ThongBao = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.dgv_ChucVu = new System.Windows.Forms.DataGridView();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_XacNhanCV = new System.Windows.Forms.Button();
+            this.btn_HuyCV = new System.Windows.Forms.Button();
+            this.txb_TenChucVu = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_XoaCV = new System.Windows.Forms.Button();
+            this.btn_SuaCV = new System.Windows.Forms.Button();
+            this.btn_ThemCV = new System.Windows.Forms.Button();
+            this.lbl_ThongBao2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,18 +97,29 @@
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxControl.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ChucVu)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(10, 4);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1450, 666);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -484,6 +515,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel7);
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
@@ -492,6 +526,220 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chức Vụ";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.panel11);
+            this.panel7.Controls.Add(this.panel10);
+            this.panel7.Controls.Add(this.panel9);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1059, 626);
+            this.panel7.TabIndex = 23;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.dgv_ChucVu);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(0, 49);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1059, 298);
+            this.panel11.TabIndex = 27;
+            // 
+            // dgv_ChucVu
+            // 
+            this.dgv_ChucVu.AllowUserToAddRows = false;
+            this.dgv_ChucVu.AllowUserToDeleteRows = false;
+            this.dgv_ChucVu.AllowUserToResizeRows = false;
+            this.dgv_ChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ChucVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column8,
+            this.Column9,
+            this.Column10});
+            this.dgv_ChucVu.Location = new System.Drawing.Point(3, 1);
+            this.dgv_ChucVu.Name = "dgv_ChucVu";
+            this.dgv_ChucVu.RowHeadersWidth = 51;
+            this.dgv_ChucVu.RowTemplate.Height = 24;
+            this.dgv_ChucVu.Size = new System.Drawing.Size(525, 197);
+            this.dgv_ChucVu.TabIndex = 26;
+            this.dgv_ChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ChucVu_CellClick);
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Mã Chức Vụ";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 140;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tên Chức Vụ";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 170;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Số Lượng Nhân Viên";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 160;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.groupBox2);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(0, 347);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1059, 279);
+            this.panel10.TabIndex = 25;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btn_XacNhanCV);
+            this.groupBox2.Controls.Add(this.btn_HuyCV);
+            this.groupBox2.Controls.Add(this.txb_TenChucVu);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1059, 279);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            // 
+            // btn_XacNhanCV
+            // 
+            this.btn_XacNhanCV.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_XacNhanCV.BackColor = System.Drawing.Color.Green;
+            this.btn_XacNhanCV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_XacNhanCV.ForeColor = System.Drawing.Color.White;
+            this.btn_XacNhanCV.Location = new System.Drawing.Point(266, 147);
+            this.btn_XacNhanCV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_XacNhanCV.Name = "btn_XacNhanCV";
+            this.btn_XacNhanCV.Size = new System.Drawing.Size(109, 55);
+            this.btn_XacNhanCV.TabIndex = 25;
+            this.btn_XacNhanCV.Text = "Xác nhận";
+            this.btn_XacNhanCV.UseVisualStyleBackColor = false;
+            this.btn_XacNhanCV.Click += new System.EventHandler(this.btn_XacNhanCV_Click);
+            // 
+            // btn_HuyCV
+            // 
+            this.btn_HuyCV.Location = new System.Drawing.Point(421, 155);
+            this.btn_HuyCV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_HuyCV.Name = "btn_HuyCV";
+            this.btn_HuyCV.Size = new System.Drawing.Size(96, 47);
+            this.btn_HuyCV.TabIndex = 21;
+            this.btn_HuyCV.Text = "Hủy";
+            this.btn_HuyCV.UseVisualStyleBackColor = true;
+            this.btn_HuyCV.Click += new System.EventHandler(this.btn_ThoatCV_Click);
+            // 
+            // txb_TenChucVu
+            // 
+            this.txb_TenChucVu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txb_TenChucVu.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_TenChucVu.Location = new System.Drawing.Point(266, 82);
+            this.txb_TenChucVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txb_TenChucVu.Name = "txb_TenChucVu";
+            this.txb_TenChucVu.Size = new System.Drawing.Size(178, 30);
+            this.txb_TenChucVu.TabIndex = 7;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(96, 86);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(134, 24);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Tên Chức Vụ";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel9.Controls.Add(this.label9);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1059, 49);
+            this.panel9.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(12, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(217, 23);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Danh Sách Người Dùng";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.groupBox1);
+            this.panel6.Controls.Add(this.lbl_ThongBao2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(1062, 4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(377, 626);
+            this.panel6.TabIndex = 22;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_XoaCV);
+            this.groupBox1.Controls.Add(this.btn_SuaCV);
+            this.groupBox1.Controls.Add(this.btn_ThemCV);
+            this.groupBox1.Location = new System.Drawing.Point(16, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(358, 340);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            // 
+            // btn_XoaCV
+            // 
+            this.btn_XoaCV.Location = new System.Drawing.Point(26, 257);
+            this.btn_XoaCV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_XoaCV.Name = "btn_XoaCV";
+            this.btn_XoaCV.Size = new System.Drawing.Size(130, 63);
+            this.btn_XoaCV.TabIndex = 6;
+            this.btn_XoaCV.Text = "Xóa";
+            this.btn_XoaCV.UseVisualStyleBackColor = true;
+            this.btn_XoaCV.Click += new System.EventHandler(this.btn_XoaCV_Click);
+            // 
+            // btn_SuaCV
+            // 
+            this.btn_SuaCV.Location = new System.Drawing.Point(26, 149);
+            this.btn_SuaCV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_SuaCV.Name = "btn_SuaCV";
+            this.btn_SuaCV.Size = new System.Drawing.Size(130, 63);
+            this.btn_SuaCV.TabIndex = 5;
+            this.btn_SuaCV.Text = "Sửa";
+            this.btn_SuaCV.UseVisualStyleBackColor = true;
+            this.btn_SuaCV.Click += new System.EventHandler(this.btn_SuaCV_Click);
+            // 
+            // btn_ThemCV
+            // 
+            this.btn_ThemCV.Location = new System.Drawing.Point(26, 27);
+            this.btn_ThemCV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_ThemCV.Name = "btn_ThemCV";
+            this.btn_ThemCV.Size = new System.Drawing.Size(130, 63);
+            this.btn_ThemCV.TabIndex = 4;
+            this.btn_ThemCV.Text = "Thêm";
+            this.btn_ThemCV.UseVisualStyleBackColor = true;
+            this.btn_ThemCV.Click += new System.EventHandler(this.btn_ThemCV_Click);
+            // 
+            // lbl_ThongBao2
+            // 
+            this.lbl_ThongBao2.AutoSize = true;
+            this.lbl_ThongBao2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThongBao2.Location = new System.Drawing.Point(11, 385);
+            this.lbl_ThongBao2.Name = "lbl_ThongBao2";
+            this.lbl_ThongBao2.Size = new System.Drawing.Size(122, 26);
+            this.lbl_ThongBao2.TabIndex = 19;
+            this.lbl_ThongBao2.Text = "Thong Bao";
             // 
             // FQuanLyNguoiDung
             // 
@@ -516,6 +764,18 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBoxControl.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ChucVu)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -561,5 +821,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btn_XoaCV;
+        private System.Windows.Forms.Button btn_SuaCV;
+        private System.Windows.Forms.Button btn_ThemCV;
+        private System.Windows.Forms.Label lbl_ThongBao2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.DataGridView dgv_ChucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btn_XacNhanCV;
+        private System.Windows.Forms.Button btn_HuyCV;
+        private System.Windows.Forms.TextBox txb_TenChucVu;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label9;
     }
 }

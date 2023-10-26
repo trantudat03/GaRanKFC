@@ -10,5 +10,7 @@ namespace DTO
     {
         public string MACHUCVU { get; set; }
         public string TENCHUCVU { get; set; }
+
+        public int SONHANVIEN { get; set; }
     }
 }

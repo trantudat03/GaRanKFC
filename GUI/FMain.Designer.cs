@@ -44,9 +44,9 @@
             this.panelGroup = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel_Header = new System.Windows.Forms.Panel();
-            this.lbl_logout = new System.Windows.Forms.Label();
-            this.lbl_UserName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_UserName = new System.Windows.Forms.Label();
+            this.lbl_logout = new System.Windows.Forms.Label();
             this.panel_sideBar.SuspendLayout();
             this.panel_QuanLy.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -107,7 +107,7 @@
             this.btn_ThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThongKe.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThongKe.ForeColor = System.Drawing.Color.Black;
-            this.btn_ThongKe.Location = new System.Drawing.Point(3, 326);
+            this.btn_ThongKe.Location = new System.Drawing.Point(5, 325);
             this.btn_ThongKe.Name = "btn_ThongKe";
             this.btn_ThongKe.Size = new System.Drawing.Size(202, 63);
             this.btn_ThongKe.TabIndex = 6;
@@ -262,17 +262,15 @@
             this.panel_Header.Size = new System.Drawing.Size(1152, 143);
             this.panel_Header.TabIndex = 0;
             // 
-            // lbl_logout
+            // panel1
             // 
-            this.lbl_logout.AutoSize = true;
-            this.lbl_logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_logout.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_logout.Location = new System.Drawing.Point(44, 35);
-            this.lbl_logout.Name = "lbl_logout";
-            this.lbl_logout.Size = new System.Drawing.Size(82, 19);
-            this.lbl_logout.TabIndex = 1;
-            this.lbl_logout.Text = "Đăng xuất";
-            this.lbl_logout.Click += new System.EventHandler(this.lbl_logout_Click);
+            this.panel1.Controls.Add(this.lbl_UserName);
+            this.panel1.Controls.Add(this.lbl_logout);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1018, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(134, 143);
+            this.panel1.TabIndex = 2;
             // 
             // lbl_UserName
             // 
@@ -284,15 +282,17 @@
             this.lbl_UserName.TabIndex = 0;
             this.lbl_UserName.Text = "UserName";
             // 
-            // panel1
+            // lbl_logout
             // 
-            this.panel1.Controls.Add(this.lbl_UserName);
-            this.panel1.Controls.Add(this.lbl_logout);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1018, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 143);
-            this.panel1.TabIndex = 2;
+            this.lbl_logout.AutoSize = true;
+            this.lbl_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_logout.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_logout.Location = new System.Drawing.Point(44, 35);
+            this.lbl_logout.Name = "lbl_logout";
+            this.lbl_logout.Size = new System.Drawing.Size(82, 19);
+            this.lbl_logout.TabIndex = 1;
+            this.lbl_logout.Text = "Đăng xuất";
+            this.lbl_logout.Click += new System.EventHandler(this.lbl_logout_Click);
             // 
             // FMain
             // 

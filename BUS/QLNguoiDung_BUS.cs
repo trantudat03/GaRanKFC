@@ -11,13 +11,14 @@ namespace BUS
     public class QLNguoiDung_BUS
     {
         public static Model1 db = new Model1();
-
+        public static List<NguoiDung_DTO> listNguoiDung = new List<NguoiDung_DTO>();
 
         public static string taoMa(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
+
 
             for (int i = 0; i < length; i++)
             {
@@ -30,9 +31,9 @@ namespace BUS
 
         public static List<NguoiDung_DTO> LayDuLieu()
         {
-
-            List<NguoiDung_DTO> list = new List<NguoiDung_DTO>();
+            listNguoiDung.Clear();
             
+            db = new Model1();
 
             try
             {
@@ -53,16 +54,16 @@ namespace BUS
                         newP.EMAIL = n.EMAIL;
                         newP.MATRANGTHAI = n.MATRANGTHAI;
                         newP.TENTRANGTHAI = n.TRANGTHAINGUOIDUNG.TENTRANGTHAI;
-                        list.Add(newP);
+                        listNguoiDung.Add(newP);
                     }
                 });
             }
             catch
             {
-                return null;
+                return listNguoiDung;
             }
 
-            return list;
+            return listNguoiDung;
 
         }
 

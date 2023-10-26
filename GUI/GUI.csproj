@@ -87,6 +87,12 @@
     <Compile Include="FOrder.Designer.cs">
       <DependentUpon>FOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FQuanLyKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FQuanLyKhachHang.Designer.cs">
+      <DependentUpon>FQuanLyKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="FQuanLyNguoiDung.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FOrder.resx">
       <DependentUpon>FOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FQuanLyKhachHang.resx">
+      <DependentUpon>FQuanLyKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FQuanLyNguoiDung.resx">
       <DependentUpon>FQuanLyNguoiDung.cs</DependentUpon>

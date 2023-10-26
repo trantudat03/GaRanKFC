@@ -21,9 +21,10 @@ namespace GUI
             InitializeComponent();
             lbl_ThongBao.Text = "";
             lbl_ThongBaoTDN.Text = "";
+            users = QLNguoiDung_BUS.LayDuLieu();
         }
 
-        public static List<NguoiDung_DTO> users = QLNguoiDung_BUS.LayDuLieu();
+        public static List<NguoiDung_DTO> users = new List<NguoiDung_DTO>();
 
         private void FDangNhap_Load(object sender, EventArgs e)
         {
@@ -98,7 +99,7 @@ namespace GUI
             {
                 NguoiDung_DTO user = new NguoiDung_DTO();
                 
-                user = users.Where(s=> s.TENDANGNHAP ==txb_TenDangNhap.Text && s.MATKHAU == txb_MatKhau.Text && s.MATRANGTHAI == "2").FirstOrDefault();
+                user = users.Where(s=> s.TENDANGNHAP ==txb_TenDangNhap.Text && s.MATKHAU == txb_MatKhau.Text && s.MATRANGTHAI == "1").FirstOrDefault();
                 if(user != null)
                 {
                     hienThongBao(lbl_ThongBao, "Đăng nhập thành công!", Color.Green);

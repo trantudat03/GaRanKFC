@@ -18,7 +18,7 @@ namespace DTO
 
         public KhachHang_DTO() 
         {
-            this.MAKHACHHANG = "";
+            this.MAKHACHHANG = string.Empty;
             this.SODIENTHOAI = "";
             this.TENKHACHHANG = "";
             this.DIEM = -1;

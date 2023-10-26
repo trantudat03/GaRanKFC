@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace GUI
 {
@@ -18,6 +19,11 @@ namespace GUI
         private static int indexRowClickND = -1;
         private static NguoiDung_DTO selectItem = new NguoiDung_DTO();
         private static int checkChucNang = 0;
+
+        private static int indexRowClickCV = -1;
+        private static ChucVu_DTO selectItemCV = new ChucVu_DTO();
+        private static int checkChucNangCV = 0;
+        public static bool checkChageIncontrol = false;
         public FQuanLyNguoiDung()
         {
             InitializeComponent();
@@ -28,8 +34,26 @@ namespace GUI
         {
             setCMB();
             lbl_ThongBao.Text = string.Empty;
+            lbl_ThongBao2.Text = string.Empty;
             setDefaut();
             setDataGirdView(QLNguoiDung_BUS.LayDuLieu());
+            setDataGridViewCV(QLChucVu_BUS.layDuLieuKemSoNhanVien());
+        }
+
+        private void resetPage1()
+        {
+            setCMB();
+            lbl_ThongBao.Text = string.Empty;
+            setDefaut();
+            setDataGirdView(QLNguoiDung_BUS.LayDuLieu());
+            checkChageIncontrol = false;
+        }
+
+        private void resetpage2()
+        {
+            lbl_ThongBao2.Text = string.Empty;
+            setDataGridViewCV(QLChucVu_BUS.layDuLieuKemSoNhanVien());
+            checkChageIncontrol = false;
         }
 
         private void hienThongBao(Control control, string text, Color color)
@@ -207,7 +231,7 @@ namespace GUI
             item.MATRANGTHAI = cmb_TrangThai.SelectedValue.ToString();
             item.MACHUCVU = cmb_ChucVu.SelectedValue.ToString();
             item.TENCHUCVU = cmb_ChucVu.Text;
-            item.TENTRANGTHAI = cmb_ChucVu.Text;
+            item.TENTRANGTHAI = cmb_TrangThai.Text;
             item.MANGUOIDUNG = selectItem.MANGUOIDUNG;
             if(QLNguoiDung_BUS.suaNguoiDung(item) ==1)
             {
@@ -243,6 +267,7 @@ namespace GUI
                             if (themNguoiDung() == 1)
                             {
                                 hienThongBao(lbl_ThongBao, "Thêm Thành Công", Color.Green);
+                                checkChageIncontrol = true;
                                 setDefaut();
                                 
                             }
@@ -259,6 +284,7 @@ namespace GUI
                             
                             if(suaNguoiDung() == 1)
                             {
+                                checkChageIncontrol = true;
                                 hienThongBao(lbl_ThongBao, "Sửa Thành Công", Color.Green);
                                 setDefaut();
                                 
@@ -276,6 +302,7 @@ namespace GUI
                                 {
                                     if(xoaNguoiDung() ==1 )
                                     {
+                                        checkChageIncontrol = true;
                                         hienThongBao(lbl_ThongBao, "Xoa Nhân Viên Thành Công", Color.Green);
                                         setDefaut();
                                     }
@@ -323,6 +350,246 @@ namespace GUI
                 groupBoxContent.Visible = true;
                 groupBoxControl.Visible = false;
                 checkChucNang =3;
+            }
+        }
+
+        // page 2
+
+        private void setDefautPage2()
+        {
+            selectItemCV = new ChucVu_DTO();
+            indexRowClickCV = -1;
+            checkChucNangCV = 0;
+            txb_TenChucVu.Text = string.Empty;
+        }
+
+        private bool checkNullPage2()
+        {
+            if (txb_TenChucVu.Text == string.Empty)
+                return false;
+            return true;
+        }
+
+        private void setDataGridViewCV(List<ChucVu_DTO> list)
+        {
+            dgv_ChucVu.Rows.Clear();
+            if(list.Count > 0 )
+            {
+                int index = 0;
+                list.ForEach(c =>
+                {
+                    dgv_ChucVu.Rows.Add(c.MACHUCVU, c.TENCHUCVU, c.SONHANVIEN);
+                    dgv_ChucVu.Rows[index].Tag = c;
+                    index++;
+                });
+            }
+        }
+
+        private void dgv_ChucVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                indexRowClickCV = e.RowIndex;
+                selectItemCV = new ChucVu_DTO();
+                selectItemCV = dgv_ChucVu.Rows[e.RowIndex].Tag as ChucVu_DTO;
+                txb_TenChucVu.Text = dgv_ChucVu.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+        }
+
+        private void btn_ThemCV_Click(object sender, EventArgs e)
+        {
+            if(checkChucNangCV!=1)
+            {
+
+                checkChucNangCV = 1;
+                hienThongBao(lbl_ThongBao2, "Chức năng Thêm Chức Vụ", Color.Green);
+            }
+        }
+
+        private void btn_SuaCV_Click(object sender, EventArgs e)
+        {
+            if (checkChucNangCV != 2)
+            {
+                checkChucNangCV = 2;
+                hienThongBao(lbl_ThongBao2, "Chức năng Sửa Chức Vụ", Color.Green);
+            }
+        }
+
+        private void btn_XoaCV_Click(object sender, EventArgs e)
+        {
+            if (checkChucNangCV != 3)
+            {
+                checkChucNangCV = 3;
+                hienThongBao(lbl_ThongBao2, "Chức năng Xóa Chức Vụ", Color.Green);
+            }
+        }
+
+        private void addRowCV(ChucVu_DTO c)
+        {
+            dgv_ChucVu.Rows.Add(c.MACHUCVU, c.TENCHUCVU, c.SONHANVIEN);
+            dgv_ChucVu.Rows[dgv_ChucVu.RowCount - 1].Tag = c;
+        }
+        private int themChucVu(ChucVu_DTO item)
+        {
+            if(item!=null)
+            {
+                item = QLChucVu_BUS.themChucVu(item);
+                if (item.MACHUCVU!=string.Empty)
+                {
+                    addRowCV(item);
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        private void updateRowCV(ChucVu_DTO c)
+        {
+            if (indexRowClickCV >= 0)
+            {
+                dgv_ChucVu.Rows[indexRowClickCV].Cells[1].Value =c.TENCHUCVU;
+                dgv_ChucVu.Rows[indexRowClickCV].Tag = c;
+            }
+        }
+
+        private int suaChucVu(ChucVu_DTO item)
+        {
+            if(item!=null)
+            {
+                if(QLChucVu_BUS.suaChucVu(item) != null)
+                {
+                    updateRowCV(item);
+                    return 1;
+                }
+            }
+
+            return 0;
+        }
+
+        private void deleteRowCV()
+        {
+            if (indexRowClickCV >= 0)
+            {
+                dgv_ChucVu.Rows.RemoveAt(indexRowClickCV);
+            }
+        }
+        private int xoaChucVu(ChucVu_DTO item)
+        {
+            if(item.MACHUCVU!=string.Empty)
+            {
+                if(QLChucVu_BUS.xoaChucVu(item) !=null)
+                {
+                    deleteRowCV();
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        private void btn_XacNhanCV_Click(object sender, EventArgs e)
+        {
+            if(checkChucNangCV!=0)
+            {
+
+                if(checkChucNangCV==3)
+                {
+                    if(selectItemCV.MACHUCVU!= string.Empty)
+                    {
+                        if(QLChucVu_BUS.kiemTraCoTheXoa(selectItemCV))
+                        {
+                            DialogResult result = MessageBox.Show($"Bạn có đồng ý xóa Chức Vụ {selectItemCV.TENCHUCVU}",
+                        "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+
+                                if (xoaChucVu(selectItemCV) == 1)
+                                {
+                                    checkChageIncontrol = true;
+                                    hienThongBao(lbl_ThongBao2, "Xóa chức vụ thành công", Color.Green);
+                                }
+                                else
+                                {
+                                    hienThongBao(lbl_ThongBao2, "Xóa chức vụ thất bại", Color.Red);
+                                }
+                            }
+                            
+                        }
+                        else
+                        {
+                            hienThongBao(lbl_ThongBao2, "Chức vụ không thể xóa", Color.Red);
+                        }
+                    }
+                    else
+                    {
+                        hienThongBao(lbl_ThongBao2, "Chọn Chức vụ cần xóa", Color.Red);
+                    }
+                }
+                if (checkNullPage2())
+                {
+                    if (checkChucNangCV == 1)
+                    {
+                        ChucVu_DTO item = new ChucVu_DTO();
+                        item.TENCHUCVU = txb_TenChucVu.Text;
+                        if (themChucVu(item) == 1)
+                        {
+                            checkChageIncontrol = true;
+                            hienThongBao(lbl_ThongBao2, "Thêm Chức Vụ Thành Công", Color.Green);
+                            setDefautPage2();
+                        }
+                        else
+                        {
+                            hienThongBao(lbl_ThongBao2, "Thêm Chức Vụ Thất Bại", Color.Red);
+                        }
+                    }
+                    else
+                    {
+                        if(checkChucNangCV ==2 && selectItemCV.MACHUCVU!= string.Empty)
+                        {
+                            selectItemCV.TENCHUCVU = txb_TenChucVu.Text;
+                            if(suaChucVu(selectItemCV) ==1)
+                            {
+                                checkChageIncontrol = true;
+                                hienThongBao(lbl_ThongBao2, "Sửa Chức Vụ Thành Công", Color.Green);
+                                setDefautPage2();
+                            }
+                            else
+                            {
+                                hienThongBao(lbl_ThongBao2, "Sửa Chức Vụ Thất Bại", Color.Red);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    hienThongBao(lbl_ThongBao2, "Nhập đủ thông tin", Color.Red);
+                }
+               
+            }
+            else
+            {
+                hienThongBao(lbl_ThongBao2, "Vui lòng chọn chức năng", Color.Red);
+            }
+        }
+
+        private void btn_ThoatCV_Click(object sender, EventArgs e)
+        {
+            setDefaut();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (checkChageIncontrol)
+            {
+                if(tabControl1.SelectedIndex == 0)
+                {
+                    MessageBox.Show(tabControl1.SelectedIndex.ToString());
+                    resetPage1();
+                }
+                else
+                {
+                    resetpage2();
+                }
             }
         }
     }
