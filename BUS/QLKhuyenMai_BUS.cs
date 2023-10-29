@@ -62,98 +62,37 @@ namespace BUS
         public static List<KhuyenMai_DTO> layKMTheoDieuKien(KhachHang_DTO kh, int giaTriDonHang)
         {
             List<KhuyenMai_DTO> listTheoDieuKien = new List<KhuyenMai_DTO>();
-            if (kh.DIEM >=0 && giaTriDonHang >=0)
-            {
-                
-                if (listKM.Count > 0)
-                {
-                    //KhuyenMai_DTO item = new KhuyenMai_DTO();
 
-                    listKM.ForEach(k =>
+            db.KHUYENMAIs.ToList().ForEach(k =>
+            {
+                if(kh.MAKHACHHANG==string.Empty)
+                {
+                    if(k.DIEUKIEN.DIEMTOITHIEU ==0 && k.DIEUKIEN.GIATRIDONHANG <= giaTriDonHang && k.MAKHUYENMAI !="0" && k.TENKHUYENMAI!= string.Empty)
                     {
-                        if(k.MAKHUYENMAI != "0")
-                        {
-                            if (kh.DIEM >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
-                            {
-                                listTheoDieuKien.Add(k);
-                            }
-                        }
-                        
-                    });
+                        KhuyenMai_DTO item = new KhuyenMai_DTO();
+                        item.MAKHUYENMAI = k.MAKHUYENMAI;
+                        item.TENKHUYENMAI = k.TENKHUYENMAI;
+                        item.SOTIENGIAMTOIDA = (int)k.SOTIENGIAMTOIDA;
+                        item.SOTIENGIAM = (int)k.SOTIENGIAM;
+                        item.PHANTRAM = (int)k.PHANTRAM;
+                        listTheoDieuKien.Add(item);
+                    }  
                 }
                 else
                 {
-                    db.KHUYENMAIs.ToList().ForEach(k =>
+                    if(kh.DIEM >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang>= k.DIEUKIEN.GIATRIDONHANG && k.MAKHUYENMAI != "0" && k.TENKHUYENMAI != string.Empty)
                     {
-                        if (k.MAKHUYENMAI != "0")
-                        {
-                            if (kh.DIEM >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
-                            {
-                                KhuyenMai_DTO item = new KhuyenMai_DTO();
-                                item.MAKHUYENMAI = k.MAKHUYENMAI;
-                                item.TENKHUYENMAI = k.TENKHUYENMAI;
-                                if (k.PHANTRAM != null)
-                                item.PHANTRAM = (int)k.PHANTRAM;
-                                item.SOTIENGIAM = (int)k.SOTIENGIAM;
-                                item.SOTIENGIAMTOIDA = (int)k.SOTIENGIAMTOIDA;
-                                item.MADIEUKIEN = k.MADIEUKIEN;
-                                item.DIEUKIEN.TENDIEUKIEN = k.DIEUKIEN.TENDIEUKIEN;
-                                item.DIEUKIEN.MADIEUKIEN = k.MADIEUKIEN;
-                                if (item.MAKHUYENMAI != "")
-                                    listTheoDieuKien.Add(item);
-                            }
-                        }
-                            
-                    });
-                }
-            }
-            else
-            {
-                if(kh.MAKHACHHANG == "")
-                {
-                    if (listKM.Count > 0)
-                    {
-                        //KhuyenMai_DTO item = new KhuyenMai_DTO();
-                        listKM.ForEach(k =>
-                        {
-                            if(k.MAKHUYENMAI != "0")
-                            {
-                                if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
-                                {
-                                    listTheoDieuKien.Add(k);
-                                }
-                            }
-                            
-                        });
-                    }
-                    else
-                    {
-                        db.KHUYENMAIs.ToList().ForEach(k =>
-                        {
-                            if (k.DIEUKIEN.DIEMTOITHIEU == 0 && giaTriDonHang >= k.DIEUKIEN.GIATRIDONHANG)
-                            {
-                                if(k.MAKHUYENMAI != "0")
-                                {
-                                    KhuyenMai_DTO item = new KhuyenMai_DTO();
-                                    item.MAKHUYENMAI = k.MAKHUYENMAI;
-                                    item.TENKHUYENMAI = k.TENKHUYENMAI;
-                                    item.PHANTRAM = (int)k.PHANTRAM;
-                                    item.SOTIENGIAM = (int)k.SOTIENGIAM;
-                                    item.SOTIENGIAMTOIDA = (int)k.SOTIENGIAMTOIDA;
-                                    item.MADIEUKIEN = k.MADIEUKIEN;
-                                    item.DIEUKIEN.TENDIEUKIEN = k.DIEUKIEN.TENDIEUKIEN;
-                                    item.DIEUKIEN.MADIEUKIEN = k.MADIEUKIEN;
-                                    if (item.MAKHUYENMAI != "")
-                                        listTheoDieuKien.Add(item);
-                                }
-                               
-                            }
-                        });
+                        KhuyenMai_DTO item = new KhuyenMai_DTO();
+                        item.MAKHUYENMAI = k.MAKHUYENMAI;
+                        item.TENKHUYENMAI = k.TENKHUYENMAI;
+                        item.SOTIENGIAMTOIDA = (int)k.SOTIENGIAMTOIDA;
+                        item.SOTIENGIAM = (int)k.SOTIENGIAM;
+                        item.PHANTRAM = (int)k.PHANTRAM;
+                        listTheoDieuKien.Add(item);
                     }
                 }
-                    
-                
-            }
+            });
+
             return listTheoDieuKien;
         }
 

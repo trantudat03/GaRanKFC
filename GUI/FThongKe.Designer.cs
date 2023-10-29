@@ -132,6 +132,7 @@
             this.dgv_ThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_ThongKe.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_ThongKe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_ThongKe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

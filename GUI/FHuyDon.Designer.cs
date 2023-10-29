@@ -55,7 +55,7 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.Location = new System.Drawing.Point(93, 343);
+            this.btn_Submit.Location = new System.Drawing.Point(93, 287);
             this.btn_Submit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(126, 40);
@@ -68,7 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 495);
+            this.ClientSize = new System.Drawing.Size(586, 438);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.txb_LyDo);
             this.Controls.Add(this.label1);

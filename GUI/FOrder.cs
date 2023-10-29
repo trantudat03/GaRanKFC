@@ -33,7 +33,7 @@ namespace GUI
         private static int thanhTien = 0;
         //Panel detailOrder = new Panel();
         private static int startYOrderList = 10;
-        private static int checkMenu = 1;
+        private static string checkMenu = "1";
         private static int donCuaNgay = 0;
         private static bool checkThanhToan = false;
         public static NguoiDung_DTO user = new NguoiDung_DTO();
@@ -42,12 +42,22 @@ namespace GUI
         {
             DateTime date = DateTime.Now;
             listSP = QuanLySanPham_BUS.layDuLieu();
-            hienMenu(1, "");
+            setCMBLoaiSP();
+            hienMenu("1", "");
             donCuaNgay = QLDonHang_BUS.tinhSoDonTheoNgay(date.ToString("yyyy-MM-dd"));
             setDefaut();
             
-
             //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
+        }
+
+
+        private void setCMBLoaiSP()
+        {
+            cmb_LoaiSanPham.DataSource = null;
+            cmb_LoaiSanPham.DataSource = QuanLyLoaiSP_BUS.LayDuLieu();
+            cmb_LoaiSanPham.ValueMember = "MALOAISP";
+            cmb_LoaiSanPham.DisplayMember = "TENLOAISP";
+            cmb_LoaiSanPham.SelectedIndex = 0;
         }
 
         public void setUser(NguoiDung_DTO u)
@@ -78,11 +88,10 @@ namespace GUI
             khuyenMai.Clear();
             khachHang = new KhachHang_DTO();
             startYOrderList = 10;
-            checkMenu = 1;
             checkThanhToan = false;
             thanhTien = 0;
             lbl_DonHangNgay.Text = $"Số đơn hôm nay: {donCuaNgay}";
-           
+            cmb_LoaiSanPham.SelectedValue = checkMenu;
         }
         private void panel_OrderList_Paint(object sender, PaintEventArgs e)
         {
@@ -94,7 +103,7 @@ namespace GUI
             panel_Menu.Controls.Clear();
             listSP.Clear();
             listSP = QuanLySanPham_BUS.layDuLieu();
-            hienMenu(1, "");
+            hienMenu("1", "");
             //panel_Menu.Controls.Clear();
 
         }
@@ -465,10 +474,10 @@ namespace GUI
         }
 
         
-        public void hienMenu(int type, string strSearch)
+        public void hienMenu(string type, string strSearch)
         {
             
-            if (type != 0)
+            if (type != "0")
             {
                 panel_Menu.Controls.Clear();
                 //panel_Menu.Controls.Clear();
@@ -697,20 +706,22 @@ namespace GUI
 
         private void btn_DoAn_Click(object sender, EventArgs e)
         {
-            if(checkMenu != 1)
+            if(checkMenu != "1")
             {
-                hienMenu(1, "");
-                checkMenu = 1;
+                hienMenu("1", "");
+                checkMenu = "1";
+                cmb_LoaiSanPham.SelectedValue = "1";
             }
             
         }
 
         private void btn_DoUong_Click(object sender, EventArgs e)
         {
-            if(checkMenu != 2)
+            if(checkMenu != "2")
             {
-                hienMenu(2, "");
-                checkMenu = 2;
+                hienMenu("2", "");
+                checkMenu = "2";
+                cmb_LoaiSanPham.SelectedValue = "2";
             }
             
         }
@@ -1019,15 +1030,68 @@ namespace GUI
             fthanhToan.ShowDialog();
         }
 
+        private void formHuyClose(object sender, FormClosedEventArgs e)
+        {
+            bool checkHuy = fhuyDon.getCheckHuy();
+            if(checkHuy)
+            {
+                DonHangHuy_DTO item = new DonHangHuy_DTO();
+                item.MANGUOIDUNG = user.MANGUOIDUNG;
+                item.THOIGIAN = DateTime.Now;
+                item.LYDO = fhuyDon.getLyDo();
+                item.SOLUONGSP = listOrder.Count;
+                item.TONGGIA = thanhTien;
+                if(khachHang.MAKHACHHANG != string.Empty)
+                {
+                    item.MAKHACHHANG = khachHang.MAKHACHHANG;
+                }
+                else
+                {
+                    item.MAKHACHHANG = "0";
+                }
+
+                if(QLDonHangHuy_BUS.themDonHangHuy(item, listOrder) != null)
+                {
+                    MessageBox.Show("Hủy đơn hàng thành công");
+                    setDefaut();
+                }
+                else
+                {
+                    MessageBox.Show("Hủy đơn hàng thất bại");
+                }
+            }
+            
+        }
+
         private void btn_HuyDon_Click(object sender, EventArgs e)
         {
-            fhuyDon = new FHuyDon();
-            fhuyDon.ShowDialog();
+            if(listOrder.Count >0)
+            {
+                fhuyDon = new FHuyDon();
+                fhuyDon.setUser(user);
+                fhuyDon.FormClosed += formHuyClose;
+                fhuyDon.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Đơn hàng chưa order");
+            }
+            
         }
 
         private void panel_ThongTin_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cmb_LoaiSanPham_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(checkMenu != cmb_LoaiSanPham.SelectedValue.ToString())
+            {
+                hienMenu(cmb_LoaiSanPham.SelectedValue.ToString(), "");
+                checkMenu = cmb_LoaiSanPham.SelectedValue.ToString();
+            }
+            
         }
     }
 }

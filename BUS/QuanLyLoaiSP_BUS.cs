@@ -64,7 +64,7 @@ namespace BUS
                 LoaiSanPham_DTO item = new LoaiSanPham_DTO();
                 item.MALOAISP = result.MALOAISP;
                 item.TENLOAISP = result.TENLOAISP;
-                item.TONGSOLUON = result.TONGXUATHIEN;
+                item.TONGSOLUONG = result.TONGXUATHIEN;
                 list.Add(item);
             }
             return list;

@@ -45,7 +45,7 @@ namespace DTO
             this.ANHSANPHAM = null;
             this.NOTE = null;
             this.MATRANGTHAI = "0";
-            this.LoaiSanPham = new LoaiSanPham_DTO() { MALOAISP = "", TENLOAISP = ""};
+            this.LoaiSanPham = new LoaiSanPham_DTO() ;
             this.TRANGTHAI = new TrangThaiSP_DTO() { MATRANGTHAI = "0", TENTRANGTHAI = null};
         }
     }

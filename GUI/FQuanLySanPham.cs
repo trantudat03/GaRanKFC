@@ -92,9 +92,9 @@ namespace GUI
                 {
                     
                    
-                    if(l.TONGSOLUON> 0)
+                    if(l.TONGSOLUONG> 0)
                     {
-                        dgv_LoaiSanPham.Rows.Add(l.MALOAISP, l.TENLOAISP, l.TONGSOLUON);
+                        dgv_LoaiSanPham.Rows.Add(l.MALOAISP, l.TENLOAISP, l.TONGSOLUONG);
                     }
                     else
                     {
@@ -521,7 +521,7 @@ namespace GUI
 
         private void addDGVLoaiSp(LoaiSanPham_DTO item)
         {
-            dgv_LoaiSanPham.Rows.Add(item.MALOAISP, item.TENLOAISP, item.TONGSOLUON);
+            dgv_LoaiSanPham.Rows.Add(item.MALOAISP, item.TENLOAISP, item.TONGSOLUONG);
         }
         private void btn_XacNhan_Click(object sender, EventArgs e)
         {
@@ -533,7 +533,7 @@ namespace GUI
                     LoaiSelect = new LoaiSanPham_DTO();
                     LoaiSelect.MALOAISP = null;
                     LoaiSelect.TENLOAISP = txb_LoaiSPTen.Text;
-                    LoaiSelect.TONGSOLUON = 0;
+                    LoaiSelect.TONGSOLUONG = 0;
                     string maLoai = QuanLyLoaiSP_BUS.themLoaiSP(LoaiSelect);
                     if ( maLoai!= null )
                     {

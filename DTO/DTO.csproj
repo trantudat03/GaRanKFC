@@ -51,11 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietDonHangHuy_DTO.cs" />
     <Compile Include="ChiTietDonHang_DTO.cs" />
     <Compile Include="ChiTietThanhToan_DTO.cs" />
     <Compile Include="ChucVu_DTO.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DieuKien_DTO.cs" />
+    <Compile Include="DonHangHuy_DTO.cs" />
     <Compile Include="DonHangThongKe_DTO.cs" />
     <Compile Include="DonHang_DTO.cs" />
     <Compile Include="KhachHang_DTO.cs" />

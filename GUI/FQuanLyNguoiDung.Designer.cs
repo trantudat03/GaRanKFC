@@ -157,6 +157,7 @@
             // dgv_DanhSachND
             // 
             this.dgv_DanhSachND.AllowUserToAddRows = false;
+            this.dgv_DanhSachND.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_DanhSachND.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DanhSachND.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -552,6 +553,7 @@
             this.dgv_ChucVu.AllowUserToAddRows = false;
             this.dgv_ChucVu.AllowUserToDeleteRows = false;
             this.dgv_ChucVu.AllowUserToResizeRows = false;
+            this.dgv_ChucVu.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_ChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ChucVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
