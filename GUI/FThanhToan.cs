@@ -305,7 +305,7 @@ namespace GUI
                 lbl_TTTenKhachHang.Text = "Chưa có thông tin khách hàng";
                 lbl_TTTenKhachHang.ForeColor = Color.Red;
             }
-            if(khuyenMai.MAKHUYENMAI != "")
+            if(khuyenMai.MAKHUYENMAI != string.Empty)
             {
                 lbl_TTTenKhuyenMai.Text = khuyenMai.TENKHUYENMAI;
                 lbl_TTTenKhuyenMai.ForeColor = Color.Green;
@@ -334,6 +334,7 @@ namespace GUI
                         soTienGiam = khuyenMai.SOTIENGIAM;
                     }
                     thanhTien -= soTienGiam;
+                    soTienConLai = thanhTien;
                     
                 }
                 lbl_TTSoTien.Text = themDauChamVaoSo(thanhTien);
@@ -357,11 +358,11 @@ namespace GUI
             if(soTienConLai>0 && checkThanhToan)
             {
                 soTienChuyenKhoan = soTienConLai;
-                if(soTienChuyenKhoan == thanhTien)
+                if(soTienDaTra==0 )
                 {
                     DonHang_DTO donHang = new DonHang_DTO();
                     donHang.MADONHANG = "1";
-                    if (khachHang.MAKHACHHANG != "")
+                    if (khachHang.MAKHACHHANG != string.Empty)
                     {
                         donHang.MAKHACHHANG = khachHang.MAKHACHHANG;
                     }
@@ -369,7 +370,7 @@ namespace GUI
                     {
                         donHang.MAKHACHHANG = "0";
                     }
-                    if (khuyenMai.MAKHUYENMAI != "")
+                    if (khuyenMai.MAKHUYENMAI != string.Empty)
                     {
                         donHang.MAKHUYENMAI = khuyenMai.MAKHUYENMAI;
                     }
@@ -439,10 +440,14 @@ namespace GUI
                             MessageBox.Show("Thanh Toán Thất Bại");
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Thanh Toan That Bai");
+                    }
                 }
                 else
                 {
-                    if(soTienChuyenKhoan< thanhTien)
+                    if(soTienDaTra>0)
                     {
                         DonHang_DTO donHang = new DonHang_DTO();
                         donHang.MADONHANG = "1";
@@ -643,8 +648,7 @@ namespace GUI
 
         private void btn_TTChuyenKhoan_Click(object sender, EventArgs e)
         {
-            /*soTienChuyenKhoan = soTienConLai;
-            tienHanhThanhToan();*/
+            
             if(soTienConLai>0)
             {
                 fchuyenKhoan = new FChuyenKhoan(soTienConLai.ToString());

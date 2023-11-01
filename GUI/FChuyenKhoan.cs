@@ -108,7 +108,8 @@ namespace GUI
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
-
+            checkChuyenKhoan = false;
+            this.Close();   
         }
     }
 }

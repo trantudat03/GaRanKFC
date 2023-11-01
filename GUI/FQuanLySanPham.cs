@@ -45,27 +45,30 @@ namespace GUI
             list.Add(item);
             List<LoaiSanPham_DTO> resultList = list.Concat(QuanLyLoaiSP_BUS.LayDuLieu()).ToList();
 
-            cmb_LocLoaiSP.DataSource = null;
+            if (cmb_LocLoaiSP.DataSource != null)
+                cmb_LocLoaiSP.DataSource = null;
             cmb_LocLoaiSP.DataSource = resultList;
-            cmb_LocLoaiSP.SelectedIndex = 0;
+            
             cmb_LocLoaiSP.DisplayMember = "TENLOAISP";
             cmb_LocLoaiSP.ValueMember = "MALOAISP";
+            cmb_LocLoaiSP.SelectedIndex = 0;
         }
 
         private void FQuanLyLoaiSanPham_Load(object sender, EventArgs e)
         {
-
+            setData();
             setDefaut();
             setDefautPage2();
             setDefautPage3();
-            setData();
+            
         }
 
         public void setData()
         {
+            setCMBLocLoaiSP();
             SetDataGridView(QuanLySanPham_BUS.layDuLieu());
             setDGVLoaiSanPham(QuanLyLoaiSP_BUS.soLuongSanPhamTheoLoai());
-            setCMBLocLoaiSP();
+            
             if (cmb_SuaLoaiSP.DataSource == null)
             {
                 cmb_SuaLoaiSP.DataSource = QuanLyLoaiSP_BUS.LayDuLieu();
@@ -665,6 +668,7 @@ namespace GUI
                 }
                 else
                 {
+                    if(cmb_LocLoaiSP.SelectedValue != null)
                     SetDataGridView(QuanLySanPham_BUS.layTheoLoai(cmb_LocLoaiSP.SelectedValue.ToString()));
                 }
             }

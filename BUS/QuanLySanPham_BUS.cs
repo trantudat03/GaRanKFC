@@ -84,7 +84,7 @@ namespace BUS
             }
             catch
             {
-
+                return list;
             }
 
             return list;
