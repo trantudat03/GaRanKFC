@@ -19,7 +19,7 @@ namespace GUI
         private static int indexRowClickND = -1;
         private static NguoiDung_DTO selectItem = new NguoiDung_DTO();
         private static int checkChucNang = 0;
-
+        public static NguoiDung_DTO user = new NguoiDung_DTO();
         private static int indexRowClickCV = -1;
         private static ChucVu_DTO selectItemCV = new ChucVu_DTO();
         private static int checkChucNangCV = 0;
@@ -29,6 +29,10 @@ namespace GUI
             InitializeComponent();
         }
 
+        public void setUser(NguoiDung_DTO u)
+        {
+            user = u;
+        }
         
         private void FQuanLyNguoiDung_Load(object sender, EventArgs e)
         {
@@ -36,6 +40,13 @@ namespace GUI
             lbl_ThongBao.Text = string.Empty;
             lbl_ThongBao2.Text = string.Empty;
             setDefaut();
+            setDataGirdView(QLNguoiDung_BUS.LayDuLieu());
+            setDataGridViewCV(QLChucVu_BUS.layDuLieuKemSoNhanVien());
+        }
+
+        public void setData()
+        {
+            setCMB();
             setDataGirdView(QLNguoiDung_BUS.LayDuLieu());
             setDataGridViewCV(QLChucVu_BUS.layDuLieuKemSoNhanVien());
         }
@@ -93,7 +104,7 @@ namespace GUI
 
         private void setDefaut()
         {
-            txb_MatKhau.Text = txb_Email.Text = txb_SoDienThoai.Text = txb_TenNguoiDung.Text = string.Empty;
+            txb_MatKhau.Text = txb_Email.Text = txb_SoDienThoai.Text = txb_TenNguoiDung.Text = txb_TenDangNhap.Text = string.Empty;
             cmb_ChucVu.SelectedIndex = 0;
             cmb_TrangThai.SelectedIndex = 0;
             groupBoxContent.Visible = false;
@@ -298,25 +309,33 @@ namespace GUI
                         {
                             if(checkChucNang == 3)
                             {
-                                if(QLNguoiDung_BUS.kiemTraCoTheXoa(selectItem) ==1)
+                                if(selectItem.MANGUOIDUNG != user.MANGUOIDUNG || selectItem.MACHUCVU != user.MACHUCVU)
                                 {
-                                    if(xoaNguoiDung() ==1 )
+                                    if (QLNguoiDung_BUS.kiemTraCoTheXoa(selectItem) == 1)
                                     {
-                                        checkChageIncontrol = true;
-                                        hienThongBao(lbl_ThongBao, "Xoa Nhân Viên Thành Công", Color.Green);
-                                        setDefaut();
+                                        if (xoaNguoiDung() == 1)
+                                        {
+                                            checkChageIncontrol = true;
+                                            hienThongBao(lbl_ThongBao, "Xoa Nhân Viên Thành Công", Color.Green);
+                                            setDefaut();
+                                        }
+                                        else
+                                        {
+                                            hienThongBao(lbl_ThongBao, "Xoa Nhân Viên Thất Bại", Color.Red);
+                                        }
+
+
                                     }
                                     else
                                     {
-                                        hienThongBao(lbl_ThongBao, "Xoa Nhân Viên Thất Bại", Color.Red);
+                                        hienThongBao(lbl_ThongBao, "Nhân viên không thể xóa!", Color.Red);
                                     }
-                                    
-
                                 }
                                 else
                                 {
-                                    hienThongBao(lbl_ThongBao, "Nhân viên không thể xóa!", Color.Red);
+                                    hienThongBao(lbl_ThongBao, "Không thể xóa chính bạn", Color.Red);
                                 }
+                                
                             }
                         }
                     }

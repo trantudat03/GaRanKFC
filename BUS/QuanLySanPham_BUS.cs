@@ -190,6 +190,7 @@ namespace BUS
                     newSP.MASANPHAM = taoMa(25);
                     db.SANPHAMs.Add(newSP);
                     db.SaveChanges();
+                    return 1;
                 }
                 db.SANPHAMs.Add(newSP);
                 db.SaveChanges();

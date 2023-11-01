@@ -28,7 +28,6 @@ namespace DAO.Models
         public virtual DbSet<PHUONGTHUCTHANHTOAN> PHUONGTHUCTHANHTOANs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<SANPHAMHANGNGAY> SANPHAMHANGNGAYs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THONGBAOHANGNGAY> THONGBAOHANGNGAYs { get; set; }
         public virtual DbSet<TRANGTHAI> TRANGTHAIs { get; set; }
         public virtual DbSet<TRANGTHAINGUOIDUNG> TRANGTHAINGUOIDUNGs { get; set; }

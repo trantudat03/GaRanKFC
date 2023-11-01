@@ -73,8 +73,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.dgv_DanhSachDK = new System.Windows.Forms.DataGridView();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel13 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nud_TienToiThieu = new System.Windows.Forms.NumericUpDown();
             this.nud_DiemThoiThieu = new System.Windows.Forms.NumericUpDown();
             this.txb_TenDieuKien = new System.Windows.Forms.TextBox();
             this.btn_XacNhanDK = new System.Windows.Forms.Button();
@@ -85,18 +92,11 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dgv_DanhSachDK = new System.Windows.Forms.DataGridView();
-            this.lbl_ThongBao2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_XoaDieuKien = new System.Windows.Forms.Button();
             this.btn_SuaDieuKien = new System.Windows.Forms.Button();
             this.btn_ThemDieuKien = new System.Windows.Forms.Button();
-            this.nud_TienToiThieu = new System.Windows.Forms.NumericUpDown();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_ThongBao2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -114,14 +114,14 @@
             this.panel3.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachDK)).BeginInit();
             this.panel13.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_TienToiThieu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_DiemThoiThieu)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachDK)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_TienToiThieu)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -180,6 +180,7 @@
             // dgv_DanhSachKM
             // 
             this.dgv_DanhSachKM.AllowUserToAddRows = false;
+            this.dgv_DanhSachKM.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_DanhSachKM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DanhSachKM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -595,6 +596,62 @@
             this.panel14.Size = new System.Drawing.Size(937, 218);
             this.panel14.TabIndex = 6;
             // 
+            // dgv_DanhSachDK
+            // 
+            this.dgv_DanhSachDK.AllowUserToAddRows = false;
+            this.dgv_DanhSachDK.AllowUserToDeleteRows = false;
+            this.dgv_DanhSachDK.AllowUserToResizeRows = false;
+            this.dgv_DanhSachDK.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_DanhSachDK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DanhSachDK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13});
+            this.dgv_DanhSachDK.Location = new System.Drawing.Point(0, 0);
+            this.dgv_DanhSachDK.Name = "dgv_DanhSachDK";
+            this.dgv_DanhSachDK.RowHeadersWidth = 51;
+            this.dgv_DanhSachDK.RowTemplate.Height = 24;
+            this.dgv_DanhSachDK.Size = new System.Drawing.Size(776, 205);
+            this.dgv_DanhSachDK.TabIndex = 0;
+            this.dgv_DanhSachDK.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DanhSachDK_CellClick);
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Mã Điều Kiện";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 140;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Tên Điều Kiện";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 180;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Điểm Tối Thiểu";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 140;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Giá Trị Đơn Hàng Tối Thiểu";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 200;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Số Khuyễn Mãi";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 125;
+            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.groupBox1);
@@ -620,6 +677,19 @@
             this.groupBox1.Size = new System.Drawing.Size(937, 417);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
+            // 
+            // nud_TienToiThieu
+            // 
+            this.nud_TienToiThieu.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_TienToiThieu.Location = new System.Drawing.Point(667, 65);
+            this.nud_TienToiThieu.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.nud_TienToiThieu.Name = "nud_TienToiThieu";
+            this.nud_TienToiThieu.Size = new System.Drawing.Size(178, 30);
+            this.nud_TienToiThieu.TabIndex = 31;
             // 
             // nud_DiemThoiThieu
             // 
@@ -733,36 +803,6 @@
             this.panel4.Size = new System.Drawing.Size(238, 687);
             this.panel4.TabIndex = 2;
             // 
-            // dgv_DanhSachDK
-            // 
-            this.dgv_DanhSachDK.AllowUserToAddRows = false;
-            this.dgv_DanhSachDK.AllowUserToDeleteRows = false;
-            this.dgv_DanhSachDK.AllowUserToResizeRows = false;
-            this.dgv_DanhSachDK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DanhSachDK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12,
-            this.Column13});
-            this.dgv_DanhSachDK.Location = new System.Drawing.Point(0, 0);
-            this.dgv_DanhSachDK.Name = "dgv_DanhSachDK";
-            this.dgv_DanhSachDK.RowHeadersWidth = 51;
-            this.dgv_DanhSachDK.RowTemplate.Height = 24;
-            this.dgv_DanhSachDK.Size = new System.Drawing.Size(776, 205);
-            this.dgv_DanhSachDK.TabIndex = 0;
-            this.dgv_DanhSachDK.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DanhSachDK_CellClick);
-            // 
-            // lbl_ThongBao2
-            // 
-            this.lbl_ThongBao2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbl_ThongBao2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ThongBao2.Location = new System.Drawing.Point(0, 391);
-            this.lbl_ThongBao2.Name = "lbl_ThongBao2";
-            this.lbl_ThongBao2.Size = new System.Drawing.Size(238, 296);
-            this.lbl_ThongBao2.TabIndex = 21;
-            this.lbl_ThongBao2.Text = "Thong Bao";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btn_XoaDieuKien);
@@ -807,53 +847,15 @@
             this.btn_ThemDieuKien.UseVisualStyleBackColor = true;
             this.btn_ThemDieuKien.Click += new System.EventHandler(this.btn_ThemDieuKien_Click);
             // 
-            // nud_TienToiThieu
+            // lbl_ThongBao2
             // 
-            this.nud_TienToiThieu.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_TienToiThieu.Location = new System.Drawing.Point(667, 65);
-            this.nud_TienToiThieu.Maximum = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.nud_TienToiThieu.Name = "nud_TienToiThieu";
-            this.nud_TienToiThieu.Size = new System.Drawing.Size(178, 30);
-            this.nud_TienToiThieu.TabIndex = 31;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Mã Điều Kiện";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 140;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Tên Điều Kiện";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 180;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Điểm Tối Thiểu";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 140;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Giá Trị Đơn Hàng Tối Thiểu";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 200;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Số Khuyễn Mãi";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.Width = 125;
+            this.lbl_ThongBao2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_ThongBao2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThongBao2.Location = new System.Drawing.Point(0, 391);
+            this.lbl_ThongBao2.Name = "lbl_ThongBao2";
+            this.lbl_ThongBao2.Size = new System.Drawing.Size(238, 296);
+            this.lbl_ThongBao2.TabIndex = 21;
+            this.lbl_ThongBao2.Text = "Thong Bao";
             // 
             // FKhuyenMai
             // 
@@ -882,16 +884,16 @@
             this.panel3.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachDK)).EndInit();
             this.panel13.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_TienToiThieu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_DiemThoiThieu)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachDK)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nud_TienToiThieu)).EndInit();
             this.ResumeLayout(false);
 
         }

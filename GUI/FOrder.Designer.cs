@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel_Type = new System.Windows.Forms.Panel();
+            this.cmb_LoaiSanPham = new System.Windows.Forms.ComboBox();
             this.txb_Search = new System.Windows.Forms.TextBox();
             this.btn_DoUong = new System.Windows.Forms.Button();
             this.btn_DoAn = new System.Windows.Forms.Button();
@@ -100,6 +101,7 @@
             // panel_Type
             // 
             this.panel_Type.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Type.Controls.Add(this.cmb_LoaiSanPham);
             this.panel_Type.Controls.Add(this.txb_Search);
             this.panel_Type.Controls.Add(this.btn_DoUong);
             this.panel_Type.Controls.Add(this.btn_DoAn);
@@ -107,14 +109,24 @@
             this.panel_Type.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel_Type.Location = new System.Drawing.Point(0, 0);
             this.panel_Type.Name = "panel_Type";
-            this.panel_Type.Size = new System.Drawing.Size(547, 113);
+            this.panel_Type.Size = new System.Drawing.Size(547, 86);
             this.panel_Type.TabIndex = 1;
+            // 
+            // cmb_LoaiSanPham
+            // 
+            this.cmb_LoaiSanPham.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_LoaiSanPham.FormattingEnabled = true;
+            this.cmb_LoaiSanPham.Location = new System.Drawing.Point(21, 49);
+            this.cmb_LoaiSanPham.Name = "cmb_LoaiSanPham";
+            this.cmb_LoaiSanPham.Size = new System.Drawing.Size(217, 31);
+            this.cmb_LoaiSanPham.TabIndex = 12;
+            this.cmb_LoaiSanPham.SelectedIndexChanged += new System.EventHandler(this.cmb_LoaiSanPham_SelectedIndexChanged);
             // 
             // txb_Search
             // 
             this.txb_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txb_Search.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_Search.Location = new System.Drawing.Point(22, 22);
+            this.txb_Search.Location = new System.Drawing.Point(22, 7);
             this.txb_Search.Name = "txb_Search";
             this.txb_Search.Size = new System.Drawing.Size(216, 39);
             this.txb_Search.TabIndex = 11;
@@ -124,7 +136,7 @@
             // btn_DoUong
             // 
             this.btn_DoUong.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DoUong.Location = new System.Drawing.Point(401, 13);
+            this.btn_DoUong.Location = new System.Drawing.Point(401, 8);
             this.btn_DoUong.Name = "btn_DoUong";
             this.btn_DoUong.Size = new System.Drawing.Size(130, 48);
             this.btn_DoUong.TabIndex = 2;
@@ -136,7 +148,7 @@
             // 
             this.btn_DoAn.BackColor = System.Drawing.Color.Transparent;
             this.btn_DoAn.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DoAn.Location = new System.Drawing.Point(265, 13);
+            this.btn_DoAn.Location = new System.Drawing.Point(265, 8);
             this.btn_DoAn.Name = "btn_DoAn";
             this.btn_DoAn.Size = new System.Drawing.Size(130, 48);
             this.btn_DoAn.TabIndex = 10;
@@ -159,9 +171,9 @@
             this.panel_Menu.AutoScroll = true;
             this.panel_Menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_Menu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Menu.Location = new System.Drawing.Point(0, 113);
+            this.panel_Menu.Location = new System.Drawing.Point(0, 86);
             this.panel_Menu.Name = "panel_Menu";
-            this.panel_Menu.Size = new System.Drawing.Size(547, 641);
+            this.panel_Menu.Size = new System.Drawing.Size(547, 668);
             this.panel_Menu.TabIndex = 0;
             this.panel_Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Menu_Paint);
             // 
@@ -301,7 +313,7 @@
             this.panel_KhuyenMai.Controls.Add(this.label10);
             this.panel_KhuyenMai.Location = new System.Drawing.Point(43, 51);
             this.panel_KhuyenMai.Name = "panel_KhuyenMai";
-            this.panel_KhuyenMai.Size = new System.Drawing.Size(197, 374);
+            this.panel_KhuyenMai.Size = new System.Drawing.Size(433, 410);
             this.panel_KhuyenMai.TabIndex = 3;
             // 
             // panel_KhuyenMaiDS
@@ -799,5 +811,6 @@
         private System.Windows.Forms.Button btn_KhuyenMaiOk;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel_KhuyenMaiDS;
+        private System.Windows.Forms.ComboBox cmb_LoaiSanPham;
     }
 }

@@ -31,6 +31,11 @@ namespace GUI
             lbl_ThongBao2.Text = string.Empty;
         }
 
+        public void setData()
+        {
+            setDataGridView(QLKhachHang_BUS.layDuLieu());
+        }
+
         private void hienThongBao(Control control, string text, Color color)
         {
             control.Text = text;

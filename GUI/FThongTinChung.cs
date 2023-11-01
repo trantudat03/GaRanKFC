@@ -22,8 +22,10 @@ namespace GUI
 
         private void FThongTinChung_Load(object sender, EventArgs e)
         {
-            setDefaut();
+            setData();
         }
+
+        
 
         public string themDauChamVaoSo(int number)
         {
@@ -33,7 +35,7 @@ namespace GUI
             return numberStr;
 
         }
-        private void setDefaut()
+        public void setData()
         {
             DateTime date = DateTime.Now;
             int doanhThu = ThongKe_BUS.doanhThuTheoNgay(date);
