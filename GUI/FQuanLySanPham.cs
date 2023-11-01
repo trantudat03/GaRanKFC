@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,7 +36,21 @@ namespace GUI
             InitializeComponent();
         }
 
-       
+        public void setCMBLocLoaiSP()
+        {
+            List<LoaiSanPham_DTO> list = new List<LoaiSanPham_DTO>();
+            LoaiSanPham_DTO item = new LoaiSanPham_DTO();
+            item.TENLOAISP = "Tất cả";
+            item.MALOAISP = "0";
+            list.Add(item);
+            List<LoaiSanPham_DTO> resultList = list.Concat(QuanLyLoaiSP_BUS.LayDuLieu()).ToList();
+
+            cmb_LocLoaiSP.DataSource = null;
+            cmb_LocLoaiSP.DataSource = resultList;
+            cmb_LocLoaiSP.SelectedIndex = 0;
+            cmb_LocLoaiSP.DisplayMember = "TENLOAISP";
+            cmb_LocLoaiSP.ValueMember = "MALOAISP";
+        }
 
         private void FQuanLyLoaiSanPham_Load(object sender, EventArgs e)
         {
@@ -45,6 +60,7 @@ namespace GUI
             setDefautPage3();
             SetDataGridView(QuanLySanPham_BUS.layDuLieu());
             setDGVLoaiSanPham(QuanLyLoaiSP_BUS.soLuongSanPhamTheoLoai());
+            setCMBLocLoaiSP();
             if (cmb_SuaLoaiSP.DataSource == null)
             {
                 cmb_SuaLoaiSP.DataSource = QuanLyLoaiSP_BUS.LayDuLieu();
@@ -343,7 +359,10 @@ namespace GUI
 
         private void txb_SearchDGV_TextChanged(object sender, EventArgs e)
         {
-            SetDataGridView(QuanLySanPham_BUS.timTheoTen(txb_SearchDGV.Text));
+            if (cmb_LocLoaiSP.SelectedValue.ToString() != "0")
+                SetDataGridView(QuanLySanPham_BUS.timTheoTenVaLoai(txb_SearchDGV.Text, cmb_LocLoaiSP.SelectedValue.ToString()));
+            else
+                SetDataGridView(QuanLySanPham_BUS.timTheoTen(txb_SearchDGV.Text));
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -567,7 +586,7 @@ namespace GUI
                             hienThongBao(lbl_thongBaoPage3, "Chọn Loại sản phẩm cần sửa", Color.Red);
                         }
                         
-                    }
+                    } 
                 }
             }
             else
@@ -578,13 +597,17 @@ namespace GUI
 
         private void dgv_LoaiSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoaiSelect = new LoaiSanPham_DTO();
-            LoaiSelect = dgv_LoaiSanPham.Rows[e.RowIndex].Tag as LoaiSanPham_DTO;
-            if(LoaiSelect != null )
+            if(e.RowIndex >=0)
             {
-                txb_LoaiSPTen.Text = dgv_LoaiSanPham.Rows[e.RowIndex].Cells[1].Value.ToString();
-                clickIndexRowLoai = e.RowIndex;
+                LoaiSelect = new LoaiSanPham_DTO();
+                LoaiSelect = dgv_LoaiSanPham.Rows[e.RowIndex].Tag as LoaiSanPham_DTO;
+                if (LoaiSelect != null)
+                {
+                    txb_LoaiSPTen.Text = dgv_LoaiSanPham.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    clickIndexRowLoai = e.RowIndex;
+                }
             }
+            
         }
 
         private void btn_XoaLoaiSP_Click(object sender, EventArgs e)
@@ -620,6 +643,26 @@ namespace GUI
                 hienThongBao(lbl_thongBaoPage3, "Chọn Loại sản phẩm cần xóa", Color.Red);
             }
             
+        }
+
+        private void cmb_LocLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                if(cmb_LocLoaiSP.SelectedIndex == 0)
+                {
+                    SetDataGridView(QuanLySanPham_BUS.layDuLieu());
+                }
+                else
+                {
+                    SetDataGridView(QuanLySanPham_BUS.layTheoLoai(cmb_LocLoaiSP.SelectedValue.ToString()));
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

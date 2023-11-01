@@ -1021,8 +1021,14 @@ namespace GUI
 
         private void btn_HuyDon_Click(object sender, EventArgs e)
         {
-            fhuyDon = new FHuyDon();
-            fhuyDon.ShowDialog();
+            if (listOrder.Count > 0)
+            {
+                fhuyDon = new FHuyDon();
+                fhuyDon.ShowDialog();
+            }
+            else
+                MessageBox.Show("Chưa có đơn hàng!");
+            
         }
 
         private void panel_ThongTin_Paint(object sender, PaintEventArgs e)

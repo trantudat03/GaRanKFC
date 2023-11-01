@@ -56,6 +56,40 @@ namespace BUS
             return list;
         }
 
+        public static List<SanPham_DTO> layTheoLoai(string maLoai)
+        {
+            List<SanPham_DTO> list = new List<SanPham_DTO>();
+            try
+            {
+                db.SANPHAMs.ToList().ForEach(s =>
+                {
+                    if(s.MALOAISP == maLoai)
+                    {
+                        SanPham_DTO sp = new SanPham_DTO();
+                        sp.MALOAISP = s.MALOAISP;
+                        sp.MASANPHAM = s.MASANPHAM;
+                        sp.TENSANPHAM = s.TENSANPHAM;
+                        sp.GIASANPHAM = int.Parse(s.GIASANPHAM.ToString());
+                        sp.ANHSANPHAM = s.ANHSANPHAM;
+                        sp.THOIHAN = int.Parse(s.THOIHAN.ToString());
+                        sp.SOLUONG = int.Parse(s.SOLUONG.ToString());
+                        sp.LoaiSanPham.TENLOAISP = s.LOAISANPHAM.TENLOAISP;
+                        sp.LoaiSanPham.MALOAISP = s.LOAISANPHAM.MALOAISP.ToString();
+                        sp.MATRANGTHAI = s.MATRANGTHAI;
+                        sp.TRANGTHAI.TENTRANGTHAI = s.TRANGTHAI.TENTRANGTHAI;
+                        sp.TRANGTHAI.MATRANGTHAI = s.TRANGTHAI.MATRANGTHAI;
+                        list.Add(sp);
+                    }
+                });
+            }
+            catch
+            {
+
+            }
+
+            return list;
+        }
+
         private static string XoaDau(string text)
         {
             string formD = text.Normalize(NormalizationForm.FormD);
@@ -100,6 +134,38 @@ namespace BUS
                     list.Add(sp);
                 }
                 
+            });
+
+            return list;
+        }
+
+        public static List<SanPham_DTO> timTheoTenVaLoai(string strSearch, string maLoai)
+        {
+            string tenSearch = XoaDau(strSearch);
+            //string tenSP = RemoveDiacritics(sp.TENSANPHAM);
+
+            List<SanPham_DTO> list = new List<SanPham_DTO>();
+
+            db.SANPHAMs.ToList().ForEach(s =>
+            {
+                string tenSP = XoaDau(s.TENSANPHAM);
+                if (tenSP.IndexOf(tenSearch, StringComparison.OrdinalIgnoreCase) >= 0 && s.MALOAISP == maLoai)
+                {
+                    SanPham_DTO sp = new SanPham_DTO();
+                    sp.MALOAISP = s.MALOAISP;
+                    sp.MASANPHAM = s.MASANPHAM;
+                    sp.TENSANPHAM = s.TENSANPHAM;
+                    sp.GIASANPHAM = int.Parse(s.GIASANPHAM.ToString());
+                    sp.ANHSANPHAM = s.ANHSANPHAM;
+                    sp.THOIHAN = int.Parse(s.THOIHAN.ToString());
+                    sp.SOLUONG = int.Parse(s.SOLUONG.ToString());
+                    sp.LoaiSanPham.TENLOAISP = s.LOAISANPHAM.TENLOAISP;
+                    sp.LoaiSanPham.MALOAISP = s.LOAISANPHAM.MALOAISP.ToString();
+                    sp.TRANGTHAI.TENTRANGTHAI = s.TRANGTHAI.TENTRANGTHAI;
+                    sp.TRANGTHAI.MATRANGTHAI = s.TRANGTHAI.MATRANGTHAI;
+                    list.Add(sp);
+                }
+
             });
 
             return list;
