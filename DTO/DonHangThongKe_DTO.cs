@@ -18,5 +18,7 @@ namespace DTO
         //public int SOLUONGSP { get; set; }
 
         public string THOIGIAN { get; set; }
+
+        public int SOTIENGIAM { get; set; }
     }
 }

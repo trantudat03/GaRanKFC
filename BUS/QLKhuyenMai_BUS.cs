@@ -63,6 +63,7 @@ namespace BUS
         public static List<KhuyenMai_DTO> layKMTheoDieuKien(KhachHang_DTO kh, int giaTriDonHang)
         {
             List<KhuyenMai_DTO> listTheoDieuKien = new List<KhuyenMai_DTO>();
+            db = new Model1();
 
             db.KHUYENMAIs.ToList().ForEach(k =>
             {

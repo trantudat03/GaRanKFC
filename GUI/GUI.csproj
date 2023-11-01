@@ -265,6 +265,7 @@
     <None Include="Resources\logo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\search.png" />
     <None Include="Resources\group %281%29.png" />
     <None Include="Resources\iconKFC.png" />
     <None Include="Resources\iconDonHang.png" />

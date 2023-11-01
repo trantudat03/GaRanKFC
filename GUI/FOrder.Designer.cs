@@ -82,6 +82,7 @@
             this.panel_ThongTin = new System.Windows.Forms.Panel();
             this.lbl_DonHangNgay = new System.Windows.Forms.Label();
             this.pictureBox_Detail = new System.Windows.Forms.PictureBox();
+            this.pcb_search = new System.Windows.Forms.PictureBox();
             this.panel_Type.SuspendLayout();
             this.panel_Group.SuspendLayout();
             this.panel_Control.SuspendLayout();
@@ -96,11 +97,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nub_soLuong)).BeginInit();
             this.panel_ThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_search)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Type
             // 
             this.panel_Type.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Type.Controls.Add(this.pcb_search);
             this.panel_Type.Controls.Add(this.cmb_LoaiSanPham);
             this.panel_Type.Controls.Add(this.txb_Search);
             this.panel_Type.Controls.Add(this.btn_DoUong);
@@ -723,6 +726,18 @@
             this.pictureBox_Detail.TabIndex = 7;
             this.pictureBox_Detail.TabStop = false;
             // 
+            // pcb_search
+            // 
+            this.pcb_search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_search.Image = global::GUI.Properties.Resources.search;
+            this.pcb_search.Location = new System.Drawing.Point(189, 9);
+            this.pcb_search.Name = "pcb_search";
+            this.pcb_search.Size = new System.Drawing.Size(47, 33);
+            this.pcb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcb_search.TabIndex = 13;
+            this.pcb_search.TabStop = false;
+            this.pcb_search.Click += new System.EventHandler(this.pcb_search_Click);
+            // 
             // FOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -752,6 +767,7 @@
             this.panel_ThongTin.ResumeLayout(false);
             this.panel_ThongTin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Detail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_search)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -812,5 +828,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel_KhuyenMaiDS;
         private System.Windows.Forms.ComboBox cmb_LoaiSanPham;
+        private System.Windows.Forms.PictureBox pcb_search;
     }
 }

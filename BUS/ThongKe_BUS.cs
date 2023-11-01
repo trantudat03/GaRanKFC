@@ -21,21 +21,22 @@ namespace BUS
         public static List<DonHangThongKe_DTO> thongKeTheoNgay(DateTime date)
         {
             listThongKe.Clear();
-           
-                var query = from donhang in db.DONHANGs
-                            join nguoidung in db.NGUOIDUNGs on donhang.MANGUOIDUNG equals nguoidung.MANGUOIDUNG
-                            join khachhang in db.KHACHHANGs on donhang.MAKHACHHANG equals khachhang.MAKHACHHANG
-                            join khuyenmai in db.KHUYENMAIs on donhang.MAKHUYENMAI equals khuyenmai.MAKHUYENMAI into kj
-                            from khuyenmai in kj.DefaultIfEmpty()
-                            where donhang.THOIGIAN.Value.Day == date.Day && donhang.THOIGIAN.Value.Month == date.Month && donhang.THOIGIAN.Value.Year == date.Year
-                            select new
-                            {
-                                donhang.MADONHANG,
-                                nguoidung.TENNGUOIDUNG,
-                                khachhang.TENKHACHHANG,
-                                khuyenmai.TENKHUYENMAI,
-                                donhang.TONGGIA,
-                                donhang.THOIGIAN
+
+            var query = from donhang in db.DONHANGs
+                        join nguoidung in db.NGUOIDUNGs on donhang.MANGUOIDUNG equals nguoidung.MANGUOIDUNG
+                        join khachhang in db.KHACHHANGs on donhang.MAKHACHHANG equals khachhang.MAKHACHHANG
+                        join khuyenmai in db.KHUYENMAIs on donhang.MAKHUYENMAI equals khuyenmai.MAKHUYENMAI into kj
+                        from khuyenmai in kj.DefaultIfEmpty()
+                        where donhang.THOIGIAN.Value.Day == date.Day && donhang.THOIGIAN.Value.Month == date.Month && donhang.THOIGIAN.Value.Year == date.Year
+                        select new
+                        {
+                            donhang.MADONHANG,
+                            nguoidung.TENNGUOIDUNG,
+                            khachhang.TENKHACHHANG,
+                            khuyenmai.TENKHUYENMAI,
+                            donhang.TONGGIA,
+                            donhang.THOIGIAN,
+                            donhang.GIATRIKHUYENMAI
                             };
                 foreach (var result in query)
                 {
@@ -59,6 +60,7 @@ namespace BUS
                     {
                         item.TENKHUYENMAI = result.TENKHUYENMAI;
                     }
+                    item.SOTIENGIAM = (int)result.GIATRIKHUYENMAI;
                     item.THOIGIAN = result.THOIGIAN.Value.ToString("hh:mm-dd/MM/yyyy");
                     listThongKe.Add(item);
                 }
@@ -83,7 +85,8 @@ namespace BUS
                                 khachhang.TENKHACHHANG,
                                 khuyenmai.TENKHUYENMAI,
                                 donhang.TONGGIA,
-                                donhang.THOIGIAN
+                                donhang.THOIGIAN,
+                                donhang.GIATRIKHUYENMAI
                             };
                 foreach (var result in query)
                 {
@@ -106,7 +109,8 @@ namespace BUS
                         item.TENKHUYENMAI = result.TENKHUYENMAI;
                     }
                     item.THOIGIAN = result.THOIGIAN.Value.ToString("hh:mm-dd/MM/yyyy");
-                    listThongKe.Add(item);
+                    item.SOTIENGIAM = (int)result.GIATRIKHUYENMAI;
+                listThongKe.Add(item);
                 }
             
             return listThongKe;
@@ -129,7 +133,8 @@ namespace BUS
                             khachhang.TENKHACHHANG,
                             khuyenmai.TENKHUYENMAI,
                             donhang.TONGGIA,
-                            donhang.THOIGIAN
+                            donhang.THOIGIAN,
+                            donhang.GIATRIKHUYENMAI
                         };
             foreach (var result in query)
             {
@@ -154,6 +159,7 @@ namespace BUS
                     item.TENKHUYENMAI = result.TENKHUYENMAI;
                 }
                 item.THOIGIAN = result.THOIGIAN.Value.ToString("hh:mm-dd/MM/yyyy");
+                item.SOTIENGIAM = (int)result.GIATRIKHUYENMAI;
                 listThongKe.Add(item);
             }
 
@@ -177,7 +183,8 @@ namespace BUS
                             khachhang.TENKHACHHANG,
                             khuyenmai.TENKHUYENMAI,
                             donhang.TONGGIA,
-                            donhang.THOIGIAN
+                            donhang.THOIGIAN,
+                            donhang.GIATRIKHUYENMAI
                         };
             foreach (var result in query)
             {
@@ -202,6 +209,7 @@ namespace BUS
                     item.TENKHUYENMAI = result.TENKHUYENMAI;
                 }
                 item.THOIGIAN = result.THOIGIAN.Value.ToString("hh:mm-dd/MM/yyyy");
+                item.SOTIENGIAM = (int)result.GIATRIKHUYENMAI;
                 listThongKe.Add(item);
             }
 

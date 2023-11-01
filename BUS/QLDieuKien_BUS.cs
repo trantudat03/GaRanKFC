@@ -123,16 +123,16 @@ namespace BUS
 
         public static int xoaDieuKien(DieuKien_DTO item)
         {
-
+            Model1 dbContext = new Model1();
             if(item!=null)
             {
                 if (kiemTraCoTheXoa(item))
                 {
-                    DIEUKIEN delete = db.DIEUKIENs.Find(item.MADIEUKIEN);
+                    DIEUKIEN delete = dbContext.DIEUKIENs.Find(item.MADIEUKIEN);
                     if(delete != null)
                     {
-                        db.DIEUKIENs.Remove(delete);
-                        db.SaveChanges();
+                        dbContext.DIEUKIENs.Remove(delete);
+                        dbContext.SaveChanges();
                         return 1;
                     }
                 }

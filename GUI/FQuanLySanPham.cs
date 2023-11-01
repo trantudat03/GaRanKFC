@@ -48,7 +48,7 @@ namespace GUI
             if (cmb_LocLoaiSP.DataSource != null)
                 cmb_LocLoaiSP.DataSource = null;
             cmb_LocLoaiSP.DataSource = resultList;
-            
+
             cmb_LocLoaiSP.DisplayMember = "TENLOAISP";
             cmb_LocLoaiSP.ValueMember = "MALOAISP";
             cmb_LocLoaiSP.SelectedIndex = 0;
@@ -659,17 +659,16 @@ namespace GUI
 
         private void cmb_LocLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             try
             {
-                if(cmb_LocLoaiSP.SelectedIndex == 0)
+                if (cmb_LocLoaiSP.SelectedIndex == 0)
                 {
                     SetDataGridView(QuanLySanPham_BUS.layDuLieu());
                 }
                 else
                 {
-                    if(cmb_LocLoaiSP.SelectedValue != null)
-                    SetDataGridView(QuanLySanPham_BUS.layTheoLoai(cmb_LocLoaiSP.SelectedValue.ToString()));
+                    if (cmb_LocLoaiSP.SelectedValue != null)
+                        SetDataGridView(QuanLySanPham_BUS.layTheoLoai(cmb_LocLoaiSP.SelectedValue.ToString()));
                 }
             }
             catch

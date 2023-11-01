@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +53,51 @@ namespace GUI
            
         }
 
+        public string themDauChamVaoSo(int number)
+        {
 
+            string numberStr = number.ToString("N0", CultureInfo.InvariantCulture);
+            numberStr = numberStr.Replace(",", ".");
+            return numberStr;
+
+        }
+        private int tinhTongDoanhThu(List<DonHangThongKe_DTO> list)
+        {
+            int tong = 0;
+            int length = dgv_ThongKe.Rows.Count;
+            if (list.Count > 0)
+            {
+                list.ForEach(d =>
+                {
+                    int total = d.TONGGIA - d.SOTIENGIAM;
+                    if (total < 0)
+                        total = 0;
+                    tong += total;
+                });
+
+            }
+
+            
+            return tong;
+        }
+
+        private int tinhTongTienKhuyenMai(List<DonHangThongKe_DTO> list)
+        {
+            int tong = 0;
+
+            if(list.Count > 0)
+            {
+                list.ForEach(d =>
+                {
+                    if (d.SOTIENGIAM > d.TONGGIA)
+                        tong += d.TONGGIA;
+                    else
+                        tong += d.SOTIENGIAM;
+                    
+                });
+            }
+            return tong;
+        }
         public void setDataGridView(int chose)
         {
             List < DonHangThongKe_DTO > list = new List<DonHangThongKe_DTO> ();
@@ -88,10 +133,13 @@ namespace GUI
                 {
                     // MessageBox.Show(x.Khoa.TenKhoa);
                     
-                    dgv_ThongKe.Rows.Add(d.MADONHANG, d.TENNGUOIDUNG, d.TENKHACHHANG, d.TENKHUYENMAI, d.TONGGIA, d.THOIGIAN);
+                    dgv_ThongKe.Rows.Add(d.MADONHANG, d.TENNGUOIDUNG, d.TENKHACHHANG, d.TENKHUYENMAI, d.TONGGIA, d.SOTIENGIAM, d.THOIGIAN);
                 });
             }
-            
+
+            lbl_TongDoanhThu.Text = themDauChamVaoSo(tinhTongDoanhThu(list)) + " VNĐ";
+            lbl_TongKhuyenMai.Text = themDauChamVaoSo(tinhTongTienKhuyenMai(list)) + " VNĐ";
+
         }
 
         private void FThongKe_Load(object sender, EventArgs e)
@@ -137,7 +185,7 @@ namespace GUI
             }
             //MessageBox.Show(list.Count.ToString());
             int x = 10;
-            int y = 0;
+            
             int height = 0;
             int width = 45;
             int space = 30;

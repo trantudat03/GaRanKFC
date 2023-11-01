@@ -106,9 +106,8 @@
             this.btn_ThemLoaiSP = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.PB_AnhSanPham = new System.Windows.Forms.PictureBox();
-            this.pcb_SuaAnhSP = new System.Windows.Forms.PictureBox();
-            this.pcb_HienThiAnhSp = new System.Windows.Forms.PictureBox();
+            this.cmb_LocLoaiSP = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -680,8 +679,8 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.cmb_LocLoaiSP);
             this.panel9.Controls.Add(this.label17);
+            this.panel9.Controls.Add(this.cmb_LocLoaiSP);
             this.panel9.Controls.Add(this.txb_SearchDGV);
             this.panel9.Controls.Add(this.label1);
             this.panel9.Controls.Add(this.btn_Sua);
@@ -697,7 +696,7 @@
             // 
             this.txb_SearchDGV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txb_SearchDGV.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_SearchDGV.Location = new System.Drawing.Point(6, 49);
+            this.txb_SearchDGV.Location = new System.Drawing.Point(10, 135);
             this.txb_SearchDGV.Name = "txb_SearchDGV";
             this.txb_SearchDGV.Size = new System.Drawing.Size(216, 39);
             this.txb_SearchDGV.TabIndex = 21;
@@ -708,7 +707,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 13);
+            this.label1.Location = new System.Drawing.Point(8, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 23);
             this.label1.TabIndex = 22;
@@ -716,7 +715,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.Location = new System.Drawing.Point(10, 117);
+            this.btn_Sua.Location = new System.Drawing.Point(10, 190);
             this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(130, 63);
@@ -737,7 +736,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(10, 232);
+            this.btn_Xoa.Location = new System.Drawing.Point(10, 264);
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(130, 63);
@@ -1008,52 +1007,25 @@
             this.panel2.Size = new System.Drawing.Size(1296, 717);
             this.panel2.TabIndex = 20;
             // 
-            // PB_AnhSanPham
+            // cmb_LocLoaiSP
             // 
-            this.PB_AnhSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PB_AnhSanPham.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PB_AnhSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_AnhSanPham.Image = global::GUI.Properties.Resources.imgIcon;
-            this.PB_AnhSanPham.Location = new System.Drawing.Point(178, 288);
-            this.PB_AnhSanPham.Name = "PB_AnhSanPham";
-            this.PB_AnhSanPham.Size = new System.Drawing.Size(114, 83);
-            this.PB_AnhSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_AnhSanPham.TabIndex = 16;
-            this.PB_AnhSanPham.TabStop = false;
-            this.PB_AnhSanPham.Click += new System.EventHandler(this.PB_AnhSanPham_Click);
+            this.cmb_LocLoaiSP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_LocLoaiSP.FormattingEnabled = true;
+            this.cmb_LocLoaiSP.Location = new System.Drawing.Point(10, 62);
+            this.cmb_LocLoaiSP.Name = "cmb_LocLoaiSP";
+            this.cmb_LocLoaiSP.Size = new System.Drawing.Size(216, 31);
+            this.cmb_LocLoaiSP.TabIndex = 23;
+            this.cmb_LocLoaiSP.SelectedIndexChanged += new System.EventHandler(this.cmb_LocLoaiSP_SelectedIndexChanged);
             // 
-            // pcb_SuaAnhSP
+            // label17
             // 
-            this.pcb_SuaAnhSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pcb_SuaAnhSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_SuaAnhSP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_SuaAnhSP.Image = global::GUI.Properties.Resources.imgIcon;
-            this.pcb_SuaAnhSP.Location = new System.Drawing.Point(190, 158);
-            this.pcb_SuaAnhSP.Name = "pcb_SuaAnhSP";
-            this.pcb_SuaAnhSP.Size = new System.Drawing.Size(174, 97);
-            this.pcb_SuaAnhSP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcb_SuaAnhSP.TabIndex = 16;
-            this.pcb_SuaAnhSP.TabStop = false;
-            this.pcb_SuaAnhSP.Click += new System.EventHandler(this.pcb_SuaAnhSP_Click);
-            // 
-            // pcb_HienThiAnhSp
-            // 
-            this.pcb_HienThiAnhSp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pcb_HienThiAnhSp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_HienThiAnhSp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_HienThiAnhSp.Image = global::GUI.Properties.Resources.imgIcon;
-            this.pcb_HienThiAnhSp.Location = new System.Drawing.Point(10, 32);
-            this.pcb_HienThiAnhSp.Name = "pcb_HienThiAnhSp";
-            this.pcb_HienThiAnhSp.Size = new System.Drawing.Size(174, 144);
-            this.pcb_HienThiAnhSp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcb_HienThiAnhSp.TabIndex = 20;
-            this.pcb_HienThiAnhSp.TabStop = false;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(8, 33);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 23);
+            this.label17.TabIndex = 24;
+            this.label17.Text = "Lọc";
             // 
             // FQuanLySanPham
             // 
@@ -1187,5 +1159,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.ComboBox cmb_LocLoaiSP;
         private System.Windows.Forms.Label label17;
+        //private System.Windows.Forms.ComboBox cmb_LocLoaiSP;
+        // private System.Windows.Forms.Label label17;
     }
 }

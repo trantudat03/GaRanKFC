@@ -54,6 +54,7 @@ namespace GUI
         private void FThanhToan_Load(object sender, EventArgs e)
         {
             capNhatTongTin();
+
             setvaluePanelNumber(number0, 0);
             setvaluePanelNumber(number5, 5);
             setvaluePanelNumber(number6, 6);
@@ -66,8 +67,13 @@ namespace GUI
             setvaluePanelNumber(number9, 9);
             setValuePanelEnter(btn_enter);
             setValuePanelXoa(btn_Xoa);
+            /*if(!kiemTraDonHang())
+            {
+                MessageBox.Show("Đơn hàng có thể ");
+            }*/
             setDefaut();
             setValuePanelThoiTra();
+
         }
         private void hienThiSoTienNhap(int number)
         {
@@ -335,6 +341,11 @@ namespace GUI
                     }
                     thanhTien -= soTienGiam;
                     soTienConLai = thanhTien;
+                    if(thanhTien <0)
+                    {
+                        thanhTien = 0;
+                        soTienConLai = thanhTien;
+                    }
                     
                 }
                 lbl_TTSoTien.Text = themDauChamVaoSo(thanhTien);
@@ -348,6 +359,17 @@ namespace GUI
                     hienDanhSachSanPham(listOrder);
                 });
             }
+        }
+
+
+        private bool kiemTraDonHang()
+        {
+            if(thanhTien< 0)
+            {
+                thanhTien = 0;
+                return true;
+            }
+            return false;
         }
 
 
@@ -542,7 +564,7 @@ namespace GUI
 
         private void tienHanhThanhToan()
         {
-            if (soTienConLai == 0)
+            if (soTienDaTra>= thanhTien)
             {
                 DialogResult result = MessageBox.Show($"Xác nhận thanh toán",
      "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -634,8 +656,12 @@ namespace GUI
         }
 
         private void btn_TTTienMat_Click(object sender, EventArgs e)
-        {
-            tienHanhThanhToan();
+        {   
+            if(soTienDaTra>=thanhTien)
+            {
+                tienHanhThanhToan();
+            }
+            
         }
 
 
@@ -725,7 +751,7 @@ namespace GUI
             int widthTen = 200;
             int widthGia = 100;
             int widthSL = 120;
-            int widthTT = 100;
+            
 
             foreach (SanPham_DTO item in listOrder)
             {

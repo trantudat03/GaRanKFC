@@ -46,7 +46,7 @@ namespace GUI
             hienMenu(checkMenu, "");
             donCuaNgay = QLDonHang_BUS.tinhSoDonTheoNgay(date.ToString("yyyy-MM-dd"));
             setDefaut();
-            
+            setStyle();
             //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
         }
 
@@ -66,6 +66,7 @@ namespace GUI
             cmb_LoaiSanPham.ValueMember = "MALOAISP";
             cmb_LoaiSanPham.DisplayMember = "TENLOAISP";
             cmb_LoaiSanPham.SelectedIndex = 0;
+            
         }
 
         public void setUser(NguoiDung_DTO u)
@@ -77,7 +78,9 @@ namespace GUI
         private void setStyle()
         {
             //txb_Search.
-
+            pcb_search.Width = 45;
+            pcb_search.Height = txb_Search.Height-10;
+            pcb_search.Location = new Point(txb_Search.Location.X + txb_Search.Width - 50, txb_Search.Location.Y+5);
         }
 
         public List<SanPham_DTO> getListOrder()
@@ -1098,8 +1101,16 @@ namespace GUI
 
         private void btn_HuyDon_Click(object sender, EventArgs e)
         {
-            fhuyDon = new FHuyDon();
-            fhuyDon.ShowDialog();
+            if(listOrder.Count > 0)
+            {
+                fhuyDon = new FHuyDon();
+                fhuyDon.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Chưa có đơn hàng!");
+            }
+            
         }
 
         private void panel_ThongTin_Paint(object sender, PaintEventArgs e)
@@ -1119,6 +1130,11 @@ namespace GUI
             }
             
             
+        }
+
+        private void pcb_search_Click(object sender, EventArgs e)
+        {
+            txb_Search.Focus();
         }
     }
 }
