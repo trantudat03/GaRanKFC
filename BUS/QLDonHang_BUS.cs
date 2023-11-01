@@ -57,6 +57,7 @@ namespace BUS
                     i.MAKHACHHANG = don.MAKHACHHANG;
                     i.TONGGIA = don.TONGGIA;
                     i.SOLUONGSP = don.SOLUONGSP;
+                    i.GIATRIKHUYENMAI = don.SOTIENGIAM;
                     DateTime date;
                     DateTime.TryParseExact(don.THOIGIAN, "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out date);
                     i.THOIGIAN = date;

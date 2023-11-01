@@ -19,6 +19,8 @@ namespace DTO
 
         public string THOIGIAN { get; set; }
 
+        public int SOTIENGIAM { get; set; }  
+
         public string[] MAPHUONGTHUC { get; set; }
 
         public DonHang_DTO() 
@@ -29,6 +31,7 @@ namespace DTO
             THOIGIAN = string.Empty;
             this.MAKHUYENMAI = string.Empty;
             TONGGIA = 0;
+            SOTIENGIAM = 0;
             this.MAPHUONGTHUC = new string[3];
             this.SOLUONGSP = 0;
         }

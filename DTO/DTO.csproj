@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiRequest.cs" />
+    <Compile Include="Bank.cs" />
     <Compile Include="ChiTietDonHangHuy_DTO.cs" />
     <Compile Include="ChiTietDonHang_DTO.cs" />
     <Compile Include="ChiTietThanhToan_DTO.cs" />

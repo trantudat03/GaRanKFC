@@ -33,6 +33,13 @@ namespace GUI
             setDataGridViewDK(QLDieuKien_BUS.layThemSoLuongKhuyenMai());
         }
 
+        public void setData()
+        {
+            setDataGirdView(QLKhuyenMai_BUS.layDuLieu());
+            setCMB();
+            setDataGridViewDK(QLDieuKien_BUS.layThemSoLuongKhuyenMai());
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 

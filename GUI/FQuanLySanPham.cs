@@ -43,6 +43,11 @@ namespace GUI
             setDefaut();
             setDefautPage2();
             setDefautPage3();
+            setData();
+        }
+
+        public void setData()
+        {
             SetDataGridView(QuanLySanPham_BUS.layDuLieu());
             setDGVLoaiSanPham(QuanLyLoaiSP_BUS.soLuongSanPhamTheoLoai());
             if (cmb_SuaLoaiSP.DataSource == null)
@@ -85,6 +90,7 @@ namespace GUI
 
         private void setDGVLoaiSanPham(List<LoaiSanPham_DTO> list) 
         {
+            dgv_LoaiSanPham.Rows.Clear();
             if(list.Count>0)
             {
                 int index = 0;
@@ -122,6 +128,8 @@ namespace GUI
             lbl_TenSanPham.Text = string.Empty;
             linkImg = string.Empty;
             chosen_File = string.Empty;
+            pcb_HienThiAnhSp.Image = Properties.Resources.imgIcon;
+            pcb_SuaAnhSP.Image = Properties.Resources.imgIcon;
             clickIndexRowSP = -1;
         }
 
@@ -132,6 +140,7 @@ namespace GUI
             nud_HanSanPham.Value = 0;
             PB_AnhSanPham.Image = Properties.Resources.imgIcon;
             
+
             linkImg = string.Empty;
         }
 

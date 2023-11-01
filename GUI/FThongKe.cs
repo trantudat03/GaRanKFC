@@ -31,6 +31,11 @@ namespace GUI
             
         }
 
+        public void setData()
+        {
+            setDataGridView(cmb_ListThongKe.SelectedIndex);
+            setBieuDoSanPham(cmb_DateTimeSP.SelectedIndex);
+        }
         public void setDefaut()
         {
             cmb_ListThongKe.Items.Clear();
@@ -46,6 +51,7 @@ namespace GUI
             dateTimePickerTo.Value = dateTimePickerTo.Value.Date.AddDays(1).AddTicks(-1);
            
         }
+
 
         public void setDataGridView(int chose)
         {
@@ -96,7 +102,7 @@ namespace GUI
         private void setBieuDoSanPham(int chose)
         {
             BieuDoCotSpBanChay.Controls.Clear();
-            panel_NameColumn.Controls.Clear();
+            //panel_NameColumn.Controls.Clear();
             
             List<SanPhamThongKe_DTO> list = new List<SanPhamThongKe_DTO>();
             
@@ -140,31 +146,38 @@ namespace GUI
                 
                 list.ForEach(s =>
                 {
-                    Panel p = new Panel();
-                    height =  (s.SOLUONG * 10) +30;
-                    p.Location = new Point(x, BieuDoCotSpBanChay.Height - height );
-                    p.Size = new Size(width, height);
-                    p.BackColor = Color.Red;
-                    ToolTip toolTipNameColumn = new ToolTip();
-                    toolTipNameColumn.SetToolTip(p, s.TENSANPHAM);
-                    toolTipNameColumn.ForeColor = Color.Black;
-                    Label l = new Label();
-                    l.Text = s.SOLUONG.ToString();
-                    l.Font = new Font("Arial", 16, FontStyle.Regular);
-                    l.AutoSize = true;
-                    l.Location = new Point(x+5,BieuDoCotSpBanChay.Height - height-25);
-                    l.TextAlign = ContentAlignment.MiddleCenter;
                     TextBox textBox = new TextBox();
                     textBox.Multiline = true; // Cho phép viết nhiều dòng
                     textBox.ReadOnly = true; // Không cho phép sửa đổi nội dung
                     textBox.ScrollBars = ScrollBars.None;
                     textBox.Text = s.TENSANPHAM;
-                    textBox.Size = new Size(width+18, panel_NameColumn.Height);
-                    textBox.Location = new Point(x-4, 10);
+                    textBox.Size = new Size(width + 18, 80);
+                    textBox.Location = new Point(x - 4, BieuDoCotSpBanChay.Height-textBox.Height);
                     textBox.BorderStyle = BorderStyle.None;
-                    panel_NameColumn.Controls.Add(textBox);
+                    Panel p = new Panel();
+                    height =  (s.SOLUONG * 15) ;
+                    if(height> BieuDoCotSpBanChay.Height - textBox.Height)
+                    {
+                        height = BieuDoCotSpBanChay.Height - textBox.Height - 100;
+                    }
+                    p.Location = new Point(x, BieuDoCotSpBanChay.Height - height-textBox.Height);
+                    p.Size = new Size(width, height);
+                    p.BackColor = Color.Red;
+                    ToolTip toolTipNameColumn = new ToolTip();
+                    toolTipNameColumn.SetToolTip(p, s.TENSANPHAM + "("+s.SOLUONG+")");
+                    toolTipNameColumn.ForeColor = Color.Black;
+                    Label l = new Label();// so luong
+                    l.Text = s.SOLUONG.ToString();
+                    l.Font = new Font("Arial", 16, FontStyle.Regular);
+                    l.AutoSize = true;
+                    l.Location = new Point(x+5,BieuDoCotSpBanChay.Height - height-25-textBox.Height);
+                    l.TextAlign = ContentAlignment.MiddleCenter;
+
+                    // panel_NameColumn.Controls.Add(textBox);
+                    BieuDoCotSpBanChay.Controls.Add(textBox);
                     BieuDoCotSpBanChay.Controls.Add(l);
                     BieuDoCotSpBanChay.Controls.Add(p);// panel cha
+                    
                     x += space + width;
                 });
                 

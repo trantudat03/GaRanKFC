@@ -43,14 +43,22 @@ namespace GUI
             DateTime date = DateTime.Now;
             listSP = QuanLySanPham_BUS.layDuLieu();
             setCMBLoaiSP();
-            hienMenu("1", "");
+            hienMenu(checkMenu, "");
             donCuaNgay = QLDonHang_BUS.tinhSoDonTheoNgay(date.ToString("yyyy-MM-dd"));
             setDefaut();
             
             //MessageBox.Show(QLKhachHang_BUS.taoMa(10));
         }
 
-
+        public void setData()
+        {
+            
+            panel_Menu.Controls.Clear();
+            listSP.Clear();
+            listSP = QuanLySanPham_BUS.layDuLieu();
+            setCMBLoaiSP();
+            hienMenu(checkMenu, "");
+        }
         private void setCMBLoaiSP()
         {
             cmb_LoaiSanPham.DataSource = null;
@@ -489,7 +497,7 @@ namespace GUI
                     int panelWidth = 160;
                     int panelHeight =210 ;
                     //MessageBox.Show("helo");
-                    if (strSearch != "")
+                    if (strSearch != "")// timkiem
                     {
                         listSP.ForEach((sp) =>
                         {
@@ -503,14 +511,10 @@ namespace GUI
                                 Panel panel = new Panel();
                                 // gan san pham vào panel
                                 panel.Tag = sp;
-                                panel.Click += (sender, e) =>
-                                {
-                                    Panel clickedPanel = (Panel)sender;
-                                    SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                }; // them su kien click
+                               
                                 panel.Size = new Size(panelWidth, panelHeight);
                                 panel.Cursor = Cursors.Hand;
+                                
                                 PictureBox pictureBox = new PictureBox();
                                 pictureBox.Tag = sp;
                                 pictureBox.Size = new Size(panelWidth, 120);
@@ -550,32 +554,53 @@ namespace GUI
                                 txbTen.MaximumSize = new Size(panelWidth, 50);
 
                                 // Tạo sự kiện click cho PictureBox
-                                pictureBox.Click += (sender, e) =>
+                                if (sp.MATRANGTHAI != "1")
                                 {
-                                    PictureBox pictureClick = (PictureBox)sender;
-                                    SanPham_DTO spClick = pictureClick.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                };
-
-                                // Tạo sự kiện click cho Label
-                                lableGia.Click += (sender, e) =>
+                                    Label lbl = new Label();
+                                    lbl.Text = sp.TRANGTHAI.TENTRANGTHAI;
+                                    lbl.Font = new Font("Arial", 16, FontStyle.Regular);
+                                    lbl.ForeColor = Color.Red;
+                                    lbl.AutoSize = true;
+                                    lbl.Location = new Point((panelWidth - lbl.Width) / 2, (panelHeight - lbl.Height - 40) / 2);
+                                    panel.Controls.Add(lbl);
+                                    lbl.TabIndex = 999;
+                                }
+                                else
                                 {
-                                    Label lblClick = (Label)sender;
-                                    SanPham_DTO spClick = lblClick.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                };
+                                    panel.Click += (sender, e) =>
+                                    {
+                                        Panel clickedPanel = (Panel)sender;
+                                        SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    }; // them su kien click
+                                    pictureBox.Click += (sender, e) =>
+                                    {
+                                        PictureBox pictureClick = (PictureBox)sender;
+                                        SanPham_DTO spClick = pictureClick.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    };
 
-                                // Tạo sự kiện click cho RichTextBox
-                                txbTen.Click += (sender, e) =>
-                                {
-                                    RichTextBox txb_click = (RichTextBox)sender;
-                                    SanPham_DTO spClick = txb_click.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                };
+                                    // Tạo sự kiện click cho Label
+                                    lableGia.Click += (sender, e) =>
+                                    {
+                                        Label lblClick = (Label)sender;
+                                        SanPham_DTO spClick = lblClick.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    };
 
+                                    // Tạo sự kiện click cho RichTextBox
+                                    txbTen.Click += (sender, e) =>
+                                    {
+                                        RichTextBox txb_click = (RichTextBox)sender;
+                                        SanPham_DTO spClick = txb_click.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    };
+                                }
+                                
                                 panel.Controls.Add(pictureBox);
                                 panel.Controls.Add(lableGia);
                                 panel.Controls.Add(txbTen);
+                                
                                 panel.Location = new Point(startX, startY);
                                 startX += panelWidth + spacing;
                                 panel.BorderStyle = BorderStyle.FixedSingle;
@@ -601,29 +626,16 @@ namespace GUI
                                 Panel panel = new Panel();
                                 // gan san pham vào panel
                                 panel.Tag = sp;
-                                panel.Click += (sender, e) =>
-                                {
-                                    Panel clickedPanel = (Panel)sender;
-                                    SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                }; // them su kien click
+
                                 panel.Size = new Size(panelWidth, panelHeight);
                                 panel.Cursor = Cursors.Hand;
+
                                 PictureBox pictureBox = new PictureBox();
                                 pictureBox.Tag = sp;
                                 pictureBox.Size = new Size(panelWidth, 120);
                                 //pictureBox.Image = Properties.Resources._1mienggaran;
                                 //pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(sp.ANHSANPHAM);
-                                Image image ;
-                                if (sp.ANHSANPHAM!= string.Empty)
-                                {
-                                     image = Image.FromFile(@"..\\..\\Resources\\" + sp.ANHSANPHAM);
-                                }
-                                else
-                                {
-                                     image = (Image)Properties.Resources.imgIcon;
-                                }
-                                
+                                Image image = Image.FromFile(@"..\\..\\Resources\\" + sp.ANHSANPHAM);
                                 pictureBox.Image = image;
                                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 pictureBox.Location = new Point(0, 0);
@@ -657,32 +669,53 @@ namespace GUI
                                 txbTen.MaximumSize = new Size(panelWidth, 50);
 
                                 // Tạo sự kiện click cho PictureBox
-                                pictureBox.Click += (sender, e) =>
+                                if (sp.MATRANGTHAI != "1")
                                 {
-                                    PictureBox pictureClick = (PictureBox)sender;
-                                    SanPham_DTO spClick = pictureClick.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                };
+                                    Label lbl = new Label();
+                                    lbl.Text = sp.TRANGTHAI.TENTRANGTHAI;
+                                    lbl.Font = new Font("Arial", 16, FontStyle.Regular);
+                                    lbl.ForeColor = Color.Red;
+                                    lbl.AutoSize = true;
+                                    lbl.Location = new Point((panelWidth - lbl.Width) / 2, (panelHeight - lbl.Height - 40) / 2);
+                                    panel.Controls.Add(lbl);
+                                    lbl.TabIndex = 999;
+                                }
+                                else
+                                {
+                                    panel.Click += (sender, e) =>
+                                    {
+                                        Panel clickedPanel = (Panel)sender;
+                                        SanPham_DTO spClick = clickedPanel.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    }; // them su kien click
+                                    pictureBox.Click += (sender, e) =>
+                                    {
+                                        PictureBox pictureClick = (PictureBox)sender;
+                                        SanPham_DTO spClick = pictureClick.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    };
 
-                                // Tạo sự kiện click cho Label
-                                lableGia.Click += (sender, e) =>
-                                {
-                                    Label lblClick = (Label)sender;
-                                    SanPham_DTO spClick = lblClick.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                };
+                                    // Tạo sự kiện click cho Label
+                                    lableGia.Click += (sender, e) =>
+                                    {
+                                        Label lblClick = (Label)sender;
+                                        SanPham_DTO spClick = lblClick.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    };
 
-                                // Tạo sự kiện click cho RichTextBox
-                                txbTen.Click += (sender, e) =>
-                                {
-                                    RichTextBox txb_click = (RichTextBox)sender;
-                                    SanPham_DTO spClick = txb_click.Tag as SanPham_DTO;
-                                    addItemToOrder(spClick);
-                                };
+                                    // Tạo sự kiện click cho RichTextBox
+                                    txbTen.Click += (sender, e) =>
+                                    {
+                                        RichTextBox txb_click = (RichTextBox)sender;
+                                        SanPham_DTO spClick = txb_click.Tag as SanPham_DTO;
+                                        addItemToOrder(spClick);
+                                    };
+                                }
 
                                 panel.Controls.Add(pictureBox);
                                 panel.Controls.Add(lableGia);
                                 panel.Controls.Add(txbTen);
+
                                 panel.Location = new Point(startX, startY);
                                 startX += panelWidth + spacing;
                                 panel.BorderStyle = BorderStyle.FixedSingle;
@@ -1086,11 +1119,15 @@ namespace GUI
 
         private void cmb_LoaiSanPham_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(checkMenu != cmb_LoaiSanPham.SelectedValue.ToString())
+            if(cmb_LoaiSanPham.DataSource != null)
             {
-                hienMenu(cmb_LoaiSanPham.SelectedValue.ToString(), "");
-                checkMenu = cmb_LoaiSanPham.SelectedValue.ToString();
+                if (checkMenu != cmb_LoaiSanPham.SelectedValue.ToString())
+                {
+                    hienMenu(cmb_LoaiSanPham.SelectedValue.ToString(), "");
+                    checkMenu = cmb_LoaiSanPham.SelectedValue.ToString();
+                }
             }
+            
             
         }
     }

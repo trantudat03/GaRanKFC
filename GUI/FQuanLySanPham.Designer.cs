@@ -692,7 +692,7 @@
             // 
             this.txb_SearchDGV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txb_SearchDGV.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_SearchDGV.Location = new System.Drawing.Point(6, 49);
+            this.txb_SearchDGV.Location = new System.Drawing.Point(10, 130);
             this.txb_SearchDGV.Name = "txb_SearchDGV";
             this.txb_SearchDGV.Size = new System.Drawing.Size(216, 39);
             this.txb_SearchDGV.TabIndex = 21;
@@ -703,7 +703,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 13);
+            this.label1.Location = new System.Drawing.Point(6, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 23);
             this.label1.TabIndex = 22;
@@ -711,7 +711,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.Location = new System.Drawing.Point(10, 117);
+            this.btn_Sua.Location = new System.Drawing.Point(10, 185);
             this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(130, 63);
@@ -732,7 +732,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(10, 232);
+            this.btn_Xoa.Location = new System.Drawing.Point(10, 271);
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(130, 63);

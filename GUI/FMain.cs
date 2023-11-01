@@ -100,18 +100,28 @@ namespace GUI
 
         private void btn_QuanLy_Click(object sender, EventArgs e)
         {
+            
             if(checkPage!=1)// neu dang o order
             {
-                if (formOrder.getListOrder().Count == 0)
+                if (user.MACHUCVU == "QL")
                 {
-                    panel_QuanLy.Visible = true;
-                    setMainPanel(fThongTinChung);
-                    checkPage = 1;
+                    if (formOrder.getListOrder().Count == 0)
+                    {
+                        panel_QuanLy.Visible = true;
+                        setMainPanel(fThongTinChung);
+                        fThongTinChung.setData();
+                        checkPage = 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng hoàn thành đơn hàng");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng hoàn thành đơn hàng");
+                    MessageBox.Show("Chưa được phân quyền");
                 }
+                
             }
             
             
@@ -125,11 +135,9 @@ namespace GUI
                 panel_QuanLy.Visible = false;
                 panelMain.Controls.Clear();
                 panelMain.Controls.Add(formOrder);
-                formOrder.setListSp();
-                formOrder.setDefaut();
-                //formOrder.hienMenu(1, "");
-                //formOrder = new FOrder();
-
+                formOrder.setData();
+                //formOrder.setDefaut();
+                
                 formOrder.Dock = DockStyle.Fill;
                 checkPage = 0;
             }
@@ -144,23 +152,12 @@ namespace GUI
         {
             
         }
-
-        private void btn_ThongKe_Click(object sender, EventArgs e)
-        {
-            if(checkPage !=6)
-            {
-                setMainPanel(formThongKe);
-                checkPage = 6;
-            }
-            
-
-        }
-
         private void btn_QLSanPham_Click(object sender, EventArgs e)
         {
             if(checkPage!=2)
             {
                 setMainPanel(formSanPham);
+                formSanPham.setData();
                 checkPage = 2;
             }
             
@@ -171,9 +168,10 @@ namespace GUI
             if(checkPage !=3)
             {
                 addUserControl(fNguoiDung);
+                fNguoiDung.setUser(user);
+                fNguoiDung.setData();
                 checkPage = 3;
             }
-            
         }
 
         private void btn_QLKhachHang_Click(object sender, EventArgs e)
@@ -181,6 +179,7 @@ namespace GUI
             if (checkPage != 4)
             {
                 addUserControl(fkhachHang);
+                fkhachHang.setData();
                 checkPage = 4;
             }
         }
@@ -190,8 +189,21 @@ namespace GUI
             if(checkPage!= 5)
             {
                 addUserControl(fKhuyenMai);
+                fKhuyenMai.setData();
                 checkPage = 5;
             }
+        }
+
+        private void btn_ThongKe_Click(object sender, EventArgs e)
+        {
+            if (checkPage != 6)
+            {
+                setMainPanel(formThongKe);
+                formThongKe.setData();
+                checkPage = 6;
+            }
+
+
         }
 
         private void FMain_FormClosed(object sender, FormClosedEventArgs e)

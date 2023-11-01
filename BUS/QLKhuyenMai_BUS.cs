@@ -31,6 +31,7 @@ namespace BUS
 
         public static List<KhuyenMai_DTO> layDuLieu()
         {
+            listKM.Clear();
             try
             {
                 db.KHUYENMAIs.ToList().ForEach(k =>
