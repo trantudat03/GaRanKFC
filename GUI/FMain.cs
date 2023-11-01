@@ -199,7 +199,8 @@ namespace GUI
             FDangNhap fDangNhap = new FDangNhap();
             fDangNhap.Show();
         }
-
+        // note
+        // note
         private void lbl_logout_Click(object sender, EventArgs e)
         {
             if(formOrder.getListOrder().Count>0)
