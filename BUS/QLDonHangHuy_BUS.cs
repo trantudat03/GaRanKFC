@@ -26,6 +26,14 @@ namespace BUS
 
             return sb.ToString();
         }
+
+        public static List<DonHangHuy_DTO> layDuLieu()
+        {
+            List<DonHangHuy_DTO> list = new List<DonHangHuy_DTO> ();
+
+
+            return list;
+        }
         public static DonHangHuy_DTO themDonHangHuy(DonHangHuy_DTO item, List<SanPham_DTO> listSP)
         {
             
@@ -39,6 +47,7 @@ namespace BUS
                 add.SOLUONGSP = item.SOLUONGSP;
                 add.THOIGIAN = item.THOIGIAN;
                 add.TONGGIA = item.TONGGIA;
+                add.THOIGIANBATDAU = item.THOIGIANBATDAU;
                 item.MADONHANGHUY = add.MADONHANGHUY;
                 db.DONHANGHUYs.Add(add);
                 db.SaveChanges();

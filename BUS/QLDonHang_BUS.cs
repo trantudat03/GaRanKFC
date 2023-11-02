@@ -61,6 +61,9 @@ namespace BUS
                     DateTime date;
                     DateTime.TryParseExact(don.THOIGIAN, "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out date);
                     i.THOIGIAN = date;
+                    DateTime startDate;
+                    DateTime.TryParseExact(don.THOIGIANBATDAU, "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out startDate);
+                    i.THOIGIANBATDAU = startDate;
                     db.DONHANGs.Add(i);
                     db.SaveChanges();
                 return i.MADONHANG;

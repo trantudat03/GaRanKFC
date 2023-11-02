@@ -19,6 +19,8 @@ namespace DTO
 
         public string THOIGIAN { get; set; }
 
+        public string THOIGIANBATDAU { get; set; }
+
         public int SOTIENGIAM { get; set; }  
 
         public string[] MAPHUONGTHUC { get; set; }

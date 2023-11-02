@@ -37,7 +37,7 @@ namespace GUI
         private static int donCuaNgay = 0;
         private static bool checkThanhToan = false;
         public static NguoiDung_DTO user = new NguoiDung_DTO();
-        
+        public static DateTime thoiGianBatDau = new DateTime();
         private void FOrder_Load(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
@@ -293,6 +293,11 @@ namespace GUI
         private void themVaoListOrderUI(SanPham_DTO sp)// item menu duoc click
         {
             SanPham_DTO spFind = listOrder.Find(s => s.MASANPHAM == sp.MASANPHAM);
+            if(listOrder.Count == 0)
+            {
+                thoiGianBatDau = DateTime.Now;
+                MessageBox.Show(thoiGianBatDau.ToString());
+            }
             if(spFind == null)
             {
                 sp.SLORDER = 1;
@@ -946,7 +951,7 @@ namespace GUI
                 {
                     KhuyenMai_DTO km = new KhuyenMai_DTO();
                     // test user
-                    fthanhToan = new FThanhToan(khachHang, thanhTien,km,listOrder, user);
+                    fthanhToan = new FThanhToan(khachHang, thanhTien,km,listOrder, user, thoiGianBatDau);
                     fthanhToan.FormClosed += fThanhToanClose;
                     fthanhToan.ShowDialog();
                     
@@ -1069,7 +1074,7 @@ namespace GUI
                 km = new KhuyenMai_DTO();
             }
             //NguoiDung_DTO user = new NguoiDung_DTO();
-            fthanhToan = new FThanhToan(khachHang,thanhTien,km,listOrder, user);
+            fthanhToan = new FThanhToan(khachHang,thanhTien,km,listOrder, user, thoiGianBatDau);
             fthanhToan.FormClosed += fThanhToanClose;
             fthanhToan.ShowDialog();
         }
@@ -1085,6 +1090,7 @@ namespace GUI
                 item.LYDO = fhuyDon.getLyDo();
                 item.SOLUONGSP = listOrder.Count;
                 item.TONGGIA = thanhTien;
+                item.THOIGIANBATDAU = thoiGianBatDau;
                 if(khachHang.MAKHACHHANG != string.Empty)
                 {
                     item.MAKHACHHANG = khachHang.MAKHACHHANG;

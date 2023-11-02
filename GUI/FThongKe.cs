@@ -151,10 +151,11 @@ namespace GUI
         private SanPhamThongKe_DTO timMinSL(List<SanPhamThongKe_DTO> list)
         {
             SanPhamThongKe_DTO minSP = new SanPhamThongKe_DTO();
-            minSP = list.First();
+            
 
             if(list.Count >0 && minSP != null)
             {
+                minSP = list.First();
                 list.ForEach(s =>
                 {
                     if(s.SOLUONG < minSP.SOLUONG)
@@ -169,17 +170,21 @@ namespace GUI
         private SanPhamThongKe_DTO timMaxSL(List<SanPhamThongKe_DTO> list)
         {
             SanPhamThongKe_DTO maxSP = new SanPhamThongKe_DTO();
-            maxSP = list.First();
-
-            if (list.Count > 0 && maxSP != null)
+            if(list.Count>0)
             {
-                list.ForEach(s =>
+                maxSP = list.First();
+
+                if (list.Count > 0 && maxSP != null)
                 {
-                    if (s.SOLUONG > maxSP.SOLUONG)
+                    list.ForEach(s =>
                     {
-                        maxSP = s;
-                    }
-                });
+                        if (s.SOLUONG > maxSP.SOLUONG)
+                        {
+                            maxSP = s;
+                        }
+                    });
+                }
+                
             }
             return maxSP;
         }

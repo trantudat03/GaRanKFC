@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabThongKe = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -74,6 +76,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerFromSP = new System.Windows.Forms.DateTimePicker();
             this.cmb_DateTimeSP = new System.Windows.Forms.ComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.dgv_DonHangHuy = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmb_DonHangHuy = new System.Windows.Forms.ComboBox();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.lbl_TongTienHuy = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.tabThongKe.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -91,16 +115,26 @@
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox_DateTimeSP.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DonHangHuy)).BeginInit();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabThongKe
             // 
             this.tabThongKe.Controls.Add(this.tabPage1);
             this.tabThongKe.Controls.Add(this.tabPage2);
+            this.tabThongKe.Controls.Add(this.tabPage3);
             this.tabThongKe.Location = new System.Drawing.Point(16, 19);
             this.tabThongKe.Name = "tabThongKe";
             this.tabThongKe.SelectedIndex = 0;
-            this.tabThongKe.Size = new System.Drawing.Size(1166, 723);
+            this.tabThongKe.Size = new System.Drawing.Size(1301, 681);
             this.tabThongKe.TabIndex = 0;
             // 
             // tabPage1
@@ -110,7 +144,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1158, 691);
+            this.tabPage1.Size = new System.Drawing.Size(1293, 649);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Doanh Thu";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -122,7 +156,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(865, 685);
+            this.panel4.Size = new System.Drawing.Size(1000, 643);
             this.panel4.TabIndex = 3;
             // 
             // panel6
@@ -132,7 +166,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 45);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(865, 640);
+            this.panel6.Size = new System.Drawing.Size(1000, 598);
             this.panel6.TabIndex = 5;
             // 
             // panel11
@@ -141,7 +175,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(865, 312);
+            this.panel11.Size = new System.Drawing.Size(1000, 312);
             this.panel11.TabIndex = 3;
             // 
             // dgv_ThongKe
@@ -174,7 +208,7 @@
             this.dgv_ThongKe.Name = "dgv_ThongKe";
             this.dgv_ThongKe.RowHeadersWidth = 51;
             this.dgv_ThongKe.RowTemplate.Height = 24;
-            this.dgv_ThongKe.Size = new System.Drawing.Size(865, 312);
+            this.dgv_ThongKe.Size = new System.Drawing.Size(1000, 312);
             this.dgv_ThongKe.TabIndex = 2;
             // 
             // Column1
@@ -230,9 +264,9 @@
             // 
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 344);
+            this.panel8.Location = new System.Drawing.Point(0, 302);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(865, 296);
+            this.panel8.Size = new System.Drawing.Size(1000, 296);
             this.panel8.TabIndex = 2;
             // 
             // panel12
@@ -244,7 +278,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(865, 99);
+            this.panel12.Size = new System.Drawing.Size(1000, 99);
             this.panel12.TabIndex = 0;
             // 
             // lbl_TongKhuyenMai
@@ -296,7 +330,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(865, 45);
+            this.panel5.Size = new System.Drawing.Size(1000, 45);
             this.panel5.TabIndex = 4;
             // 
             // label2
@@ -319,9 +353,9 @@
             this.panel3.Controls.Add(this.groupBox_DateTime);
             this.panel3.Controls.Add(this.cmb_ListThongKe);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(868, 3);
+            this.panel3.Location = new System.Drawing.Point(1003, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(287, 685);
+            this.panel3.Size = new System.Drawing.Size(287, 643);
             this.panel3.TabIndex = 2;
             // 
             // btn_xuatFile
@@ -414,7 +448,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1158, 691);
+            this.tabPage2.Size = new System.Drawing.Size(1293, 649);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sản Phẩm";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -426,7 +460,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(864, 45);
+            this.panel1.Size = new System.Drawing.Size(999, 45);
             this.panel1.TabIndex = 5;
             // 
             // label4
@@ -447,7 +481,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(864, 685);
+            this.panel7.Size = new System.Drawing.Size(999, 643);
             this.panel7.TabIndex = 3;
             // 
             // panel9
@@ -483,9 +517,9 @@
             this.panel2.Controls.Add(this.groupBox_DateTimeSP);
             this.panel2.Controls.Add(this.cmb_DateTimeSP);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(867, 3);
+            this.panel2.Location = new System.Drawing.Point(1002, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 685);
+            this.panel2.Size = new System.Drawing.Size(288, 643);
             this.panel2.TabIndex = 1;
             // 
             // groupBox_DateTimeSP
@@ -549,6 +583,226 @@
             this.cmb_DateTimeSP.TabIndex = 6;
             this.cmb_DateTimeSP.SelectedIndexChanged += new System.EventHandler(this.cmb_DateTimeSP_SelectedIndexChanged);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel13);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1293, 649);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Đơn Hàng Hủy";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.panel15);
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1293, 649);
+            this.panel13.TabIndex = 0;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.cmb_DonHangHuy);
+            this.panel14.Controls.Add(this.label11);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel14.Location = new System.Drawing.Point(1027, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(266, 649);
+            this.panel14.TabIndex = 1;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.panel18);
+            this.panel15.Controls.Add(this.panel17);
+            this.panel15.Controls.Add(this.panel16);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(1027, 649);
+            this.panel15.TabIndex = 2;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel16.Controls.Add(this.label10);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(1027, 45);
+            this.panel16.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(11, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(227, 23);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Thống Kê Đơn Hàng Hủy";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.dgv_DonHangHuy);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 45);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(1027, 265);
+            this.panel17.TabIndex = 6;
+            // 
+            // dgv_DonHangHuy
+            // 
+            this.dgv_DonHangHuy.AllowUserToAddRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dgv_DonHangHuy.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_DonHangHuy.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_DonHangHuy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_DonHangHuy.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(25)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DonHangHuy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_DonHangHuy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DonHangHuy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Column9,
+            this.dataGridViewTextBoxColumn5,
+            this.Column10,
+            this.Column11,
+            this.dataGridViewTextBoxColumn7,
+            this.Column8});
+            this.dgv_DonHangHuy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_DonHangHuy.Location = new System.Drawing.Point(0, 0);
+            this.dgv_DonHangHuy.Name = "dgv_DonHangHuy";
+            this.dgv_DonHangHuy.RowHeadersWidth = 51;
+            this.dgv_DonHangHuy.RowTemplate.Height = 24;
+            this.dgv_DonHangHuy.Size = new System.Drawing.Size(1027, 265);
+            this.dgv_DonHangHuy.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã Đơn Hàng Hủy";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 115;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên Nhân Viên";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Khách Hàng";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Giá Trị ĐH";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 110;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Số Lượng Sản Phẩm";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Lý Do";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Thời Gian Bắt Đầu";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Thời Gian Kết Thúc";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 150;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(17, 45);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(207, 26);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Chọn mốc thời gian";
+            // 
+            // cmb_DonHangHuy
+            // 
+            this.cmb_DonHangHuy.FormattingEnabled = true;
+            this.cmb_DonHangHuy.Location = new System.Drawing.Point(22, 74);
+            this.cmb_DonHangHuy.Name = "cmb_DonHangHuy";
+            this.cmb_DonHangHuy.Size = new System.Drawing.Size(224, 27);
+            this.cmb_DonHangHuy.TabIndex = 9;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel18.Location = new System.Drawing.Point(0, 353);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(1027, 296);
+            this.panel18.TabIndex = 7;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.lbl_TongTienHuy);
+            this.panel19.Controls.Add(this.label15);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(1027, 99);
+            this.panel19.TabIndex = 0;
+            // 
+            // lbl_TongTienHuy
+            // 
+            this.lbl_TongTienHuy.AutoSize = true;
+            this.lbl_TongTienHuy.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TongTienHuy.ForeColor = System.Drawing.Color.Red;
+            this.lbl_TongTienHuy.Location = new System.Drawing.Point(132, 10);
+            this.lbl_TongTienHuy.Name = "lbl_TongTienHuy";
+            this.lbl_TongTienHuy.Size = new System.Drawing.Size(30, 32);
+            this.lbl_TongTienHuy.TabIndex = 9;
+            this.lbl_TongTienHuy.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(10, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(118, 26);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Tổng Tiền:";
+            // 
             // FThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -557,7 +811,7 @@
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FThongKe";
-            this.Size = new System.Drawing.Size(1185, 759);
+            this.Size = new System.Drawing.Size(1320, 714);
             this.Load += new System.EventHandler(this.FThongKe_Load);
             this.tabThongKe.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -582,6 +836,18 @@
             this.panel2.ResumeLayout(false);
             this.groupBox_DateTimeSP.ResumeLayout(false);
             this.groupBox_DateTimeSP.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DonHangHuy)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -632,5 +898,27 @@
         private System.Windows.Forms.Label lbl_TongKhuyenMai;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_xuatFile;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.DataGridView dgv_DonHangHuy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label lbl_TongTienHuy;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cmb_DonHangHuy;
+        private System.Windows.Forms.Label label11;
     }
 }

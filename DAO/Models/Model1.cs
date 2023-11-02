@@ -200,6 +200,18 @@ namespace DAO.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
+                .HasMany(e => e.DONHANGHUYs)
+                .WithRequired(e => e.NGUOIDUNG)
+                .HasForeignKey(e => e.MANGUOIDUNG)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
+                .HasMany(e => e.DONHANGHUYs1)
+                .WithRequired(e => e.NGUOIDUNG1)
+                .HasForeignKey(e => e.MANGUOIDUNG)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
                 .HasMany(e => e.THONGBAOHANGNGAYs)
                 .WithRequired(e => e.NGUOIDUNG)
                 .WillCascadeOnDelete(false);

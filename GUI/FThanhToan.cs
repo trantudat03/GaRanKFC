@@ -31,13 +31,14 @@ namespace GUI
         private static int soTienThoi = 0;
         public static int soTienGiam = 0; // giam do khuyen mai
         private PhuongThucThanhToan_DTO phuongThuc = new PhuongThucThanhToan_DTO();
+        private static DateTime thoiGianBatDau = new DateTime();
         public FThanhToan()
         {
             
             InitializeComponent();
         }
 
-        public FThanhToan(KhachHang_DTO kh, int tongTien, KhuyenMai_DTO km, List<SanPham_DTO> orders, NguoiDung_DTO u)
+        public FThanhToan(KhachHang_DTO kh, int tongTien, KhuyenMai_DTO km, List<SanPham_DTO> orders, NguoiDung_DTO u, DateTime startTime)
         {
             checkThanhToan = false;
             khachHang = kh;
@@ -48,6 +49,7 @@ namespace GUI
             listOrder = orders;
             user = u;
             phuongThuc.MAPHUONGTHUC = "1";
+            thoiGianBatDau = startTime;
             InitializeComponent();
         }
 
@@ -372,9 +374,6 @@ namespace GUI
             return false;
         }
 
-
-        
-
         private void thanhToanDienTu()
         {
             if(soTienConLai>0 && checkThanhToan)
@@ -406,6 +405,7 @@ namespace GUI
                     donHang.SOLUONGSP = listOrder.Count; // test so luong don 
                     DateTime currentTime = DateTime.Now;
                     donHang.THOIGIAN = currentTime.ToString("yyyy-MM-dd HH:mm:ss");
+                    donHang.THOIGIANBATDAU = thoiGianBatDau.ToString("yyyy-MM-dd HH:mm:ss");
                     donHang.SOTIENGIAM = soTienGiam;
                     string maDonHang = QLDonHang_BUS.themDonHang(donHang);
                     if (maDonHang != string.Empty)
@@ -495,6 +495,7 @@ namespace GUI
                         donHang.SOLUONGSP = listOrder.Count; // test so luong don 
                         DateTime currentTime = DateTime.Now;
                         donHang.THOIGIAN = currentTime.ToString("yyyy-MM-dd HH:mm:ss");
+                        donHang.THOIGIANBATDAU = thoiGianBatDau.ToString("yyyy-MM-dd HH:mm:ss");
                         donHang.SOTIENGIAM = soTienGiam;
                         string maDonHang = QLDonHang_BUS.themDonHang(donHang);
                         if (maDonHang != string.Empty)
@@ -596,6 +597,7 @@ namespace GUI
                     donHang.SOTIENGIAM = soTienGiam;
                     DateTime currentTime = DateTime.Now;
                     donHang.THOIGIAN = currentTime.ToString("yyyy-MM-dd HH:mm:ss");
+                    donHang.THOIGIANBATDAU = thoiGianBatDau.ToString("yyyy-MM-dd HH:mm:ss");
                     string maDonHang = QLDonHang_BUS.themDonHang(donHang);
                     if (maDonHang != string.Empty)
                     {

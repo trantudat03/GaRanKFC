@@ -13,6 +13,8 @@ namespace DAO.Models
         public NGUOIDUNG()
         {
             DONHANGs = new HashSet<DONHANG>();
+            DONHANGHUYs = new HashSet<DONHANGHUY>();
+            DONHANGHUYs1 = new HashSet<DONHANGHUY>();
             THONGBAOHANGNGAYs = new HashSet<THONGBAOHANGNGAY>();
         }
 
@@ -47,6 +49,12 @@ namespace DAO.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DONHANGHUY> DONHANGHUYs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DONHANGHUY> DONHANGHUYs1 { get; set; }
 
         public virtual TRANGTHAINGUOIDUNG TRANGTHAINGUOIDUNG { get; set; }
 

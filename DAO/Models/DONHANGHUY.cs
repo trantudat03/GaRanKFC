@@ -35,7 +35,13 @@ namespace DAO.Models
         [StringLength(255)]
         public string LYDO { get; set; }
 
+        public DateTime? THOIGIANBATDAU { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONHANGHUY> CHITIETDONHANGHUYs { get; set; }
+
+        public virtual NGUOIDUNG NGUOIDUNG { get; set; }
+
+        public virtual NGUOIDUNG NGUOIDUNG1 { get; set; }
     }
 }

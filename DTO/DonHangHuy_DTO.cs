@@ -22,7 +22,7 @@ namespace DTO
 
         public DateTime THOIGIAN { get; set; }
 
-        
+        public DateTime THOIGIANBATDAU { get; set; }
         public string LYDO { get; set; }
     }
 }
