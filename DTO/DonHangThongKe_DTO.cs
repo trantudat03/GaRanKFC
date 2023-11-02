@@ -20,5 +20,7 @@ namespace DTO
         public string THOIGIAN { get; set; }
 
         public int SOTIENGIAM { get; set; }
+
+         
     }
 }

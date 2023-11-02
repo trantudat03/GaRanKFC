@@ -443,42 +443,50 @@ namespace GUI
             }
         }
 
-        private void timVaXoaSP(SanPham_DTO spFind, Panel panel)
+        
+        private void timVaXoaSP(SanPham_DTO spFind, Panel panel)// xoa sp khoi list va ui
         {
             SanPham_DTO spDelete = listOrder.Find(s => s.MASANPHAM == spFind.MASANPHAM);
-            listOrder.Remove(spDelete);
-            setTongTienUI();
-
-            Panel panelDelete = new Panel();
-            int check = 0;
-            foreach (Control control in panel.Controls)
+            if(listOrder.Count>1)
             {
-                if (control is Panel && control != panel_Detail)
+                listOrder.Remove(spDelete);
+                setTongTienUI();
+
+                Panel panelDelete = new Panel();
+                int check = 0;
+                foreach (Control control in panel.Controls)
                 {
-                    SanPham_DTO tagControl = control.Tag as SanPham_DTO;
-                    if (tagControl != null)
+                    if (control is Panel && control != panel_Detail)
                     {
-                        if (tagControl.MASANPHAM == spFind.MASANPHAM)
+                        SanPham_DTO tagControl = control.Tag as SanPham_DTO;
+                        if (tagControl != null)
                         {
-                            panelDelete = (Panel)control;
-                            check = 1;
-                            continue;
+                            if (tagControl.MASANPHAM == spFind.MASANPHAM)
+                            {
+                                panelDelete = (Panel)control;
+                                check = 1;
+                                continue;
+                            }
+
                         }
-                        
-                    }
-                    if(check == 1)
-                    {
-                        int x = control.Location.X;
-                        int y = control.Location.Y;
-                        control.Location = new Point(10, y - 45);
-                        
+                        if (check == 1)
+                        {
+                            int x = control.Location.X;
+                            int y = control.Location.Y;
+                            control.Location = new Point(10, y - 45);
+
+                        }
                     }
                 }
+                if (check == 1)
+                {
+                    startYOrderList -= 45;
+                    panel.Controls.Remove(panelDelete);
+                }
             }
-            if(check==1)
+            else
             {
-                startYOrderList -= 45;
-                panel.Controls.Remove(panelDelete);
+                MessageBox.Show("Không thể xóa sản phẩm cuối cùng");
             }
             
             //MessageBox.Show(index.ToString());
@@ -1104,6 +1112,7 @@ namespace GUI
             if(listOrder.Count > 0)
             {
                 fhuyDon = new FHuyDon();
+                fhuyDon.FormClosed  += formHuyClose;
                 fhuyDon.ShowDialog();
             }
             else

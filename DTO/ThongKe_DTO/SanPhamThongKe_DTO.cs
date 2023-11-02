@@ -10,5 +10,7 @@ namespace DTO.ThongKe_DTO
     {
         public string TENSANPHAM { get; set; }
         public int SOLUONG { get; set; }
+
+        public int CHIEUCAO { get; set; }/// chieu cao cua bieu do
     }
 }

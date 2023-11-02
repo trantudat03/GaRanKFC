@@ -64,12 +64,12 @@ namespace BUS
         {
             List<KhuyenMai_DTO> listTheoDieuKien = new List<KhuyenMai_DTO>();
             db = new Model1();
-
+            DateTime date = DateTime.Now;
             db.KHUYENMAIs.ToList().ForEach(k =>
             {
                 if(kh.MAKHACHHANG==string.Empty)
                 {
-                    if(k.DIEUKIEN.DIEMTOITHIEU ==0 && k.DIEUKIEN.GIATRIDONHANG <= giaTriDonHang && k.MAKHUYENMAI !="0" && k.TENKHUYENMAI!= string.Empty)
+                    if(k.DIEUKIEN.DIEMTOITHIEU ==0 && k.DIEUKIEN.GIATRIDONHANG <= giaTriDonHang && k.MAKHUYENMAI !="0" && k.TENKHUYENMAI!= string.Empty && date.Date >= k.NGAYBATDAU && date.Date <= k.NGAYKETTHUC)
                     {
                         KhuyenMai_DTO item = new KhuyenMai_DTO();
                         item.MAKHUYENMAI = k.MAKHUYENMAI;
@@ -82,7 +82,7 @@ namespace BUS
                 }
                 else
                 {
-                    if(kh.DIEM >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang>= k.DIEUKIEN.GIATRIDONHANG && k.MAKHUYENMAI != "0" && k.TENKHUYENMAI != string.Empty)
+                    if(kh.DIEM >= k.DIEUKIEN.DIEMTOITHIEU && giaTriDonHang>= k.DIEUKIEN.GIATRIDONHANG && k.MAKHUYENMAI != "0" && k.TENKHUYENMAI != string.Empty && date.Date >= k.NGAYBATDAU && date.Date <= k.NGAYKETTHUC)
                     {
                         KhuyenMai_DTO item = new KhuyenMai_DTO();
                         item.MAKHUYENMAI = k.MAKHUYENMAI;

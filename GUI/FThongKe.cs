@@ -12,6 +12,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using BUS;
 using DTO;
 using DTO.ThongKe_DTO;
+
 namespace GUI
 {
     public partial class FThongKe : UserControl
@@ -147,6 +148,62 @@ namespace GUI
 
         }
 
+        private SanPhamThongKe_DTO timMinSL(List<SanPhamThongKe_DTO> list)
+        {
+            SanPhamThongKe_DTO minSP = new SanPhamThongKe_DTO();
+            minSP = list.First();
+
+            if(list.Count >0 && minSP != null)
+            {
+                list.ForEach(s =>
+                {
+                    if(s.SOLUONG < minSP.SOLUONG)
+                    {
+                        minSP = s;
+                    }
+                });
+            }
+            return minSP;
+        }
+
+        private SanPhamThongKe_DTO timMaxSL(List<SanPhamThongKe_DTO> list)
+        {
+            SanPhamThongKe_DTO maxSP = new SanPhamThongKe_DTO();
+            maxSP = list.First();
+
+            if (list.Count > 0 && maxSP != null)
+            {
+                list.ForEach(s =>
+                {
+                    if (s.SOLUONG > maxSP.SOLUONG)
+                    {
+                        maxSP = s;
+                    }
+                });
+            }
+            return maxSP;
+        }
+
+        private List<SanPhamThongKe_DTO> setChieuCao(List<SanPhamThongKe_DTO> list, int maxHeight)
+        {
+            SanPhamThongKe_DTO max = timMaxSL(list);
+            SanPhamThongKe_DTO min = timMinSL(list);
+            
+            if(min != null && max != null && maxHeight >0)
+            {
+                double heSo =(double)maxHeight / ((double)max.SOLUONG/ (double)min.SOLUONG);
+                list.ForEach(s =>
+                {
+                    double goc = (double)s.SOLUONG / (double)min.SOLUONG;
+                    s.CHIEUCAO =(int)Math.Round(goc * heSo) ;
+                });
+
+                return list;
+            }
+
+            return null;
+        }
+
         private void setBieuDoSanPham(int chose)
         {
             BieuDoCotSpBanChay.Controls.Clear();
@@ -189,10 +246,11 @@ namespace GUI
             int height = 0;
             int width = 45;
             int space = 30;
-            if (list.Count > 0)
+            List<SanPhamThongKe_DTO> listHeight =  new List<SanPhamThongKe_DTO>();
+            listHeight = setChieuCao(list, BieuDoCotSpBanChay.Height-120);
+            if(listHeight != null)
             {
-                
-                list.ForEach(s =>
+                listHeight.ForEach(s =>
                 {
                     TextBox textBox = new TextBox();
                     textBox.Multiline = true; // Cho phép viết nhiều dòng
@@ -200,36 +258,77 @@ namespace GUI
                     textBox.ScrollBars = ScrollBars.None;
                     textBox.Text = s.TENSANPHAM;
                     textBox.Size = new Size(width + 18, 80);
-                    textBox.Location = new Point(x - 4, BieuDoCotSpBanChay.Height-textBox.Height);
+                    textBox.Location = new Point(x - 4, BieuDoCotSpBanChay.Height - textBox.Height);
                     textBox.BorderStyle = BorderStyle.None;
                     Panel p = new Panel();
-                    height =  (s.SOLUONG * 15) ;
-                    if(height> BieuDoCotSpBanChay.Height - textBox.Height)
-                    {
-                        height = BieuDoCotSpBanChay.Height - textBox.Height - 100;
-                    }
-                    p.Location = new Point(x, BieuDoCotSpBanChay.Height - height-textBox.Height);
+                    height = s.CHIEUCAO;
+                    
+                    p.Location = new Point(x, BieuDoCotSpBanChay.Height - height - textBox.Height);
                     p.Size = new Size(width, height);
                     p.BackColor = Color.Red;
                     ToolTip toolTipNameColumn = new ToolTip();
-                    toolTipNameColumn.SetToolTip(p, s.TENSANPHAM + "("+s.SOLUONG+")");
+                    toolTipNameColumn.SetToolTip(p, s.TENSANPHAM + "(" + s.SOLUONG + ")");
                     toolTipNameColumn.ForeColor = Color.Black;
                     Label l = new Label();// so luong
                     l.Text = s.SOLUONG.ToString();
                     l.Font = new Font("Arial", 16, FontStyle.Regular);
                     l.AutoSize = true;
-                    l.Location = new Point(x+5,BieuDoCotSpBanChay.Height - height-25-textBox.Height);
+                    l.Location = new Point(x + 5, BieuDoCotSpBanChay.Height - height - 25 - textBox.Height);
                     l.TextAlign = ContentAlignment.MiddleCenter;
 
                     // panel_NameColumn.Controls.Add(textBox);
                     BieuDoCotSpBanChay.Controls.Add(textBox);
                     BieuDoCotSpBanChay.Controls.Add(l);
                     BieuDoCotSpBanChay.Controls.Add(p);// panel cha
-                    
+
                     x += space + width;
                 });
-                
             }
+            else
+            {
+                if (list.Count > 0)
+                {
+
+                    list.ForEach(s =>
+                    {
+                        TextBox textBox = new TextBox();
+                        textBox.Multiline = true; // Cho phép viết nhiều dòng
+                        textBox.ReadOnly = true; // Không cho phép sửa đổi nội dung
+                        textBox.ScrollBars = ScrollBars.None;
+                        textBox.Text = s.TENSANPHAM;
+                        textBox.Size = new Size(width + 18, 80);
+                        textBox.Location = new Point(x - 4, BieuDoCotSpBanChay.Height - textBox.Height);
+                        textBox.BorderStyle = BorderStyle.None;
+                        Panel p = new Panel();
+                        height = (s.SOLUONG * 15);
+                        if (height > BieuDoCotSpBanChay.Height - textBox.Height)
+                        {
+                            height = BieuDoCotSpBanChay.Height - textBox.Height - 100;
+                        }
+                        p.Location = new Point(x, BieuDoCotSpBanChay.Height - height - textBox.Height);
+                        p.Size = new Size(width, height);
+                        p.BackColor = Color.Red;
+                        ToolTip toolTipNameColumn = new ToolTip();
+                        toolTipNameColumn.SetToolTip(p, s.TENSANPHAM + "(" + s.SOLUONG + ")");
+                        toolTipNameColumn.ForeColor = Color.Black;
+                        Label l = new Label();// so luong
+                        l.Text = s.SOLUONG.ToString();
+                        l.Font = new Font("Arial", 16, FontStyle.Regular);
+                        l.AutoSize = true;
+                        l.Location = new Point(x + 5, BieuDoCotSpBanChay.Height - height - 25 - textBox.Height);
+                        l.TextAlign = ContentAlignment.MiddleCenter;
+
+                        // panel_NameColumn.Controls.Add(textBox);
+                        BieuDoCotSpBanChay.Controls.Add(textBox);
+                        BieuDoCotSpBanChay.Controls.Add(l);
+                        BieuDoCotSpBanChay.Controls.Add(p);// panel cha
+
+                        x += space + width;
+                    });
+
+                }
+            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
