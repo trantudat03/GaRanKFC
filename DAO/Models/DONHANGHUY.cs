@@ -40,6 +40,8 @@ namespace DAO.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONHANGHUY> CHITIETDONHANGHUYs { get; set; }
 
+        public virtual KHACHHANG KHACHHANG { get; set; }
+
         public virtual NGUOIDUNG NGUOIDUNG { get; set; }
 
         public virtual NGUOIDUNG NGUOIDUNG1 { get; set; }

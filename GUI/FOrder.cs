@@ -296,7 +296,7 @@ namespace GUI
             if(listOrder.Count == 0)
             {
                 thoiGianBatDau = DateTime.Now;
-                MessageBox.Show(thoiGianBatDau.ToString());
+                //MessageBox.Show(thoiGianBatDau.ToString());
             }
             if(spFind == null)
             {
@@ -1089,7 +1089,7 @@ namespace GUI
                 item.THOIGIAN = DateTime.Now;
                 item.LYDO = fhuyDon.getLyDo();
                 item.SOLUONGSP = listOrder.Count;
-                item.TONGGIA = thanhTien;
+                item.TONGGIA = tinhTongTien(listOrder);
                 item.THOIGIANBATDAU = thoiGianBatDau;
                 if(khachHang.MAKHACHHANG != string.Empty)
                 {

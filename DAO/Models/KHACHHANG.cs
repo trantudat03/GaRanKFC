@@ -13,6 +13,7 @@ namespace DAO.Models
         public KHACHHANG()
         {
             DONHANGs = new HashSet<DONHANG>();
+            DONHANGHUYs = new HashSet<DONHANGHUY>();
         }
 
         [Key]
@@ -29,5 +30,8 @@ namespace DAO.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DONHANGHUY> DONHANGHUYs { get; set; }
     }
 }

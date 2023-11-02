@@ -31,6 +31,143 @@ namespace BUS
         {
             List<DonHangHuy_DTO> list = new List<DonHangHuy_DTO> ();
 
+            if(db.DONHANGHUYs.Count()>0 )
+            {
+                db.DONHANGHUYs.ToList().ForEach(d =>
+                {
+                    DonHangHuy_DTO item = new DonHangHuy_DTO();
+                    if(d!= null)
+                    {
+                        item.MADONHANGHUY = d.MADONHANGHUY;
+                        item.MANGUOIDUNG = d.MANGUOIDUNG;
+                        item.MAKHACHHANG = d.MAKHACHHANG;
+                        item.TONGGIA = (int)d.TONGGIA;
+                        item.LYDO = d.LYDO;
+                        item.THOIGIANBATDAU = (DateTime)d.THOIGIANBATDAU;
+                        item.THOIGIAN = (DateTime)d.THOIGIAN;
+                        item.SOLUONGSP = (int)d.SOLUONGSP;
+                        item.TENNGUOIDUNG = d.NGUOIDUNG.TENNGUOIDUNG;
+                        item.TENKHACHHANG = d.KHACHHANG.TENKHACHHANG;
+                        
+                        list.Add(item);
+                    }
+                });
+            }
+            return list;
+        }
+
+        public static List<DonHangHuy_DTO> layDuLieuTheoNgay(DateTime date)
+        {
+            List<DonHangHuy_DTO> list = new List<DonHangHuy_DTO>();
+            if (db.DONHANGHUYs.Count() > 0)
+            {
+                db.DONHANGHUYs.ToList().ForEach(d =>
+                {
+                    DonHangHuy_DTO item = new DonHangHuy_DTO();
+                    if (d != null && d.THOIGIAN.Value.Date == date.Date)
+                    {
+                        item.MADONHANGHUY = d.MADONHANGHUY;
+                        item.MANGUOIDUNG = d.MANGUOIDUNG;
+                        item.MAKHACHHANG = d.MAKHACHHANG;
+                        item.TONGGIA = (int)d.TONGGIA;
+                        item.LYDO = d.LYDO;
+                        item.THOIGIANBATDAU = (DateTime)d.THOIGIANBATDAU;
+                        item.THOIGIAN = (DateTime)d.THOIGIAN;
+                        item.SOLUONGSP = (int)d.SOLUONGSP;
+                        item.TENNGUOIDUNG = d.NGUOIDUNG.TENNGUOIDUNG;
+                        item.TENKHACHHANG = d.KHACHHANG.TENKHACHHANG;
+
+                        list.Add(item);
+                    }
+                });
+            }
+
+            return list;
+        }
+
+        public static List<DonHangHuy_DTO> layDuLieuTheoThang(DateTime date)
+        {
+            List<DonHangHuy_DTO> list = new List<DonHangHuy_DTO>();
+            if (db.DONHANGHUYs.Count() > 0)
+            {
+                db.DONHANGHUYs.ToList().ForEach(d =>
+                {
+                    DonHangHuy_DTO item = new DonHangHuy_DTO();
+                    if (d != null && d.THOIGIAN.Value.Month == date.Month && d.THOIGIAN.Value.Year == date.Year)
+                    {
+                        item.MADONHANGHUY = d.MADONHANGHUY;
+                        item.MANGUOIDUNG = d.MANGUOIDUNG;
+                        item.MAKHACHHANG = d.MAKHACHHANG;
+                        item.TONGGIA = (int)d.TONGGIA;
+                        item.LYDO = d.LYDO;
+                        item.THOIGIANBATDAU = (DateTime)d.THOIGIANBATDAU;
+                        item.THOIGIAN = (DateTime)d.THOIGIAN;
+                        item.SOLUONGSP = (int)d.SOLUONGSP;
+                        item.TENNGUOIDUNG = d.NGUOIDUNG.TENNGUOIDUNG;
+                        item.TENKHACHHANG = d.KHACHHANG.TENKHACHHANG;
+
+                        list.Add(item);
+                    }
+                });
+            }
+
+            return list;
+        }
+
+        public static List<DonHangHuy_DTO> layDuLieuTheoNam(DateTime date)
+        {
+            List<DonHangHuy_DTO> list = new List<DonHangHuy_DTO>();
+            if (db.DONHANGHUYs.Count() > 0)
+            {
+                db.DONHANGHUYs.ToList().ForEach(d =>
+                {
+                    DonHangHuy_DTO item = new DonHangHuy_DTO();
+                    if (d != null && d.THOIGIAN.Value.Year == date.Year)
+                    {
+                        item.MADONHANGHUY = d.MADONHANGHUY;
+                        item.MANGUOIDUNG = d.MANGUOIDUNG;
+                        item.MAKHACHHANG = d.MAKHACHHANG;
+                        item.TONGGIA = (int)d.TONGGIA;
+                        item.LYDO = d.LYDO;
+                        item.THOIGIANBATDAU = (DateTime)d.THOIGIANBATDAU;
+                        item.THOIGIAN = (DateTime)d.THOIGIAN;
+                        item.SOLUONGSP = (int)d.SOLUONGSP;
+                        item.TENNGUOIDUNG = d.NGUOIDUNG.TENNGUOIDUNG;
+                        item.TENKHACHHANG = d.KHACHHANG.TENKHACHHANG;
+
+                        list.Add(item);
+                    }
+                });
+            }
+
+            return list;
+        }
+
+        public static List<DonHangHuy_DTO> layDuLieuTheoKhoang(DateTime dateFrom, DateTime dateTo)
+        {
+            List<DonHangHuy_DTO> list = new List<DonHangHuy_DTO>();
+            if (db.DONHANGHUYs.Count() > 0)
+            {
+                db.DONHANGHUYs.ToList().ForEach(d =>
+                {
+                    DonHangHuy_DTO item = new DonHangHuy_DTO();
+                    if (d != null && d.THOIGIAN.Value.Date >= dateFrom.Date && d.THOIGIAN.Value.Date <= dateTo.Date)
+                    {
+                        item.MADONHANGHUY = d.MADONHANGHUY;
+                        item.MANGUOIDUNG = d.MANGUOIDUNG;
+                        item.MAKHACHHANG = d.MAKHACHHANG;
+                        item.TONGGIA = (int)d.TONGGIA;
+                        item.LYDO = d.LYDO;
+                        item.THOIGIANBATDAU = (DateTime)d.THOIGIANBATDAU;
+                        item.THOIGIAN = (DateTime)d.THOIGIAN;
+                        item.SOLUONGSP = (int)d.SOLUONGSP;
+                        item.TENNGUOIDUNG = d.NGUOIDUNG.TENNGUOIDUNG;
+                        item.TENKHACHHANG = d.KHACHHANG.TENKHACHHANG;
+
+                        list.Add(item);
+                    }
+                });
+            }
 
             return list;
         }

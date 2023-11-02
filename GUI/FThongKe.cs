@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ using System.Windows.Forms.DataVisualization.Charting;
 using BUS;
 using DTO;
 using DTO.ThongKe_DTO;
+using Microsoft.Office.Interop.Excel;
+using app = Microsoft.Office.Interop.Excel.Application;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+
 
 namespace GUI
 {
@@ -37,6 +42,7 @@ namespace GUI
         {
             setDataGridView(cmb_ListThongKe.SelectedIndex);
             setBieuDoSanPham(cmb_DateTimeSP.SelectedIndex);
+            setDGVDonHangHuy(cmb_DonHangHuy.SelectedIndex);
         }
         public void setDefaut()
         {
@@ -49,9 +55,10 @@ namespace GUI
             //setDataGridView(0);
             groupBox_DateTime.Visible = false;
             groupBox_DateTimeSP.Visible = false;
+            grb_DonHangHuy.Visible = false;
             dateTimePickerFrom.Value = dateTimePickerFrom.Value.Date;
             dateTimePickerTo.Value = dateTimePickerTo.Value.Date.AddDays(1).AddTicks(-1);
-           
+            setCMBPage3();
         }
 
         public string themDauChamVaoSo(int number)
@@ -257,28 +264,28 @@ namespace GUI
             {
                 listHeight.ForEach(s =>
                 {
-                    TextBox textBox = new TextBox();
+                    System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
                     textBox.Multiline = true; // Cho phép viết nhiều dòng
                     textBox.ReadOnly = true; // Không cho phép sửa đổi nội dung
-                    textBox.ScrollBars = ScrollBars.None;
+                    textBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
                     textBox.Text = s.TENSANPHAM;
                     textBox.Size = new Size(width + 18, 80);
-                    textBox.Location = new Point(x - 4, BieuDoCotSpBanChay.Height - textBox.Height);
+                    textBox.Location = new System.Drawing.Point(x - 4, BieuDoCotSpBanChay.Height - textBox.Height);
                     textBox.BorderStyle = BorderStyle.None;
                     Panel p = new Panel();
                     height = s.CHIEUCAO;
                     
-                    p.Location = new Point(x, BieuDoCotSpBanChay.Height - height - textBox.Height);
+                    p.Location = new System.Drawing.Point(x, BieuDoCotSpBanChay.Height - height - textBox.Height);
                     p.Size = new Size(width, height);
                     p.BackColor = Color.Red;
                     ToolTip toolTipNameColumn = new ToolTip();
                     toolTipNameColumn.SetToolTip(p, s.TENSANPHAM + "(" + s.SOLUONG + ")");
                     toolTipNameColumn.ForeColor = Color.Black;
-                    Label l = new Label();// so luong
+                    System.Windows.Forms.Label l = new System.Windows.Forms.Label();// so luong
                     l.Text = s.SOLUONG.ToString();
-                    l.Font = new Font("Arial", 16, FontStyle.Regular);
+                    l.Font = new System.Drawing.Font("Arial", 16, FontStyle.Regular);
                     l.AutoSize = true;
-                    l.Location = new Point(x + 5, BieuDoCotSpBanChay.Height - height - 25 - textBox.Height);
+                    l.Location = new System.Drawing.Point(x + 5, BieuDoCotSpBanChay.Height - height - 25 - textBox.Height);
                     l.TextAlign = ContentAlignment.MiddleCenter;
 
                     // panel_NameColumn.Controls.Add(textBox);
@@ -296,13 +303,13 @@ namespace GUI
 
                     list.ForEach(s =>
                     {
-                        TextBox textBox = new TextBox();
+                        System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
                         textBox.Multiline = true; // Cho phép viết nhiều dòng
                         textBox.ReadOnly = true; // Không cho phép sửa đổi nội dung
-                        textBox.ScrollBars = ScrollBars.None;
+                        textBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
                         textBox.Text = s.TENSANPHAM;
                         textBox.Size = new Size(width + 18, 80);
-                        textBox.Location = new Point(x - 4, BieuDoCotSpBanChay.Height - textBox.Height);
+                        textBox.Location = new System.Drawing.Point(x - 4, BieuDoCotSpBanChay.Height - textBox.Height);
                         textBox.BorderStyle = BorderStyle.None;
                         Panel p = new Panel();
                         height = (s.SOLUONG * 15);
@@ -310,17 +317,17 @@ namespace GUI
                         {
                             height = BieuDoCotSpBanChay.Height - textBox.Height - 100;
                         }
-                        p.Location = new Point(x, BieuDoCotSpBanChay.Height - height - textBox.Height);
+                        p.Location = new System.Drawing.Point(x, BieuDoCotSpBanChay.Height - height - textBox.Height);
                         p.Size = new Size(width, height);
                         p.BackColor = Color.Red;
                         ToolTip toolTipNameColumn = new ToolTip();
                         toolTipNameColumn.SetToolTip(p, s.TENSANPHAM + "(" + s.SOLUONG + ")");
                         toolTipNameColumn.ForeColor = Color.Black;
-                        Label l = new Label();// so luong
+                        System.Windows.Forms.Label l = new System.Windows.Forms.Label();// so luong
                         l.Text = s.SOLUONG.ToString();
-                        l.Font = new Font("Arial", 16, FontStyle.Regular);
+                        l.Font = new System.Drawing.Font("Arial", 16, FontStyle.Regular);
                         l.AutoSize = true;
-                        l.Location = new Point(x + 5, BieuDoCotSpBanChay.Height - height - 25 - textBox.Height);
+                        l.Location = new System.Drawing.Point(x + 5, BieuDoCotSpBanChay.Height - height - 25 - textBox.Height);
                         l.TextAlign = ContentAlignment.MiddleCenter;
 
                         // panel_NameColumn.Controls.Add(textBox);
@@ -399,6 +406,144 @@ namespace GUI
             setBieuDoSanPham(3);
         }
 
-       
+        // page 3
+
+        private void setCMBPage3()
+        {
+            if (cmb_DonHangHuy.DataSource != null)
+                cmb_DonHangHuy.DataSource = null;
+            cmb_DonHangHuy.DataSource = listThongKe;
+            cmb_DonHangHuy.SelectedIndex = 0;
+        }
+
+        private void setDGVDonHangHuy(int chose)
+        {
+            dgv_DonHangHuy.Rows.Clear();
+
+            List<DonHangHuy_DTO> list = new List<DonHangHuy_DTO>();
+            
+            if (chose == 0)
+            {
+                list = QLDonHangHuy_BUS.layDuLieuTheoNgay(date);
+            }
+            else
+            {
+                if (chose == 1)
+                {
+                    list = QLDonHangHuy_BUS.layDuLieuTheoThang(date);
+                }
+                else
+                {
+                    if (chose == 3)
+                    {
+                        list = QLDonHangHuy_BUS.layDuLieuTheoKhoang(dtp_DHHFrom.Value, dtp_DHHTo.Value);
+                    }
+                    else
+                    {
+                        if (chose == 2)
+                        {
+                            list = QLDonHangHuy_BUS.layDuLieuTheoNam(date);
+                        }
+                    }
+                }
+            }
+            if (list.Count > 0)
+            {
+                list.ForEach(d =>
+                {
+                    // MessageBox.Show(x.Khoa.TenKhoa);
+                    if (d.TENKHACHHANG == string.Empty)
+                        d.TENKHACHHANG = "null";
+                    dgv_DonHangHuy.Rows.Add(d.MADONHANGHUY, d.TENNGUOIDUNG, d.TENKHACHHANG, d.TONGGIA, d.SOLUONGSP, d.LYDO, d.THOIGIANBATDAU, d.THOIGIAN);
+                });
+            }
+
+            lbl_TongTienHuy.Text = themDauChamVaoSo(tinhTongTien(list));
+        }
+
+        private void cmb_DonHangHuy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_DonHangHuy.SelectedIndex != 3)
+            {
+
+                setDGVDonHangHuy(cmb_DonHangHuy.SelectedIndex);
+                if (grb_DonHangHuy.Visible == true)
+                {
+                    grb_DonHangHuy.Visible = false;
+                }
+            }
+            else
+            {
+                grb_DonHangHuy.Visible = true;
+                setDGVDonHangHuy(3);
+            }
+        }
+
+        private int tinhTongTien(List<DonHangHuy_DTO> list)
+        {
+            int tong = 0;
+            if(list.Count > 0)
+            {
+                list.ForEach(d =>
+                {
+                    if(d.TONGGIA!=0)
+                    tong += d.TONGGIA;
+                });
+
+            }
+
+            return tong;
+        }
+
+        private void dtp_DHHFrom_ValueChanged(object sender, EventArgs e)
+        {
+            setDGVDonHangHuy(3);
+        }
+
+        private void dtp_DHHTo_ValueChanged(object sender, EventArgs e)
+        {
+            setDGVDonHangHuy(3);
+        }
+
+        private void btn_xuatFile_Click(object sender, EventArgs e)
+        {
+            List<string> list = new List<string>();
+            list.Add("Tổng Doanh Thu: " + lbl_TongDoanhThu.Text);
+            list.Add("Tiền Khuyễn Mãi: " + lbl_TongKhuyenMai.Text);
+            xuatExcel(dgv_ThongKe, @"D:\HOCTAP\LTWF\a_Do_An\", list);
+        }
+
+        private void xuatExcel(DataGridView dgv, string src, List<string> more)
+        {
+            string name = dgv.Name.ToString() + DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss");
+            app obj = new app();
+            obj.Application.Workbooks.Add(Type.Missing);
+            obj.Columns.ColumnWidth = 30;
+
+            for(var i=1;i<=dgv.Columns.Count;i++)
+            {
+                obj.Cells[1, i] = dgv.Columns[i - 1].HeaderText;
+            }
+
+            for (var i = 1; i <= dgv.Rows.Count; i++)
+            {
+                for (var j = 1; j <= dgv.Columns.Count; j++)
+                {
+                    obj.Cells[i+1, j] = dgv.Rows[i- 1].Cells[j-1].Value.ToString();
+                }
+            }
+            if(more != null)
+            {
+                int dong = dgv.Rows.Count+ 2;
+                more.ForEach(i =>
+                {
+                    obj.Cells[dong, 1] = i;
+                    dong++;
+                });
+            }
+            obj.ActiveWorkbook.SaveCopyAs(src+name+".xlsx");
+            obj.ActiveWorkbook.Saved = true;
+            MessageBox.Show($"Xuất file {name}.xlsx thành công");
+        }
     }
 }

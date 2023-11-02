@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DTO
 {
     public class DonHangHuy_DTO
@@ -13,8 +14,10 @@ namespace DTO
 
         public string MANGUOIDUNG { get; set; }
 
-    
+        public string TENNGUOIDUNG { get; set; }
         public string MAKHACHHANG { get; set; }
+
+        public string TENKHACHHANG { get; set; }
 
         public int TONGGIA { get; set; }
 
