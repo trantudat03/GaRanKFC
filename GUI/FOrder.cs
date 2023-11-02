@@ -1128,8 +1128,6 @@ namespace GUI
                     checkMenu = cmb_LoaiSanPham.SelectedValue.ToString();
                 }
             }
-            
-            
         }
 
         private void pcb_search_Click(object sender, EventArgs e)

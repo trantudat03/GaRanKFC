@@ -294,5 +294,7 @@ namespace GUI
             dateTimePickerToSP.Value = dateTimePickerToSP.Value.Date.AddDays(1).AddTicks(-1);
             setBieuDoSanPham(3);
         }
+
+       
     }
 }

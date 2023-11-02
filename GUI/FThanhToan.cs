@@ -661,6 +661,10 @@ namespace GUI
             {
                 tienHanhThanhToan();
             }
+            else
+            {
+                MessageBox.Show("Khách hàng chưa trả đủ tiền");
+            }
             
         }
 
@@ -681,6 +685,10 @@ namespace GUI
                 fchuyenKhoan.FormClosed += fCKClose;
                 fchuyenKhoan.ShowDialog();
                 thanhToanDienTu();
+            }
+            else
+            {
+                MessageBox.Show("Đơn hàng đã trả đủ tiền");
             }
             //inHoaDon();
         }
